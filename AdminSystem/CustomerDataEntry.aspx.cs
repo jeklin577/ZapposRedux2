@@ -11,4 +11,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        ///Redirects user to the CustomerViewer page
+        Response.Redirect("CustomerViewer.aspx");
+    }
 }
