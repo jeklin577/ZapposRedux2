@@ -11,67 +11,67 @@ namespace Testing4
         public void OrderIdTest()
         {
             //create an instance of the class we want to create
-            clsOrders orderIdTest= new clsOrders();
+            clsOrders anOrder = new clsOrders();
             //create some test date to assign to the property
             int TestData = 001;
             //assign the data to the property
-            orderIdTest.orderID = TestData;
+            anOrder.orderID = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(orderIdTest.orderID, TestData);
+            Assert.AreEqual(anOrder.orderID, TestData);
         }
 
         [TestMethod]
         public void CustomerIdTest()
         {
-            clsOrders customerIdTest = new clsOrders();
+            clsOrders anOrder = new clsOrders();
             Int32 TestData = 1533;
-            customerIdTest.customerID = TestData;
-            Assert.AreEqual(customerIdTest.customerID, TestData);
+            anOrder.customerID = TestData;
+            Assert.AreEqual(anOrder.customerID, TestData);
         }
 
         [TestMethod]
         public void ItemNameTest()
         {
-            clsOrders itemNameTest = new clsOrders();
+            clsOrders anOrder = new clsOrders();
             string TestData = "Jordans";
-            itemNameTest.itemNames= TestData;
-            Assert.AreEqual(itemNameTest.itemNames, TestData);
+            anOrder.itemNames = TestData;
+            Assert.AreEqual(anOrder.itemNames, TestData);
         }
 
         [TestMethod]
         public void ItemQuantityTest()
         {
-            clsOrders itemQuantityTest = new clsOrders();
+            clsOrders anOrder = new clsOrders();
             Int32 TestData = 3;
-            itemQuantityTest.itemQuantity = TestData;
-            Assert.AreEqual(itemQuantityTest.itemQuantity, TestData);
+            anOrder.itemQuantity = TestData;
+            Assert.AreEqual(anOrder.itemQuantity, TestData);
         }
 
         [TestMethod]
         public void DateAddedTest()
         {
-            clsOrders dateAddedTest= new clsOrders();
+            clsOrders anOrder = new clsOrders();
             DateTime TestData = DateTime.Now.Date;
-            dateAddedTest.dateAdded= TestData;
-            Assert.AreEqual(dateAddedTest.dateAdded, TestData);
+            anOrder.dateAdded = TestData;
+            Assert.AreEqual(anOrder.dateAdded, TestData);
         }
 
         [TestMethod]
         public void DeliveryAddressTest()
         {
-            clsOrders deliveryAddressTest = new clsOrders();
+            clsOrders anOrder = new clsOrders();
             string TestData = "110 Menlo Park";
-            deliveryAddressTest.deliveryAddress = TestData;
-            Assert.AreEqual(deliveryAddressTest.deliveryAddress, TestData);
+            anOrder.deliveryAddress = TestData;
+            Assert.AreEqual(anOrder.deliveryAddress, TestData);
         }
 
         [TestMethod]
         public void ReadyToDispatchTest()
         {
-            clsOrders readyToDispatchTest = new clsOrders();
+            clsOrders anOrder = new clsOrders();
             bool TestData = true;
-            readyToDispatchTest.readyToDispatch= TestData;
-            Assert.AreEqual(readyToDispatchTest.readyToDispatch, TestData);
+            anOrder.readyToDispatch = TestData;
+            Assert.AreEqual(anOrder.readyToDispatch, TestData);
         }
     }
 
