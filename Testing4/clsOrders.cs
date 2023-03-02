@@ -11,5 +11,6 @@ namespace Testing4
         public DateTime dateAdded {get; set; }
         public string deliveryAddress { get; set; }
         public bool readyToDispatch {get; set; }
+
     }
 }
