@@ -15,6 +15,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
+  /*
         //create a new instance of clsOrder
         clsOrders anOrderId = new clsOrders();
         //capture the order number
@@ -32,7 +33,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["customer"] = CustomerId;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-
+  */
         //create a new instance of clsOrder
         clsOrders itemNames = new clsOrders();
         //capture the order number
@@ -41,7 +42,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["items"] = itemNames;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-
+/*
         //create a new instance of clsOrder
         clsOrders itemQuantity = new clsOrders();
         //capture the order number
@@ -59,7 +60,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["date"] = dateAdd;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-
+*/
         //create a new instance of clsOrder
         clsOrders deliveryAddress = new clsOrders();
         //capture the order number
@@ -68,7 +69,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["delivery"] = deliveryAddress;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-
+/*
         //create a new instance of clsOrder
         clsOrders readyToDispatch = new clsOrders();
         //capture the order number
@@ -77,6 +78,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["dispatch"] = readyToDispatch;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-
+*/
     }
 }
