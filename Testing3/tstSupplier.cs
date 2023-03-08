@@ -23,6 +23,13 @@ namespace Testing3
             AnSupplier.SupplierID = TestData;
             Assert.AreEqual(AnSupplier.SupplierID, TestData);
             }
+        [TestMethodpublic void OrderNumberPropertyOK()
+        {
+            clsSupplier TestSupplier = new clsSupplier();
+            Int32 TestNumber = 1;
+            AnSupplier.OrderNumber = TestNumber;
+            Assert.AreEqual(AnSupplier.OrderNumber, TestNumber);
 
-    }
+
+        }
 }
