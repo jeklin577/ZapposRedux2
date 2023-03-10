@@ -75,24 +75,25 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void CusFindMethodOK()
+        public void FindMethodOK()
         {
             clsCustomer TestCustomer = new clsCustomer();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 CustomerID = 1337;
-            TestCustomer.CustomerID = CustomerID;
-            Found = TestCustomer.Find(CustomerID); ///Sets 
-            
-            if (TestCustomer.CustomerID != 1337)
-            {
+
+            Int32 CustomerID = 21;
+            Found = TestCustomer.Find(CustomerID);
+
+            if (TestCustomer.CustomerID != 21) {
                 OK = false;
-                
             }
 
             Assert.IsTrue(OK);
 
+
         }
+
+     
 
 
 
