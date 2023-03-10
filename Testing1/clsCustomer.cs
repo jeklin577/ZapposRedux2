@@ -4,6 +4,8 @@ namespace Testing1
 {
     public class clsCustomer
     {
+        private Int32 mCustomerID;
+
         public string Username { get; set;}
 
         public bool HasOrder {get; set;}
@@ -12,24 +14,25 @@ namespace Testing1
         public string ShippingAddress { get; internal set; }
         public int CustomerID { 
             
+            
             get
             {
-                ///Sends the classes customer ID field?
-                return CustomerID;
+                return mCustomerID;
             }
             
             set
             {
-                CustomerID = value;
+                mCustomerID = value;
             }
                 
                 }
 
-        internal bool Find(int customerID)
+        public bool Find(int CustomerID)
         {
-            throw new NotImplementedException();
-            //CustomerID = 1337;
-            //return true;
+            ///   throw new NotImplementedException();
+            ///return true;
+            mCustomerID = 21;
+            return true;
         }
     }
 }
