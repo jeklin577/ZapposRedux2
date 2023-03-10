@@ -23,7 +23,7 @@ namespace Testing3
             AnSupplier.SupplierID = TestData;
             Assert.AreEqual(AnSupplier.SupplierID, TestData);
             }
-        [TestMethodpublic void OrderNumberPropertyOK()
+        [TestMethodpublic] public void OrderNumberPropertyOK()
         {
             clsSupplier TestSupplier = new clsSupplier();
             Int32 TestNumber = 1;
@@ -32,4 +32,40 @@ namespace Testing3
 
 
         }
+        [TestMethod]
+        public void SupplierNamePropertyOK()
+        {
+            clsSupplier clsSupplier = new clsSupplier();
+            string TestData = 1;
+            AnSupplier.SupplierName = TestData;
+            Assert.AreEqual(AnSupplier.SupplierName, TestData);
+
+
+        }
+        [TestMethodpublic]
+        public void OrderArrivedOnPropertyOK()
+        {
+            clsSupplier TestSupplier = new clsSupplier();
+            DateTime TestData = DateTime.Now.Date;
+            AnSupplier.OrderArrivedOn = TestData;
+            Assert.AreEqual(AnSupplier.OrderArrivedOn, TestData);
+        }
+        [TestMethodpublic]
+       public void AvailabilityPropertyOK()
+        {
+            clsSupplier AnSupplier = new clsSupplier();
+            Boolean TestData = true;
+            AnSupplier.Availability = TestData;
+            Assert.AreEqual(AnSupplier.Availability, TestData);
+        }
+
+        [TestMethod]
+        public void QuantityPropertyOK()
+        {
+            clsSupplier AnSupplier = new clsSupplier();
+            Int32 TestData = 1;
+            AnSupplier.Quantity = TestData;
+            Assert.AreEqual(AnSupplier.Quantity, TestData);
+        }
+    }
 }
