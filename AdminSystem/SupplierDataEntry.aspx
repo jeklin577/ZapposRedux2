@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
         </div>
+        <asp:Label ID="lbSupplierID" runat="server" style="z-index: 1; left: 62px; top: 89px; position: absolute; height: 27px; width: 74px" Text="Label"></asp:Label>
     </form>
 </body>
 </html>
