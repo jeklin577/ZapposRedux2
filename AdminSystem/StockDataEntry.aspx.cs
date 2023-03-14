@@ -18,7 +18,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instnce of clsStock
         clsStock TestStock = new clsStock();
         //capture the sneaker id
-        TestStock.SneakerID = txtSneakerID.Text;
+        TestStock.SneakerID = Convert.ToInt32(txtSneakerID.Text);
         //store the address in the session object
         Session["TestStock"] = TestStock;
         //navigate to the viewer page
