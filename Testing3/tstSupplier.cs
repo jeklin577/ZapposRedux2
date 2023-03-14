@@ -18,39 +18,39 @@ namespace Testing3
           [TestMethod]
           public void SupplierIDPropertyOK()
         { 
-          clsSupplier clsSupplier = new clsSupplier();
+          clsSupplier AnSupplier = new clsSupplier();
             Int32 TestData = 1;
             AnSupplier.SupplierID = TestData;
             Assert.AreEqual(AnSupplier.SupplierID, TestData);
             }
-        [TestMethodpublic] public void OrderNumberPropertyOK()
+        [TestMethod] public void OrderNumberPropertyOK()
         {
             clsSupplier TestSupplier = new clsSupplier();
             Int32 TestNumber = 1;
-            AnSupplier.OrderNumber = TestNumber;
-            Assert.AreEqual(AnSupplier.OrderNumber, TestNumber);
+            TestSupplier.OrderNumber = TestNumber;
+            Assert.AreEqual(TestSupplier.OrderNumber, TestNumber);
 
 
         }
         [TestMethod]
         public void SupplierNamePropertyOK()
         {
-            clsSupplier clsSupplier = new clsSupplier();
-            string TestData = 1;
+            clsSupplier AnSupplier = new clsSupplier();
+            string TestData = Convert.ToInt32 1;
             AnSupplier.SupplierName = TestData;
             Assert.AreEqual(AnSupplier.SupplierName, TestData);
 
 
         }
-        [TestMethodpublic]
+        [TestMethod]
         public void OrderArrivedOnPropertyOK()
         {
-            clsSupplier TestSupplier = new clsSupplier();
+            clsSupplier AnSupplier = new clsSupplier();
             DateTime TestData = DateTime.Now.Date;
             AnSupplier.OrderArrivedOn = TestData;
             Assert.AreEqual(AnSupplier.OrderArrivedOn, TestData);
         }
-        [TestMethodpublic]
+        [TestMethod]
        public void AvailabilityPropertyOK()
         {
             clsSupplier AnSupplier = new clsSupplier();

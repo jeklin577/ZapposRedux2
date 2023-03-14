@@ -18,7 +18,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //craete a new instance of clsSupplier
         clsSupplier AnSupplier = new clsSupplier();
         //capture the SupplierID
-        AnSupplier.SupplierID = txtSupplierID.Text;
+        AnSupplier.SupplierID = Convert.ToInt32(txtSupplierID.Text);
         //store the Supplier in the session object
         Session["AnSupplier"] = AnSupplier;
         //navigate to the viewer page 
