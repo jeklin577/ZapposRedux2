@@ -17,65 +17,54 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
   
         //create a new instance of clsOrder
-        clsOrders anOrderId = new clsOrders();
+        clsOrders orderInfo = new clsOrders();
         //capture the order number
-        anOrderId.orderID = Convert.ToInt32(txtOrderId.Text);
+        orderInfo.orderID = Convert.ToInt32(txtOrderId.Text);
         //store the order number in the session object
-        Session["anOrderId"] = anOrderId;
+        Session["anOrderId"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
-        //create a new instance of clsOrder
-        clsOrders CustomerId = new clsOrders();
+
         //capture the order number
-        CustomerId.customerID = Convert.ToInt32(txtCustomerId.Text);
+        orderInfo.customerID = Convert.ToInt32(txtCustomerId.Text);
         //store the order number in the session object
-        Session["customer"] = CustomerId;
-        //navigate to the viewer page
-        Response.Redirect("OrderViewer.aspx");
-  
-        //create a new instance of clsOrder
-        clsOrders itemNames = new clsOrders();
-        //capture the order number
-        itemNames.itemNames = txtItemNames.Text;
-        //store the order number in the session object
-        Session["items"] = itemNames;
+        Session["customer"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
-        //create a new instance of clsOrder
-        clsOrders itemQuantity = new clsOrders();
         //capture the order number
-        itemQuantity.itemQuantity = Convert.ToInt32(txtItemQuantity.Text);
+        orderInfo.itemNames = txtItemNames.Text;
         //store the order number in the session object
-        Session["itemQuantity"] = itemQuantity;
+        Session["items"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
-        //create a new instance of clsOrder
-        clsOrders dateAdd= new clsOrders();
         //capture the order number
-        dateAdd.dateAdded = Convert.ToDateTime(txtDateAdded.Text);
+        orderInfo.itemQuantity = Convert.ToInt32(txtItemQuantity.Text);
         //store the order number in the session object
-        Session["date"] = dateAdd;
+        Session["itemQuantity"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
-        //create a new instance of clsOrder
-        clsOrders deliveryAddress = new clsOrders();
         //capture the order number
-        deliveryAddress.deliveryAddress= txtDeliveryAddress.Text;
+        orderInfo.dateAdded = Convert.ToDateTime(txtDateAdded.Text);
         //store the order number in the session object
-        Session["delivery"] = deliveryAddress;
+        Session["date"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
-        //create a new instance of clsOrder
-        clsOrders readyToDispatch = new clsOrders();
         //capture the order number
-        readyToDispatch.readyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
+        orderInfo.deliveryAddress = txtDeliveryAddress.Text;
         //store the order number in the session object
-        Session["dispatch"] = readyToDispatch;
+        Session["delivery"] = orderInfo;
+        //navigate to the viewer page
+        Response.Redirect("OrderViewer.aspx");
+
+        //capture the order number
+        orderInfo.readyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
+        //store the order number in the session object
+        Session["dispatch"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 

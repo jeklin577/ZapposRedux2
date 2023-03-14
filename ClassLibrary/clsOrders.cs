@@ -8,9 +8,9 @@ namespace ClassLibrary
      public int customerID { get; set; }
      public string itemNames { get; set; }
      public int itemQuantity { get; set; }
-     public DateTime dateAdded { get; internal set; }
+     public DateTime dateAdded { get; set; }
      public string deliveryAddress { get; set; }
-     public bool readyToDispatch { get; internal set; }
+     public bool readyToDispatch { get; set; }
      
     }
 }
