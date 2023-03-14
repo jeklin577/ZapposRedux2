@@ -15,11 +15,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
-  /*
+  
         //create a new instance of clsOrder
         clsOrders anOrderId = new clsOrders();
         //capture the order number
-        anOrderId.orderID = txtOrderId.Text;
+        anOrderId.orderID = Convert.ToInt32(txtOrderId.Text);
         //store the order number in the session object
         Session["anOrderId"] = anOrderId;
         //navigate to the viewer page
@@ -28,12 +28,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrder
         clsOrders CustomerId = new clsOrders();
         //capture the order number
-        CustomerId.customerID = txtCustomerId.Text;
+        CustomerId.customerID = Convert.ToInt32(txtCustomerId.Text);
         //store the order number in the session object
         Session["customer"] = CustomerId;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-  */
+  
         //create a new instance of clsOrder
         clsOrders itemNames = new clsOrders();
         //capture the order number
@@ -42,11 +42,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["items"] = itemNames;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-/*
+
         //create a new instance of clsOrder
         clsOrders itemQuantity = new clsOrders();
         //capture the order number
-        itemQuantity.itemQuantity = txtItemQuantity.Text;
+        itemQuantity.itemQuantity = Convert.ToInt32(txtItemQuantity.Text);
         //store the order number in the session object
         Session["itemQuantity"] = itemQuantity;
         //navigate to the viewer page
@@ -55,12 +55,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrder
         clsOrders dateAdd= new clsOrders();
         //capture the order number
-        dateAdd.dateAdded = txtDateAdded.Text;
+        dateAdd.dateAdded = Convert.ToDateTime(txtDateAdded.Text);
         //store the order number in the session object
         Session["date"] = dateAdd;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-*/
+
         //create a new instance of clsOrder
         clsOrders deliveryAddress = new clsOrders();
         //capture the order number
@@ -69,15 +69,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["delivery"] = deliveryAddress;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-/*
+
         //create a new instance of clsOrder
         clsOrders readyToDispatch = new clsOrders();
         //capture the order number
-        readyToDispatch.readyToDispatch = chkReadyToDispatch.Text;
+        readyToDispatch.readyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
         //store the order number in the session object
         Session["dispatch"] = readyToDispatch;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
-*/
+
     }
 }

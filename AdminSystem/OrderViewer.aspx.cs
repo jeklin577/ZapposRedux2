@@ -11,53 +11,42 @@ public partial class _1Viewer : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //create new instance
-        clsOrders anOrderId = new clsOrders();
+        clsOrders instance = new clsOrders();
+        
         //get the data from the session object
-        anOrderId = (clsOrders)Session["anOrder"];
+        instance = (clsOrders)Session["anOrder"];
         //display the order number for this entry
-        Response.Write(anOrderId.orderID);
+        Response.Write(instance.orderID);
 
-        //create new instance
-        clsOrders aCustomerId= new clsOrders();
         //get the data from the session object
-        aCustomerId = (clsOrders)Session["customer"];
+        instance = (clsOrders)Session["customer"];
         //display the order number for this entry
-        Response.Write(aCustomerId.customerID);
+        Response.Write(instance.customerID);
 
-        //create new instance
-        clsOrders item= new clsOrders();
         //get the data from the session object
-        item = (clsOrders)Session["items"];
+        instance= (clsOrders)Session["items"];
         //display the order number for this entry
-        Response.Write(item.itemNames);
+        Response.Write(instance.itemNames);
 
-        //create new instance
-        clsOrders quantity = new clsOrders();
         //get the data from the session object
-        quantity = (clsOrders)Session["itemQuantity"];
+        instance= (clsOrders)Session["itemQuantity"];
         //display the order number for this entry
-        Response.Write(quantity.itemQuantity);
+        Response.Write(instance.itemQuantity);
 
-        //create new instance
-        clsOrders dateAdded = new clsOrders();
         //get the data from the session object
-        dateAdded = (clsOrders)Session["date"];
+        instance= (clsOrders)Session["date"];
         //display the order number for this entry
-        Response.Write(dateAdded.dateAdded);
+        Response.Write(instance.dateAdded);
 
-        //create new instance
-        clsOrders delivery = new clsOrders();
         //get the data from the session object
-        delivery= (clsOrders)Session["delivery"];
+        instance= (clsOrders)Session["delivery"];
         //display the order number for this entry
-        Response.Write(delivery.deliveryAddress);
+        Response.Write(instance.deliveryAddress);
 
-        //create new instance
-        clsOrders dispatch = new clsOrders();
         //get the data from the session object
-        dispatch = (clsOrders)Session["dispatch"];
+        instance= (clsOrders)Session["dispatch"];
         //display the order number for this entry
-        Response.Write(dispatch.readyToDispatch);
+        Response.Write(instance.readyToDispatch);
 
     }
 }
