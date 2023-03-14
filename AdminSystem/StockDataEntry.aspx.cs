@@ -22,6 +22,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //store the address in the session object
         Session["TestStock"] = TestStock;
         //navigate to the viewer page
-        Response.Redirect("ddressBookViewer.aspx");
+        Response.Redirect("StockViewer.aspx");
     }
 }
