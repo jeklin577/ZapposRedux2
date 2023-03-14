@@ -82,10 +82,10 @@ namespace Testing1
             Boolean Found = false;
             Boolean OK = true;
 
-            Int32 CustomerID = 21;
+            Int32 CustomerID = 3834887; ///This is a valid point
             Found = TestCustomer.Find(CustomerID);
 
-            if (TestCustomer.CustomerID != 21) {
+            if (TestCustomer.CustomerID != 3834887) {
                 OK = false;
             }
 
