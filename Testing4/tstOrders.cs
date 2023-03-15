@@ -7,6 +7,8 @@ namespace Testing4
     [TestClass]
     public class tstOrders
     {
+        
+
 
         [TestMethod]
         public void OrderIdTest()
@@ -74,6 +76,40 @@ namespace Testing4
             anOrder.readyToDispatch = TestData;
             Assert.AreEqual(anOrder.readyToDispatch, TestData);
         }
+
+        [TestMethod]
+        public void findMethodOK()
+        {
+            //Create an instance of the class we want to create
+            clsOrders anOrder = new clsOrders();
+            //Boolean variable to store the results of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 OrderNo = 1;
+            //invoke the method
+            Found = anOrder.Find(OrderNo);
+            //test to see if the result is true
+            Assert.IsTrue(Found);
+        }
+
+        /*
+        [TestMethod]
+        public void TestOrderNoFound()
+        {
+            clsOrders anOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = anOrder.Find(orderID);
+            if (anOrder.orderID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        */
+
+
     }
 
 
