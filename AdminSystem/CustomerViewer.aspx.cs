@@ -18,6 +18,12 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write("The customer's password is: " + CustomerInfo.Password + " This is very secure, and a very, VERY good idea!");
         Response.Write("<br>");
         Response.Write("The Customer's shipping address is: " + CustomerInfo.ShippingAddress);
+        Response.Write("<br>");
+        Response.Write("The Customer's CustomerID is: " + CustomerInfo.CustomerID);
+        Response.Write("<br>");
+        Response.Write("The Customer's JoinDate is: " + CustomerInfo.DateAdded);
+        Response.Write("<br>");
+        Response.Write("The statement: 'Does the customer currently have an order?' is :" + CustomerInfo.HasOrder);
 
 
     }
