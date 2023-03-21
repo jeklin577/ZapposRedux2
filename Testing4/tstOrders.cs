@@ -7,8 +7,13 @@ namespace Testing4
     [TestClass]
     public class tstOrders
     {
-        
 
+        [TestMethod]
+        public void InstanceOK()
+        {
+            clsOrders anOrder = new clsOrders();
+            Assert.IsNotNull(anOrder);
+        }
 
         [TestMethod]
         public void OrderIdTest()
@@ -116,7 +121,7 @@ namespace Testing4
             Boolean OK = true;
             Int32 orderID = 1;
             Found = anOrder.Find(orderID); 
-            if (anOrder.customerID != 1)
+            if (anOrder.customerID != 123)
             {
                 OK = false;
             }
@@ -146,7 +151,7 @@ namespace Testing4
             Boolean OK = true;
             Int32 orderID = 1;
             Found = anOrder.Find(orderID);
-            if (anOrder.itemQuantity != 1)
+            if (anOrder.itemQuantity != 2)
             {
                 OK = false;
             }
@@ -162,7 +167,7 @@ namespace Testing4
             Int32 orderID = 1;
             Found = anOrder.Find(orderID);
 
-            if (anOrder.dateAdded != Convert.ToDateTime("16/09/2022"))
+            if (anOrder.dateAdded != Convert.ToDateTime("16/10/2022"))
             {
                 OK = false;
             }
@@ -187,7 +192,7 @@ namespace Testing4
 
 
         [TestMethod]
-        public void TestDeliveryAddressFound()
+        public void TestReadyToDispatchFound()
         {
             clsOrders anOrder = new clsOrders();
             Boolean Found = false;

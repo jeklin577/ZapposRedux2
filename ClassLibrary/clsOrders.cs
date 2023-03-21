@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Ling;
+//using System.Ling;
 using System.Text;
 
 namespace ClassLibrary
@@ -97,23 +97,50 @@ namespace ClassLibrary
         }
 
 
+        
+        //CREATE PROCEDURE sproc_tblOrderProcessing
+        //@OrderNo int
+        //AS
+        // select * from tblOrderProcessing where OrderNo = @OrderNo
 
 
 
+        //To DO
+        //create procedure located above then the find method should work
+        //if not then match the variables up with the table variables
 
+        /*
         public bool Find(int OrderNo)
         {
-            mOrderNo = 1;
-            mCustomerID = 123;
-            mItemNames = "Jordans";
-            mItemQuantity = 2;
-            mDateAdded = Convert.ToDateTime("16/10/2022");
-            mDeliveryAddress = "123 Menlo Park";
-            mReadyToDispatch = true;
-        
-            //Always return True
-            return true;
-        }
-     
+            //create an instance of the data connection
+            clsOrders DB = new clsOrders();
+            //add the parameter for the order no to search for
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the stored precedure
+            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+            //if one record is found
+            if (DB.Count == 1)
+            {
+
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["customerId"]);
+                mItemNames = Convert.ToString(DB.DataTable.Rows[0]["itemNo"]);
+                mItemQuantity = Convert.ToString(DB.DataTable.Rows[0]["itemQuantity"]);
+                mDateAdded = Convert.ToString(DB.DataTable.Rows[0]["dateAdded"]);
+                mDeliveryAddress = Convert.ToDateTime(DB.DataTable.Rows[0]["deliveryAddress"]);
+                mReadyToDispatch = Convert.ToBoolean(DB.DataTable.Rows[0]["readyToDispatch"]);
+
+                //returns everything which worked
+                return true;
+            }
+
+            else 
+            {
+                //return false indicating a problem
+                return false; 
+            }
+            
+           }
+     */
     }
 }
