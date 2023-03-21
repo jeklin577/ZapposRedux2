@@ -108,8 +108,101 @@ namespace Testing4
             Assert.IsTrue(OK);
         }
 
+        [TestMethod]
+        public void TestCustomerIDFound()
+        {
+            clsOrders anOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = anOrder.Find(orderID); 
+            if (anOrder.customerID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
 
+        [TestMethod]
+        public void TestItemNamesFound()
+        {
+            clsOrders anOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = anOrder.Find(orderID);
+            if (anOrder.itemNames != "Jordans") 
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestItemQuantityFound()
+        {
+            clsOrders anOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = anOrder.Find(orderID);
+            if (anOrder.itemQuantity != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            clsOrders anOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = anOrder.Find(orderID);
+
+            if (anOrder.dateAdded != Convert.ToDateTime("16/09/2022"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestDeliveryAddressFound()
+        {
+            clsOrders anOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = anOrder.Find(orderID);
+
+            if (anOrder.deliveryAddress != "123 Menlo Park")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
+        [TestMethod]
+        public void TestDeliveryAddressFound()
+        {
+            clsOrders anOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 orderID = 1;
+            Found = anOrder.Find(orderID);
+
+            if (anOrder.readyToDispatch != true) 
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 
 
 }
+
