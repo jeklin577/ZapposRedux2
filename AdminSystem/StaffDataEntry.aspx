@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div style="height: 373px">
             <asp:Label ID="lblStaffID" runat="server" style="z-index: 1; left: 41px; top: 65px; position: absolute" Text="Staff ID"></asp:Label>
             <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 32px; top: 95px; position: absolute" Text="First Name"></asp:Label>
             <asp:Label ID="lblLastName" runat="server" style="z-index: 1; left: 32px; top: 125px; position: absolute" Text="Last Name"></asp:Label>

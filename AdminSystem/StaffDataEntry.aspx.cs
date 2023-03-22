@@ -10,22 +10,16 @@ public partial class _1_DataEntry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStaff TestStaff = new clsStaff();
-        // Creates a new instance of clsStaff
-        TestStaff = (clsStaff)Session["TestStaff"];
-        // Gets the Data from the Session Object
-        Response.Write(TestStaff.FirstName);
-        // Displays the StaffID for this Entry
-
+        
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        clsStaff TestStaff = new clsStaff();
+        clsStaff TestStaffID = new clsStaff();
         // Creates a new instance of clsStaff
-        TestStaff.FirstName = "FirstName";
+        TestStaffID.StaffID = Convert.ToInt32(txtStaffID.Text);
         // Captures the Staff ID
-        Session["TestStaff"] = TestStaff;
+        Session["TestStaffID"] = TestStaffID;
         // Stores StaffID in the Session Object
         Response.Redirect("StaffViewer.aspx");
         // Naviagates to Viewer Page
