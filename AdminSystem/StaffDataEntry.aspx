@@ -17,11 +17,11 @@
         <asp:Label ID="lblSalary" runat="server" style="z-index: 1; left: 41px; top: 188px; position: absolute" Text="Salary"></asp:Label>
         <asp:Label ID="lblAge" runat="server" style="z-index: 1; left: 46px; top: 216px; position: absolute" Text="Age"></asp:Label>
         <asp:Label ID="lblGender" runat="server" style="z-index: 1; left: 39px; top: 246px; position: absolute" Text="Gender"></asp:Label>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 32px; top: 285px; position: absolute"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 37px; top: 285px; position: absolute"></asp:Label>
         <asp:TextBox ID="txtStaffID" runat="server" style="z-index: 1; left: 128px; top: 64px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 128px; top: 95px; position: absolute"></asp:TextBox>
-        <asp:CheckBox ID="chkGender" runat="server" style="z-index: 1; left: 122px; top: 247px; position: absolute; right: 1337px" Text="Male" TextAlign="Left" />
-        <asp:CheckBox ID="CheckBox1" runat="server" style="z-index: 1; left: 176px; top: 247px; position: absolute" Text="Female" TextAlign="Left" />
+        <asp:CheckBox ID="chkGender" runat="server" style="z-index: 1; left: 129px; top: 247px; position: absolute; right: 516px" Text="Male" TextAlign="Left" />
+        <asp:CheckBox ID="CheckBox1" runat="server" style="z-index: 1; left: 193px; top: 247px; position: absolute" Text="Female" TextAlign="Left" />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 35px; top: 322px; position: absolute" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; top: 322px; position: absolute; left: 82px" Text="Cancel" />
         <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; left: 127px; top: 124px; position: absolute"></asp:TextBox>
