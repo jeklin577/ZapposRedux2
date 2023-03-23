@@ -18,10 +18,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsStaff TestStaffID = new clsStaff();
         // Creates a new instance of clsStaff
         TestStaffID.StaffID = Convert.ToInt32(txtStaffID.Text);
-        // Captures the Staff ID
-        Session["TestStaffID"] = TestStaffID;
+        TestStaffID.FirstName = txtFirstName.Text;
+        TestStaffID.LastName = txtLastName.Text;
+        TestStaffID.Gender = ddlGender.Text;
+        TestStaffID.DateHired = Convert.ToDateTime(txtDateHired.Text);
+        TestStaffID.Salary = Convert.ToInt32(txtSalary.Text);
+        TestStaffID.Age = Convert.ToInt32(txtAge.Text);
+        // Captures attribute Inputs
+        Session["TestStaff"] = TestStaffID;
         // Stores StaffID in the Session Object
         Response.Redirect("StaffViewer.aspx");
         // Naviagates to Viewer Page
+        
     }
 }
