@@ -93,7 +93,7 @@ namespace ClassLibrary
             }
         }
          
-        public bool Find(int staffID)
+        public bool Find(int StaffID)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
