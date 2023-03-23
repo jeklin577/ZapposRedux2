@@ -10,11 +10,23 @@ public partial class _1Viewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStaff TestStaffID = new clsStaff();
+        clsStaff TestStaff = new clsStaff();
         // Creates a new instance of clsStaff
-        TestStaffID = (clsStaff)Session["TestStaffID"];
+        TestStaff = (clsStaff)Session["TestStaff"];
         // Gets the Data from the Session Object
-        Response.Write(TestStaffID.StaffID);
-        // Displays the StaffID for this Entry
+        Response.Write("Staff ID :  " +  TestStaff.StaffID);
+        Response.Write("<br>");
+        Response.Write("First Name :  " + TestStaff.FirstName);
+        Response.Write("<br>");
+        Response.Write("Last Name :  " + TestStaff.LastName);
+        Response.Write("<br>");
+        Response.Write("Date Hired :  " + TestStaff.DateHired);
+        Response.Write("<br>");
+        Response.Write("Salary :  " + TestStaff.Salary);
+        Response.Write("<br>");
+        Response.Write("Age :  " + TestStaff.Age);
+        Response.Write("<br>");
+        Response.Write("Gender :  " + TestStaff.Gender);
+        // Displays the Entered Values for the Entries
     }
 }
