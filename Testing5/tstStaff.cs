@@ -63,7 +63,7 @@ namespace Testing5
         public void SalaryTest()
         {
             clsStaff TestStaff = new clsStaff();
-            decimal TestData = 21000;
+            decimal TestData = Convert.ToDecimal("21,000");
             TestStaff.Salary = TestData;
             Assert.AreEqual(TestStaff.Salary, TestData);
         }
@@ -74,6 +74,113 @@ namespace Testing5
             int TestData = 22;
             TestStaff.Age = TestData;
             Assert.AreEqual(TestStaff.Age, TestData);
+        }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestStaffIDFound()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            if (TestStaff.StaffID != 30)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestFirstNameFound()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            if (TestStaff.FirstName != ("Manny"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestLastNameFound()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            if (TestStaff.LastName != ("Pacquiao"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDateHiredFound()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            if (TestStaff.DateHired != Convert.ToDateTime("10/07/22"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestSalaryFound()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            if (TestStaff.Salary != Convert.ToDecimal("22,000"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestAgeFound()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            if (TestStaff.Age != 22)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestGenderFound()
+        {
+            clsStaff TestStaff = new clsStaff();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StaffID = 30;
+            Found = TestStaff.Find(StaffID);
+            if (TestStaff.Gender != "male")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
     }
 }

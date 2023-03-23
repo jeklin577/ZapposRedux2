@@ -14,6 +14,7 @@
 <body>
     <form id="form1" runat="server">
         <div style="height: 358px">
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 333px; top: 61px; position: absolute" Text="Find" />
             <asp:Label ID="lblStaffID" runat="server" style="z-index: 1; left: 41px; top: 65px; position: absolute" Text="Staff ID"></asp:Label>
             <asp:Label ID="lblFirstName" runat="server" style="z-index: 1; left: 32px; top: 95px; position: absolute" Text="First Name"></asp:Label>
             <asp:Label ID="lblLastName" runat="server" style="z-index: 1; left: 32px; top: 125px; position: absolute" Text="Last Name"></asp:Label>
@@ -32,8 +33,7 @@
         <asp:TextBox ID="txtSalary" runat="server" style="z-index: 1; left: 128px; top: 186px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtAge" runat="server" style="z-index: 1; left: 128px; top: 216px; position: absolute"></asp:TextBox>
         <asp:DropDownList ID="ddlGender" runat="server" style="z-index: 1; left: 131px; top: 246px; position: absolute; width: 124px">
-            <asp:ListItem>Unspecified</asp:ListItem>
-            <asp:ListItem Value="Male"></asp:ListItem>
+            <asp:ListItem Selected="True" Value="Male"></asp:ListItem>
             <asp:ListItem>Female</asp:ListItem>
         </asp:DropDownList>
     </form>
