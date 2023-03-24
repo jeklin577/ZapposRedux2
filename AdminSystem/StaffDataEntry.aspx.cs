@@ -55,7 +55,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtSalary.Text = TestStaff.Salary.ToString();
             txtAge.Text = TestStaff.Age.ToString();
 
+            lblError.Text = "Staff ID Found!";
         }
+        else
+        {
+
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            txtDateHired.Text = "";
+            ddlGender.Text = "";
+            txtSalary.Text = "";
+            txtAge.Text = "";
+
+            lblError.Text = "Staff ID Not Found!";
+        }
+
     }
 }
     

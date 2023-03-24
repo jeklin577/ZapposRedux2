@@ -23,7 +23,7 @@
         <asp:Label ID="lblSalary" runat="server" style="z-index: 1; left: 41px; top: 188px; position: absolute" Text="Salary"></asp:Label>
         <asp:Label ID="lblAge" runat="server" style="z-index: 1; left: 46px; top: 216px; position: absolute" Text="Age"></asp:Label>
         <asp:Label ID="lblGender" runat="server" style="z-index: 1; left: 39px; top: 246px; position: absolute; right: 516px;" Text="Gender"></asp:Label>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 37px; top: 285px; position: absolute"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 327px; top: 324px; position: absolute"></asp:Label>
         <asp:TextBox ID="txtStaffID" runat="server" style="z-index: 1; left: 128px; top: 64px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 128px; top: 95px; position: absolute"></asp:TextBox>
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 35px; top: 322px; position: absolute" Text="OK" />

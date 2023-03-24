@@ -126,7 +126,10 @@ namespace ClassLibrary
 
 
         }
-       
 
+        public string Valid(string firstName, string lastName, string dateHired, string salary, string age)
+        {
+            return "";
+        }
     }
 }
