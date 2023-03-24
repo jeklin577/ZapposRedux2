@@ -182,7 +182,7 @@ namespace Testing5
             Boolean OK = true;
             Int32 StaffID = 30;
             Found = TestStaff.Find(StaffID);
-            if (TestStaff.Gender != false)
+            if (TestStaff.Gender != "Male")
             {
                 OK = false;
             }

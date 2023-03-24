@@ -26,7 +26,7 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 327px; top: 324px; position: absolute"></asp:Label>
         <asp:TextBox ID="txtStaffID" runat="server" style="z-index: 1; left: 128px; top: 64px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtFirstName" runat="server" style="z-index: 1; left: 128px; top: 95px; position: absolute"></asp:TextBox>
-        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 35px; top: 322px; position: absolute" Text="OK" />
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 35px; top: 322px; position: absolute; right: 564px;" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; top: 322px; position: absolute; left: 82px" Text="Cancel" />
         <asp:TextBox ID="txtLastName" runat="server" style="z-index: 1; left: 127px; top: 124px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtDateHired" runat="server" style="z-index: 1; left: 127px; top: 155px; position: absolute"></asp:TextBox>
