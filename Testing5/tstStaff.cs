@@ -7,6 +7,12 @@ namespace Testing5
     [TestClass]
     public class tstStaff
     {
+        string FirstName = "Manny";
+        string LastName = "Pacquiao";
+        string DateHired = DateTime.Now.Date.ToString();
+        string Salary = "22000";
+        string Age = "20";
+    
         [TestMethod]
         public void InstanceOK()
         {
@@ -55,7 +61,7 @@ namespace Testing5
         public void DateHiredTest()
         {
             clsStaff TestStaff = new clsStaff();
-            DateTime TestDate = new DateTime();
+            DateTime TestDate = DateTime.Now.Date;
             TestStaff.DateHired = TestDate;
             Assert.AreEqual(TestStaff.DateHired, TestDate);
         }
@@ -176,11 +182,19 @@ namespace Testing5
             Boolean OK = true;
             Int32 StaffID = 30;
             Found = TestStaff.Find(StaffID);
-            if (TestStaff.Gender != "male")
+            if (TestStaff.Gender != "Male")
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsStaff TestStaff = new clsStaff();
+            String Error = "";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            Assert.AreEqual(Error, "");
         }
     }
 }
