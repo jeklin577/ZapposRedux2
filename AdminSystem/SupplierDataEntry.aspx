@@ -17,9 +17,9 @@
     <form id="form1" runat="server">
         <asp:Label ID="lblSupplierID" runat="server" style="z-index: 1; left: 31px; top: 98px; position: absolute; height: 19px" Text="SupplierID"></asp:Label>
         <asp:TextBox ID="txtSupplierID" runat="server" style="z-index: 1; left: 146px; top: 95px; position: absolute" height="22px" width="128px"></asp:TextBox>
-        <asp:Label ID="SupplierName" runat="server" style="z-index: 1; left: 31px; top: 127px; position: absolute; width: 66px" Text="SupplierName"></asp:Label>
+        <asp:Label ID="SupplierName" runat="server" style="z-index: 1; left: 31px; top: 127px; position: absolute; width: 88px" Text="SupplierName"></asp:Label>
         <asp:TextBox ID="txtSupplierName" runat="server" style="z-index: 1; left: 146px; top: 127px; position: absolute" width="128px"></asp:TextBox>
-        <asp:Label ID="OrderArrivedOn" runat="server" style="z-index: 1; left: 31px; top: 153px; position: absolute; width: 66px; bottom: 505px" Text="OrderArrivedOn"></asp:Label>
+        <asp:Label ID="OrderArrivedOn" runat="server" style="z-index: 1; left: 31px; top: 153px; position: absolute; width: 102px; bottom: 505px" Text="OrderArrivedOn"></asp:Label>
         <asp:TextBox ID="txtOrderArrivedOn" runat="server" style="z-index: 1; left: 146px; top: 146px; position: absolute; margin-top: 5px" height="22px" width="128px"></asp:TextBox>
         <asp:Label ID="OrderNumber" runat="server" style="z-index: 1; left: 31px; top: 190px; position: absolute; width: 66px; height: 19px" Text="OrderNumber"></asp:Label>
         <asp:TextBox ID="txtOrderNumber" runat="server" style="z-index: 1; left: 146px; top: 184px; position: absolute; margin-top: 0px" height="22px" width="128px"></asp:TextBox>
