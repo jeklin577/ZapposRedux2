@@ -10,7 +10,7 @@ public partial class _1Viewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //create new instance
+         //create new instance
         clsOrders instance = new clsOrders();
         
         //get the data from the session object
