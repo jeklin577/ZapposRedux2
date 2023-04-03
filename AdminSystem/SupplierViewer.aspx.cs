@@ -29,10 +29,34 @@ public partial class _1Viewer : System.Web.UI.Page
 
 
         //craete a new instance of the calss
-        clsSupplier clsSupplier = new clsSupplier();
+        clsSupplier TestSupplier = new clsSupplier();
+        //get the data from the session object
+        TestSupplier = (clsSupplier)Session["Order"];
+        //dispaly the house number on the page
+        Response.Write(AnSupplier.OrderArrivedOn);
+
+
+        //craete a new instance of the calss
+        clsSupplier AnSupplier = new clsSupplier();
         //get the data from the session object
         AnSupplier = (clsSupplier)Session["Order"];
         //dispaly the house number on the page
-        Response.Write(AnSupplier.OrderArrivedOn);
+        Response.Write(AnSupplier.OrderNumber);
+
+
+        //craete a new instance of the calss
+        clsSupplier AnSupplier = new clsSupplier();
+        //get the data from the session object
+        AnSupplier = (clsSupplier)Session["Available"];
+        //dispaly the house number on the page
+        Response.Write(AnSupplier.Availability);
+
+
+        //craete a new instance of the calss
+        clsSupplier clsSupplier1 = new clsSupplier();
+        //get the data from the session object
+        TestSupplier = (clsSupplier)Session["Quantity"];
+        //dispaly the house number on the page
+        Response.Write(AnSupplier.Quantity);
     }
 }
