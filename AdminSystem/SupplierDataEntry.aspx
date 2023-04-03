@@ -21,7 +21,7 @@
         <asp:TextBox ID="txtSupplierName" runat="server" style="z-index: 1; left: 146px; top: 127px; position: absolute" width="128px"></asp:TextBox>
         <asp:Label ID="OrderArrivedOn" runat="server" style="z-index: 1; left: 31px; top: 153px; position: absolute; width: 102px; bottom: 505px" Text="OrderArrivedOn"></asp:Label>
         <asp:TextBox ID="txtOrderArrivedOn" runat="server" style="z-index: 1; left: 146px; top: 146px; position: absolute; margin-top: 5px" height="22px" width="128px"></asp:TextBox>
-        <asp:Label ID="OrderNumber" runat="server" style="z-index: 1; left: 31px; top: 190px; position: absolute; width: 66px; height: 19px" Text="OrderNumber"></asp:Label>
+        <asp:Label ID="OrderNumber" runat="server" style="z-index: 1; left: 31px; top: 190px; position: absolute; width: 87px; height: 19px" Text="OrderNumber"></asp:Label>
         <asp:TextBox ID="txtOrderNumber" runat="server" style="z-index: 1; left: 146px; top: 184px; position: absolute; margin-top: 0px" height="22px" width="128px"></asp:TextBox>
         <asp:Label ID="Availability" runat="server" style="z-index: 1; left: 31px; top: 220px; position: absolute; width: 66px; margin-top: 0px;" Text="Availability"></asp:Label>
         <asp:TextBox ID="txtAvailability" runat="server" style="z-index: 1; left: 146px; top: 215px; position: absolute" height="22px" width="128px"></asp:TextBox>
