@@ -69,5 +69,24 @@ namespace ClassLibrary
 
 
         }
+
+
+        //public string Username { get; set; }
+
+        // public bool HasOrder { get; set; }
+        //public string Password { get; set; }
+        //public DateTime DateAdded { get; set; }
+        //public string ShippingAddress { get; set; }
+        //public int CustomerID
+
+        //^ Just for reference, this is a copy of the fields used by clsCustomer, this should make it easier to quickly reference if anything's missing from our
+        //validation method :)
+
+        public string Valid(string Username, string HasOrder, string Password, string DateAdded, string ShippingAddress)
+        {
+            return "";
+        }
+
+
     }
 }

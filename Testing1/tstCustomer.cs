@@ -94,7 +94,38 @@ namespace Testing1
 
         }
 
-     
+        
+
+
+        [TestMethod]
+
+        public void ValidateMethodOK()
+            ///^^^^
+            ///Source of an error  that took 20 minutes and made me feel like a jackass, remember your early classes!!! a void method
+            ///Doesn't return anything!!!! We had this as public string ValidateMethodOK and were confused when we were getting a "not all code paths return
+            ///a value" error, we made a method that would return a string and then never gave it anything to return! Silly!
+        {
+            clsCustomer TestCustomer = new clsCustomer();
+            string Error = "";
+            Error = TestCustomer.Valid(Username, HasOrder, Password,DateAdded,ShippingAddress);
+            Assert.AreEqual(Error, "");
+
+        }
+
+
+        
+        /// Rather than writing out data for each relevant field for each test, by placing this here, we have a referenceable set of good data
+        /// (apart from HasOrder, but for some reason i'm having trouble understanding exactly how booleans work in this Html-MySQl-C#(?)
+        /// happy family, so meh.
+        string Username = "King Billy";
+        string HasOrder = "True";
+        string Password = "I am very cool";
+        string DateAdded = DateTime.Now.Date.ToString();
+        string ShippingAddress = "Whereever i feel like";
+
+
+
+
 
 
 
