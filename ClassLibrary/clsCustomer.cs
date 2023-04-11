@@ -84,7 +84,50 @@ namespace ClassLibrary
 
         public string Valid(string Username, string HasOrder, string Password, string DateAdded, string ShippingAddress)
         {
-            return "";
+            string Error = "";
+            DateTime DateTemp; //Creates a blank DateTime Object
+
+            if (Username.Length == 0)
+            {
+                Error = Error + "The Username must be longer than 0 Characters long. ";
+            }
+
+            if (Username.Length > 50)
+            {
+                Error = Error + "The Username must be shorter than 50 Characters. ";
+            }
+            ///I think these checks are basically fine for a username? As far as i know because the actual contents of a string aren't being parsed,
+            ///invalid data types don't really apply here? if someone wants to make their Username "29/08/2000 4:45 PM", more power to 'em.
+            ///
+            if (Password == Username)
+            {
+                Error = Error + "Password cannot be identical to Username";
+            }
+            ///Thus concludes our password checks
+            ///
+            
+            try {
+                DateTemp = Convert.ToDateTime(DateAdded); ///populates DateTemp with the time in DateAdded
+
+                if (DateTemp < DateTime.Now.Date)
+            {
+                Error = Error + "You cannot have a join date in the past, Mr Welles. ";
+            }
+
+            if (DateTemp > DateTime.Now.Date)
+            {
+                Error = Error + "You cannot have a join date in the future, Mr Welles. ";
+            }
+        }
+        catch {
+                Error = Error + "The Date was not a valid Date. ";
+        }
+
+
+            ///So, basically, what we do here is, we put all our boundaries for our different fields and run them through a bunch of if statements,
+            ///If anything is flagged, like a field being empty, or a wrong data type or something, we add that to a string named error, which is returned
+            ///just below here with our return Error; line, if the Error string isn't empty (ie, it's not returning as ""), the data is valid.
+            return Error;
         }
 
 
