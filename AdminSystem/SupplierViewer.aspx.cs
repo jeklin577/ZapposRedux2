@@ -37,15 +37,15 @@ public partial class _1Viewer : System.Web.UI.Page
 
 
         //craete a new instance of the calss
-        clsSupplier AnSupplier = new clsSupplier();
-        //get the data from the session object
-        AnSupplier = (clsSupplier)Session["Order"];
+        //     clsSupplier AnSupplier = new clsSupplier(); //Hi Sabur, Sean here, i commented this and line 48 out, you've already created an instance of clsSupplier named "AnSupplier", so trying to create another causes an error when i try to run my page, the rest of your code should still function, but please delete these lines.
         //dispaly the house number on the page
+        //get the data from the session object
+        AnSupplier = (clsSupplier)Session["Order"];  
         Response.Write(AnSupplier.OrderNumber);
 
 
         //craete a new instance of the calss
-        clsSupplier AnSupplier = new clsSupplier();
+ //       clsSupplier AnSupplier = new clsSupplier();  
         //get the data from the session object
         AnSupplier = (clsSupplier)Session["Available"];
         //dispaly the house number on the page
