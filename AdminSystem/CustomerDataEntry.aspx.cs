@@ -23,20 +23,40 @@ public partial class _1_DataEntry : System.Web.UI.Page
         ///Response.Redirect("CustomerViewer.aspx");
         ///
         clsCustomer CustomerInfo = new clsCustomer();
-        CustomerInfo.Username = txtUsername.Text;
-        CustomerInfo.Password = txtPassword.Text;
-        CustomerInfo.ShippingAddress = txtShippingAddress.Text;
-        CustomerInfo.CustomerID = Convert.ToInt32(txtCustomerID.Text);
-        CustomerInfo.DateAdded = Convert.ToDateTime(txtDateJoined.Text);
-        CustomerInfo.HasOrder = Convert.ToBoolean(chkHasOrder.Checked); ///This one seems a bit strange to me, chkHasOrder is already a boolean, it's either checked or not, so why the conversion?
-        ///Creates an instance of a customer, and then populates it's three varchar fields with the text contained in the text boxes we've added to the site.
-        ///Nevermind, thinking about it more, you need to evoke the .checked method to return the state of the checkbox object, which then gets converted into a traditional boolean (?)
-        Session["CustomerInfo"] = CustomerInfo;
-        ///Alright vague networking memories here, Session's are used as temporary files that allow for sites to remember stuff like, say, the info inputted into our data entry page, and use them
-        ///on, say, our viewer page.
-        ///
-        Response.Redirect("CustomerViewer.aspx");
-        ///Same as last time, just redirects to the CustomerViewer page.
+        string Error = "";
+
+
+             string vUsername = txtUsername.Text;
+         string vPassword = txtPassword.Text;
+        string vShippingAddress = txtShippingAddress.Text;
+        string vDateAdded = txtDateJoined.Text;
+        string vHasOrder = Convert.ToString(chkHasOrder.Checked);
+        ///Used for this next method:
+        Error = CustomerInfo.Valid(vUsername, vHasOrder, vPassword, vDateAdded, vShippingAddress);
+        if (Error == "") {
+
+            CustomerInfo.Username = txtUsername.Text;
+            CustomerInfo.Password = txtPassword.Text;
+            CustomerInfo.ShippingAddress = txtShippingAddress.Text;
+            CustomerInfo.CustomerID = Convert.ToInt32(txtCustomerID.Text);
+            CustomerInfo.DateAdded = Convert.ToDateTime(txtDateJoined.Text);
+            CustomerInfo.HasOrder = Convert.ToBoolean(chkHasOrder.Checked); ///This one seems a bit strange to me, chkHasOrder is already a boolean, it's either checked or not, so why the conversion?
+                                                                            ///Creates an instance of a customer, and then populates it's three varchar fields with the text contained in the text boxes we've added to the site.
+                                                                            ///Nevermind, thinking about it more, you need to evoke the .checked method to return the state of the checkbox object, which then gets converted into a traditional boolean (?)
+
+
+
+
+
+            Session["CustomerInfo"] = CustomerInfo;
+            ///Alright vague networking memories here, Session's are used as temporary files that allow for sites to remember stuff like, say, the info inputted into our data entry page, and use them
+            ///on, say, our viewer page.
+            ///
+            Response.Redirect("CustomerViewer.aspx");
+            ///Same as last time, just redirects to the CustomerViewer page.
+            ///
+        }
+        else lblError.Text = Error;
 
 
     }
