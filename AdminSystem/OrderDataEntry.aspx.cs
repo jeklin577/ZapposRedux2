@@ -19,7 +19,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrder
         clsOrders orderInfo = new clsOrders();
         //capture the order number
-        orderInfo.orderID = Convert.ToInt32(txtOrderId.Text);
+        orderInfo.OrderNo = Convert.ToInt32(txtOrderId.Text);
         //store the order number in the session object
         Session["anOrderId"] = orderInfo;
         //navigate to the viewer page
@@ -27,42 +27,42 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
 
         //capture the order number
-        orderInfo.customerID = Convert.ToInt32(txtCustomerId.Text);
+        orderInfo.CustomerID = Convert.ToInt32(txtCustomerId.Text);
         //store the order number in the session object
         Session["customer"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
         //capture the order number
-        orderInfo.itemNames = txtItemNames.Text;
+        orderInfo.ItemNames = txtItemNames.Text;
         //store the order number in the session object
         Session["items"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
         //capture the order number
-        orderInfo.itemQuantity = Convert.ToInt32(txtItemQuantity.Text);
+        orderInfo.ItemQuantity = Convert.ToInt32(txtItemQuantity.Text);
         //store the order number in the session object
         Session["itemQuantity"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
         //capture the order number
-        orderInfo.dateAdded = Convert.ToDateTime(txtDateAdded.Text);
+        orderInfo.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
         //store the order number in the session object
         Session["date"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
         //capture the order number
-        orderInfo.deliveryAddress = txtDeliveryAddress.Text;
+        orderInfo.DeliveryAddress = txtDeliveryAddress.Text;
         //store the order number in the session object
         Session["delivery"] = orderInfo;
         //navigate to the viewer page
         Response.Redirect("OrderViewer.aspx");
 
         //capture the order number
-        orderInfo.readyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
+        orderInfo.ReadyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
         //store the order number in the session object
         Session["dispatch"] = orderInfo;
         //navigate to the viewer page

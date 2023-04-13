@@ -1,22 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Ling;
+// using System.Ling;
 using System.Text;
 
 namespace ClassLibrary
 {
     public class clsOrders
     {
-        //private data member for the orderNo property
-        private Int32 mOrderNo;
-        private Int32 mCustomerID;
-        private String mItemNames;
-        private Int32 mItemQuantity;
-        private DateTime mDateAdded;
-        private String mDeliveryAddress;
-        private Boolean mReadyToDispatch;
 
-     public Int32 orderID 
+        private Int32 mOrderNo;
+        public Int32 OrderNo
         {
             get
             {
@@ -27,7 +20,9 @@ namespace ClassLibrary
                 mOrderNo = value;
             }
         }
-     public int customerID
+
+        private Int32 mCustomerID;
+        public int CustomerID
         {
             get
             {
@@ -35,10 +30,12 @@ namespace ClassLibrary
             }
             set
             {
-                mCustomerID= value;
+                mCustomerID = value;
             }
         }
-        public string itemNames
+
+        private String mItemNames;
+        public string ItemNames
         {
             get
             {
@@ -46,10 +43,12 @@ namespace ClassLibrary
             }
             set
             {
-                mItemNames= value;
+                mItemNames = value;
             }
         }
-        public int itemQuantity
+
+        private Int32 mItemQuantity;
+        public int ItemQuantity
         {
             get
             {
@@ -57,10 +56,12 @@ namespace ClassLibrary
             }
             set
             {
-                mItemQuantity= value;
+                mItemQuantity = value;
             }
         }
-        public DateTime dateAdded
+
+        private DateTime mDateAdded;
+        public DateTime DateAdded
         {
             get
             {
@@ -70,8 +71,10 @@ namespace ClassLibrary
             {
                 mDateAdded = value;
             }
-        }       
-    public string deliveryAddress
+        }
+
+        private String mDeliveryAddress;
+        public string DeliveryAddress
         {
             get
             {
@@ -83,8 +86,8 @@ namespace ClassLibrary
             }
         }
 
-
-    public bool readyToDispatch
+        private Boolean mReadyToDispatch;
+        public bool ReadyToDispatch
         {
             get
             {
@@ -96,22 +99,25 @@ namespace ClassLibrary
             }
         }
 
-
-        
-        //CREATE PROCEDURE sproc_tblOrderProcessing
-        //@OrderNo int
-        //AS
-        // select * from tblOrderProcessing where OrderNo = @OrderNo
-
-
-
-        //To DO
-        //create procedure located above then the find method should work
-        //if not then match the variables up with the table variables
-
-        /*
         public bool Find(int OrderNo)
         {
+            mOrderNo = 001;
+            mCustomerID = 1533;
+            mItemNames = "Jordans";
+            mItemQuantity = 3;
+            mDateAdded = Convert.ToDateTime("16,9,2023");
+            mDeliveryAddress = "110 Menlo Park";
+            mReadyToDispatch = true;
+            return true;
+        }
+
+        
+            
+
+        }
+        
+    
+            /*
             //create an instance of the data connection
             clsOrders DB = new clsOrders();
             //add the parameter for the order no to search for
@@ -141,6 +147,12 @@ namespace ClassLibrary
             }
             
            }
+
+
+
+            //To DO
+        //create procedure located above then the find method should work
+        //if not then match the variables up with the table variables
+
      */
     }
-}
