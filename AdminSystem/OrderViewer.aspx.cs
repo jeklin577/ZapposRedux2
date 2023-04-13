@@ -14,7 +14,7 @@ public partial class _1Viewer : System.Web.UI.Page
         clsOrders instance = new clsOrders();
         
         //get the data from the session object
-        instance = (clsOrders)Session["anOrder"];
+        instance = (clsOrders)Session["instance"];
         //display the order number for this entry
         Response.Write(instance.OrderNo);
 
