@@ -21,7 +21,7 @@ namespace Testing4
             //create an instance of the class we want to create
             clsOrders anOrder = new clsOrders();
             //create some test date to assign to the property
-            int TestData = 001;
+            int TestData = 22;
             //assign the data to the property
             anOrder.OrderNo = TestData;
             //test to see that the two values are the same
@@ -92,25 +92,23 @@ namespace Testing4
             //Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderNo = 1;
+            Int32 OrderID =  22;
             //invoke the method
-            Found = anOrder.Find(OrderNo);
+            Found = anOrder.Find(OrderID);
             //test to see if the result is true
             Assert.IsTrue(Found);
 
         }
 
-        /*
-        
         [TestMethod]
         public void TestOrderNoFound()
         {
             clsOrders anOrder = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 orderID = 1;
-            Found = anOrder.Find(orderID);
-            if (anOrder.orderID != 1)
+            Int32 orderNo = 22;
+            Found = anOrder.Find(orderNo);
+            if (anOrder.OrderNo != 22)
             {
                 OK = false;
             }
@@ -123,9 +121,9 @@ namespace Testing4
             clsOrders anOrder = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 orderID = 1;
+            Int32 orderID = 22;
             Found = anOrder.Find(orderID); 
-            if (anOrder.customerID != 123)
+            if (anOrder.CustomerID != 1533)
             {
                 OK = false;
             }
@@ -138,9 +136,9 @@ namespace Testing4
             clsOrders anOrder = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 orderID = 1;
+            Int32 orderID = 22;
             Found = anOrder.Find(orderID);
-            if (anOrder.itemNames != "Jordans") 
+            if (anOrder.ItemNames != "Jordans") 
             {
                 OK = false;
             }
@@ -155,7 +153,7 @@ namespace Testing4
             Boolean OK = true;
             Int32 orderID = 1;
             Found = anOrder.Find(orderID);
-            if (anOrder.itemQuantity != 2)
+            if (anOrder.ItemQuantity != 2)
             {
                 OK = false;
             }
@@ -168,10 +166,10 @@ namespace Testing4
             clsOrders anOrder = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 orderID = 1;
+            Int32 orderID = 22;
             Found = anOrder.Find(orderID);
 
-            if (anOrder.dateAdded != Convert.ToDateTime("16,9,2023"))
+            if (anOrder.DateAdded != Convert.ToDateTime("16,09,2023"))
             {
                 OK = false;
             }
@@ -184,10 +182,10 @@ namespace Testing4
             clsOrders anOrder = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 orderID = 1;
+            Int32 orderID = 22;
             Found = anOrder.Find(orderID);
 
-            if (anOrder.deliveryAddress != "123 Menlo Park")
+            if (anOrder.DeliveryAddress != "110 Menlo Park")
             {
                 OK = false;
             }
@@ -201,19 +199,17 @@ namespace Testing4
             clsOrders anOrder = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 orderID = 1;
-            Found = anOrder.Find(orderID);
+            Int32 OrderID = 22;
+            Found = anOrder.Find(OrderID);
 
-            if (anOrder.readyToDispatch != true) 
+            if (anOrder.ReadyToDispatch != true) 
             {
                 OK = false;
             }
             Assert.IsTrue(OK);
         }
-    }
-        */
-
-
+    
+       
     }
 }
 

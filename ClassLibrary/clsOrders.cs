@@ -13,7 +13,7 @@ namespace ClassLibrary
         {
             get
             {
-                return mOrderNo;
+                return mOrderNo; 
             }
             set
             {
@@ -101,52 +101,54 @@ namespace ClassLibrary
 
         public bool Find(int OrderNo)
         {
-            mOrderNo = 001;
+            /* Test Data to check if method was working */
+            /*
+            mOrderNo = 22;
             mCustomerID = 1533;
             mItemNames = "Jordans";
             mItemQuantity = 3;
-            mDateAdded = Convert.ToDateTime("16,9,2023");
+            mDateAdded = Convert.ToDateTime("16,09,2023");
             mDeliveryAddress = "110 Menlo Park";
             mReadyToDispatch = true;
             return true;
-        }
-
-        
+            */
             
-
-        }
-        
-    
-            /*
             //create an instance of the data connection
-            clsOrders DB = new clsOrders();
+            clsDataConnection DB = new clsDataConnection();
             //add the parameter for the order no to search for
-            DB.AddParameter("@OrderNo", OrderNo);
+            DB.AddParameter("@OrderID", OrderNo);
             //execute the stored precedure
-            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+            DB.Execute("sproc_tblOrders_FilterByOrderNo");
             //if one record is found
             if (DB.Count == 1)
             {
 
-                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
-                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["customerId"]);
-                mItemNames = Convert.ToString(DB.DataTable.Rows[0]["itemNo"]);
-                mItemQuantity = Convert.ToString(DB.DataTable.Rows[0]["itemQuantity"]);
-                mDateAdded = Convert.ToString(DB.DataTable.Rows[0]["dateAdded"]);
-                mDeliveryAddress = Convert.ToDateTime(DB.DataTable.Rows[0]["deliveryAddress"]);
-                mReadyToDispatch = Convert.ToBoolean(DB.DataTable.Rows[0]["readyToDispatch"]);
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mItemNames = Convert.ToString(DB.DataTable.Rows[0]["ItemNames"]);
+                mItemQuantity = Convert.ToInt32(DB.DataTable.Rows[0]["ItemQuantity"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mDeliveryAddress = Convert.ToString(DB.DataTable.Rows[0]["DeliveryAddress"]);
+                mReadyToDispatch = Convert.ToBoolean(DB.DataTable.Rows[0]["ReadyToDispatch"]);
 
                 //returns everything which worked
                 return true;
             }
-
-            else 
+            //if no record is found
+            else
             {
                 //return false indicating a problem
-                return false; 
+                return false;
             }
             
-           }
+
+
+        }
+}
+        
+    
+            /*
+            
 
 
 

@@ -16,37 +16,37 @@ public partial class _1Viewer : System.Web.UI.Page
         //get the data from the session object
         instance = (clsOrders)Session["anOrder"];
         //display the order number for this entry
-        Response.Write(instance.orderID);
+        Response.Write(instance.OrderNo);
 
         //get the data from the session object
         instance = (clsOrders)Session["customer"];
         //display the order number for this entry
-        Response.Write(instance.customerID);
+        Response.Write(instance.CustomerID);
 
         //get the data from the session object
         instance= (clsOrders)Session["items"];
         //display the order number for this entry
-        Response.Write(instance.itemNames);
+        Response.Write(instance.ItemNames);
 
         //get the data from the session object
         instance= (clsOrders)Session["itemQuantity"];
         //display the order number for this entry
-        Response.Write(instance.itemQuantity);
+        Response.Write(instance.ItemQuantity);
 
         //get the data from the session object
         instance= (clsOrders)Session["date"];
         //display the order number for this entry
-        Response.Write(instance.dateAdded);
+        Response.Write(instance.DateAdded);
 
         //get the data from the session object
         instance= (clsOrders)Session["delivery"];
         //display the order number for this entry
-        Response.Write(instance.deliveryAddress);
+        Response.Write(instance.DeliveryAddress);
 
         //get the data from the session object
         instance= (clsOrders)Session["dispatch"];
         //display the order number for this entry
-        Response.Write(instance.readyToDispatch);
+        Response.Write(instance.ReadyToDispatch);
 
     }
 }
