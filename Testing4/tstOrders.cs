@@ -7,6 +7,13 @@ namespace Testing4
     [TestClass]
     public class tstOrders
     {
+        //Test data
+        string customerID = "150";
+        string itemNames = "Jordans";
+        string itemQuantity = "5";
+        string dateAdded = DateTime.Now.Date.ToString();
+        string deliveryAddress = "1 Park";
+
 
         [TestMethod]
         public void InstanceOK()
@@ -209,7 +216,416 @@ namespace Testing4
             Assert.IsTrue(OK);
         }
     
-       
+    //Start of Validation Test Methods - CustomerID
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //Create an instance of the class we want to create
+            clsOrders anOrder = new clsOrders();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIDMinLessOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIDMin()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "a";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void CustomerIDMinPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "aa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void CustomerIDMaxLessOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "aaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+        
+        [TestMethod]
+        public void CustomerIDMax()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "aaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIDMid()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "aaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIDMaxPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "aaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CustomerIDExtremeMax()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string customerID = "";
+            customerID = customerID.PadRight(500, 'a');
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+        
+    //DateAdded Validation
+        [TestMethod]
+        public void DateAddedExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders anOrder = new clsOrders();
+            //string variable to store any error message
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the date variable to a string variable
+            string dateAdded = TestDate.ToString();
+            //invoke the method
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinLessOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string dateAdded = TestDate.ToString();
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void DateAddedMin()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string dateAdded = TestDate.ToString();
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedMinPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string dateAdded = TestDate.ToString();
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedExtremeMax()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string dateAdded = TestDate.ToString();
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DateAddedInvalidData()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string dateAdded = "this is not a date!";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+        
+        //ItemNames Validation
+        [TestMethod]
+        public void ItemNamesMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders anOrder = new clsOrders();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string itemNames = "";
+            //invoke the method
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemNamesMin()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemNames = "a";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemNamesMinPlusOne()
+        { 
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemNames = "aa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemNamesMaxLessOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemNames = "aaaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemNamesMax()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemNames = "aaaaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemNamesMaxPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemNames = "aaaaaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemNamesMid()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemNames = "aaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+
+        //Delivery Address Validation
+        [TestMethod]
+        public void DeliveryAddressMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders anOrder = new clsOrders();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string deliveryAddress = "";
+            //invoke the method
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeliveryAddressMin()
+        {
+            //create an instance of the class we want to create
+            clsOrders anOrder = new clsOrders();
+            //string variable to store any error message
+            String Error = "";
+            //this should fail
+            string deliveryAddress = "a";
+            //invoke the method
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeliveryAddressMinPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string deliveryAddress = "aa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeliveryAddressMaxLessOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string deliveryAddress = "aaaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeliveryAddressMax()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string deliveryAddress = "aaaaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeliveryAddressMaxPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string deliveryAddress = "aaaaaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeliveryAddressMid()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string deliveryAddress = "aaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        //IntemQuantity
+        [TestMethod]
+        public void ItemQuantityMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemQuantity = "";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
+
+        }
+
+        [TestMethod]
+        public void ItemQuantityMin()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemQuantity = "a";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemQuantityMinPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemQuantity = "aa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemQuantityMaxLessOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemQuantity = "aaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemQuantityMax()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemQuantity = "aaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemQuantityMid()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemQuantity = "aaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ItemQuantityMaxPlusOne()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string itemQuantity = "aaaaaaa";
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreEqual(Error, "");
+        }
+
     }
 }
 
