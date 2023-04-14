@@ -351,7 +351,7 @@ namespace Testing4
         public void DateAddedMin()
         {
             clsOrders anOrder = new clsOrders();
-            String Error = "";
+            String Error = "1";
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             string dateAdded = TestDate.ToString();
@@ -529,7 +529,6 @@ namespace Testing4
             clsOrders anOrder = new clsOrders();
             String Error = "";
             string deliveryAddress = "aaaaaaaaaaaaaaaaaaaa";
-//            deliveryAddress = deliveryAddress.PadRight(100, 'a');
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreEqual(Error, "");
         }
@@ -560,7 +559,7 @@ namespace Testing4
         {
             clsOrders anOrder = new clsOrders();
             String Error = "";
-            string deliveryAddress = "aaaa";
+            string deliveryAddress = "aaaaaaaaaa";
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreEqual(Error, "");
         }
