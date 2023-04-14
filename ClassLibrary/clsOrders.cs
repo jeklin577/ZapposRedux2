@@ -156,7 +156,7 @@ namespace ClassLibrary
             //if the customer ID is greater than 6 characters
             if (customerID.Length > 6)
             {
-                Error = Error + "The customer ID must not be less than 6 characters : ";
+                Error = Error + "The customer ID must not be more than 6 characters : ";
             }
             //Date
             try
@@ -192,9 +192,9 @@ namespace ClassLibrary
             {
                 Error = Error + "The Delivery Address must not be blank : ";
             }
-            if (deliveryAddress.Length > 9)
+            if (deliveryAddress.Length > 20)
             {
-                Error = Error + "The Delivery Address names must be less than 9 characters: ";
+                Error = Error + "The Delivery Address names must be less than 100 characters: ";
             }
         //Item Quantity
             if (itemQuantity.Length == 0)

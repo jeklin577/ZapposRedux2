@@ -528,9 +528,21 @@ namespace Testing4
         {
             clsOrders anOrder = new clsOrders();
             String Error = "";
-            string deliveryAddress = "aaaaaaaaa";
+            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaa";
+//            deliveryAddress = deliveryAddress.PadRight(100, 'a');
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void DeliveryAddressExtremeMax()
+        {
+            clsOrders anOrder = new clsOrders();
+            String Error = "";
+            string deliveryAddress = "";
+            deliveryAddress = deliveryAddress.PadRight(100, 'a');
+            Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
+            Assert.AreNotEqual(Error, "");
         }
 
         [TestMethod]
@@ -538,7 +550,7 @@ namespace Testing4
         {
             clsOrders anOrder = new clsOrders();
             String Error = "";
-            string deliveryAddress = "aaaaaaaaaa";
+            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaaa";
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreNotEqual(Error, "");
         }
