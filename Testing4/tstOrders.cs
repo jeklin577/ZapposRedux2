@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace Testing4
 {
@@ -636,7 +637,27 @@ namespace Testing4
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreEqual(Error, "");
         }
+        
+        
+        /*
+        [TestMethod]
+        public void OrderListOK()
+        {
+            clsOrders AllOrders = new clsOrders();
+            List<clsOrders> TestList = new List<clsOrders>();
+            clsOrders TestItem = new clsOrders();
+            TestItem.OrderNo = 22;
+            TestItem.CustomerID = 150;
+            TestItem.ItemNames = "Jordans";
+            TestItem.ItemQuantity = 5;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.DeliveryAddress = "110 Menlo Park";
 
+            TestList.Add(OrderList);
+            AllOrders.OrderList = TestList;
+            Assert.AreEqual(AllOrders.OrderList, TestList);
+        }
+        */
     }
 }
 
