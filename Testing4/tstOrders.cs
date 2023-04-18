@@ -13,7 +13,7 @@ namespace Testing4
         string itemNames = "Jordans";
         string itemQuantity = "5";
         string dateAdded = DateTime.Now.Date.ToString();
-        string deliveryAddress = "1 Park";
+        string deliveryAddress = "110 Menlo Park";
 
 
         [TestMethod]
