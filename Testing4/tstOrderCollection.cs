@@ -8,7 +8,7 @@ namespace Testing4
     [TestClass]
     public class tstOrderCollection
     {
-        /*
+        
         [TestMethod]
         public void TestMethod1()
         {
@@ -79,6 +79,6 @@ namespace Testing4
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
 
-        */
+        
     }
 }
