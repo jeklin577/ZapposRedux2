@@ -658,6 +658,29 @@ namespace Testing4
             Assert.AreEqual(AllOrders.OrderList, TestList);
         }
         */
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrders TestItem = new clsOrders();
+            Int32 PrimaryKey = 0;
+            //set properties
+            TestItem.OrderNo = 22;
+            TestItem.CustomerID = 150;
+            TestItem.ItemNames = "Jordans";
+            TestItem.ItemQuantity = 5;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.DeliveryAddress = "110 Menlo Park";
+            AllOrders.ThisOrder = TestItem;
+            PrimaryKey = AllOrders.Add();
+            TestItem.OrderNo = PrimaryKey;
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+
+        }
+
     }
 }
 
