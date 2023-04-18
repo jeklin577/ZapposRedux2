@@ -6,6 +6,18 @@ namespace ClassLibrary
     public class clsOrderCollection
     {
         private List<clsOrders> mOrderList;
+        clsOrders mThisOrder = new clsOrders();
+        public clsOrders ThisOrder
+        {
+            get
+            {
+                return mThisOrder;
+            }
+            set
+            {
+                mThisOrder = value;
+            }
+        }
         public List<clsOrders> OrderList
         {
             
@@ -30,10 +42,6 @@ namespace ClassLibrary
 
             }
         }
-
-
-        public clsOrders ThisOrder { get; set; }
-
 
         //Constructor for the class
         public clsOrderCollection()
@@ -86,6 +94,14 @@ namespace ClassLibrary
             mOrderList.Add(TestItem);
             */  
             }
+
+
+        public int Add()
+        {
+            mThisOrder.OrderNo = 123;
+            return mThisOrder.OrderNo;
+            //page 6
+        }
     
     
     
