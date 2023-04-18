@@ -67,5 +67,243 @@ namespace Testing3;
             AnSupplier.Quantity = TestData;
             Assert.AreEqual(AnSupplier.Quantity, TestData);
         }
-    }
+
+[TestMethod]
+public void SPPLIERNoMinLessOne()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierNo = "";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+}
+[TestMethod]
+public void SpplierNoMin()
+{
+	//create an instance of the class we want to create
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierNo = "a";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierNoMinPlusOne()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierNo = "aa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+}
+[TestMethod]
+public void SpplierNoMaxLessOne()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierNo = "aaaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierNoMax()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierNo = "aaaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+}
+[TestMethod]
+public void SpplierNoMid()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierNo = "aaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+}
+[TestMethod]
+
+public void SpplierNoMaxPlusOne()
+{
+	clsSpplier AStock = new clsSpplier();
+	String Error = "";
+	string SpplierNo = "aaaaaaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierNoExtremeMax()
+{
+	clsStock ASpplier = new clsSpplier();
+	String Error = "";
+	string Spplier No = "";
+	Spplier No = ASpplier.PadRight(500, 'a');
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+}
+[TestMethod]
+public void SpplierItemsMinLessOne()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierItems = "";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+}
+[TestMethod]
+public void SpplierItemsMin()
+{
+	//create an instance of the class we want to create
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string  = "a";
+	Error = ASpplierValid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierItemsMinPlusOne()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierItems = "aa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+}
+
+[TestMethod]
+public void SpplierItemsMaxLessOne()
+{
+	clsSpplier ASpplier = new clsSSpplier();
+	String Error = "";
+	string SpplierItems = "aaaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+}
+[TestMethod]
+public void StockItemsMax()
+{
+	clsSpplier ASpplier = new clsStock();
+	String Error = "";
+	string StockItems = "aaaa";
+	Error = AStock.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+
+public void SpplierItemsMaxPlusOne()
+{
+	clsStock AStock = new clsSpplier();
+	String Error = "";
+	string SpplierItems = "aaaaaaa";
+	Error = ASpplier Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+
+}
+
+[TestMethod]
+public void SpplierItemsMid()
+{
+	clsSpplier AStock = new clsSpplier();
+	String Error = "";
+	string SpplierItems = "aaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+}
+[TestMethod]
+public void SpplierItemsExtremeMax()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string Items = "";
+	SpplierNo = ASpplier.PadRight(500, 'a');
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+}
+[TestMethod]
+public void SpplierDescriptionMinLessOne()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierDescription = "";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+}
+[TestMethod]
+public void SpplierkDescriptionMin()
+{
+	//create an instance of the class we want to create
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	stringSpplierDescription = "a";
+	Error = ASpplier Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+}
+[TestMethod]
+public void SpplierDescriptionMinPlusOne()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierDescription = "aa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierDescriptionMaxLessOne()
+{
+	clsSpplierASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierDescription = "aaaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierDescriptionMax()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierDescription = "aaaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierDescriptionMid()
+{
+	clsSpplier ASpplier = new clsSpplier();
+	String Error = "";
+	string SpplierDescription = "aaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierDescriptionMaxPlusOne()
+{
+	clsSpplier ASpplier new clsSpplier();
+	String Error = "";
+	string SpplierDescription = "aaaaaa";
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreEqual(Error, "");
+
+}
+[TestMethod]
+public void SpplierDescriptionExtremeMax()
+{
+	clsSpplier ASpplier = new clsStock();
+	String Error = "";
+	string StockNo = "";
+	SpplierNo = ASpplier.PadRight(500, 'a');
+	Error = ASpplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
+	Assert.AreNotEqual(Error, "");
+	}
+  }
 }
