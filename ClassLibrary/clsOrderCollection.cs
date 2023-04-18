@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ClassLibrary
 {
     public class clsOrderCollection
-    {/*
+    {
         private List<clsOrders> mOrderList;
         public List<clsOrders> OrderList
         {
@@ -84,10 +84,10 @@ namespace ClassLibrary
             TestItem.ItemQuantity = 2;
             //add the item to the test list
             mOrderList.Add(TestItem);
-      
+            */  
             }
     
-    */
+    
     
     }
 }
