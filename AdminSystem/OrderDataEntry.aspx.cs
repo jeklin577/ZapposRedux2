@@ -1,16 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ClassLibrary;
+﻿using ClassLibrary;
+using System;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+
+    //Variable to store the primary key with page level scope
+    Int32 OrderNo;
+    
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the order to be processed
+        OrderNo = Convert.ToInt32(Session["OrderID"]);
+        if (IsPostBack == false)
+        {
+            //if this is not a new record
+            if (OrderNo != -1)
+            {
+                //Display the current data for the record
+                DisplayOrder();
+            }
+        }
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -49,11 +58,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 orderInfo.ReadyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
                 Session["dispatch"] = orderInfo;
                 Response.Redirect("OrderViewer.aspx");
-          */      
+          */
 
         clsOrders anOrder = new clsOrders();
 
-        
+
         //Capture the details
         string orderNo = txtOrderId.Text;
         string customerID = txtCustomerId.Text;
@@ -61,7 +70,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string itemQuantity = txtItemQuantity.Text;
         string dateAdded = txtDateAdded.Text;
         string deliveryAddress = txtDeliveryAddress.Text;
-        
 
         string Error = "";
         //Validate the data;
@@ -70,18 +78,46 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             anOrder.OrderNo = Convert.ToInt32(txtOrderId.Text);
             anOrder.CustomerID = Convert.ToInt32(txtCustomerId.Text);
-            anOrder.ItemNames = txtItemNames.Text; 
+            anOrder.ItemNames = txtItemNames.Text;
             anOrder.ItemQuantity = Convert.ToInt32(txtItemQuantity.Text);
             anOrder.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
             anOrder.DeliveryAddress = txtDeliveryAddress.Text;
             anOrder.ReadyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
 
-            //sotre the address in the session object
+            //create a new instance of the address collection
+            clsOrderCollection OrderList = new clsOrderCollection();
+            //set the ThisOrder property
+            OrderList.ThisOrder = anOrder;
+            //add the new record
+            OrderList.Add();
+
+            //store the address in the session object
             Session["anOrder"] = anOrder;
             //Redirect to the viewer page
-            Response.Redirect("OrderViewer.aspx");
+            Response.Redirect("OrderList.aspx");
 
-        } 
+
+            //if this is a new record i.e OrderNo = -1 then add the data
+            if (OrderNo == -1)
+            {
+                //set the ThisOrder property
+                OrderList.ThisOrder = anOrder;
+                //Add the new record
+                OrderList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                OrderList.ThisOrder.Find(OrderNo);
+                //set the ThisOrder property
+                OrderList.ThisOrder = anOrder;
+                //update the record
+                OrderList.Update();
+            }
+            //redirect back to the listpage
+            Response.Redirect("OrderList.aspx");
+        }
         else
         {
             //display the error message

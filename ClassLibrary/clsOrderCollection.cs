@@ -98,10 +98,37 @@ namespace ClassLibrary
 
         public int Add()
         {
-            mThisOrder.OrderNo = 123;
-            return mThisOrder.OrderNo;
-            //page 6
+            //adds a new record to the database based on the values of thisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderID", mThisOrder.OrderNo);
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@ItemNames", mThisOrder.ItemNames);
+            DB.AddParameter("@ItemQuantity", mThisOrder.ItemQuantity);
+            DB.AddParameter("@DateAdded", mThisOrder.DateAdded);
+            DB.AddParameter("@DeliveryAddress", mThisOrder.DeliveryAddress);
+            DB.AddParameter("@ReadyToDispatch", mThisOrder.ReadyToDispatch);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblOrders_Insert");
         }
+
+        public void Update()
+        {
+            //update an existing record based on the values of ThisOrder
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored precedures
+            DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
+            DB.AddParameter("@ItemNames", mThisOrder.ItemNames);
+            DB.AddParameter("@ItemQuantity", mThisOrder.ItemQuantity);
+            DB.AddParameter("@DateAdded", mThisOrder.DateAdded);
+            DB.AddParameter("@DeliveryAddress", mThisOrder.DeliveryAddress);
+            DB.AddParameter("@ReadyToDispatch", mThisOrder.ReadyToDispatch);
+            //execute the query returning the primary key value
+            DB.Execute("sproc_tblOrders_Update");
+        }
+    }
     
     
     
