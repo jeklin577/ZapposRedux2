@@ -21,19 +21,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
 
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        //create a new instnce of clsStock
-        clsStock TestStock = new clsStock();
-        //capture the sneaker id
-        TestStock.SneakerID = Convert.ToInt32(txtSneakerID.Text);
-      
-        //store the address in the session object
-        Session["TestStock"] = TestStock;
-        //navigate to the viewer page
-        Response.Redirect("StockViewer.aspx");
-    }
-
+    
 
 
 
@@ -41,5 +29,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void Button2_Click(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        //create a new instnce of clsStock
+        clsStock TestStock = new clsStock();
+        //capture the sneaker id
+        TestStock.SneakerID = Convert.ToInt32(txtSneakerID.Text);
+        TestStock.SneakerName = txtSneakerName.Text;
+        TestStock.SneakerDescription = txtSneakerDescription.Text;
+        TestStock.ReleaseDate = Convert.ToDateTime(txtReleaseDate.Text);
+        TestStock.Size = Convert.ToInt32(txtSize.Text);
+        TestStock.Price = Convert.ToInt32(txtPrice.Text);
+        //store the address in the session object
+        Session["TestStock"] = TestStock;
+        //navigate to the viewer page
+        Response.Redirect("StockViewer.aspx");
     }
 }

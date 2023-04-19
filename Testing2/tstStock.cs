@@ -75,5 +75,14 @@ namespace Testing2
             TestStock.Price = TestData;
             Assert.AreEqual(TestStock.Price, TestData);
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsStock TestStock = new clsStock();
+            Boolean Found = false;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            Assert.IsTrue(Found);
+        }
     }
 }
