@@ -29,7 +29,7 @@
             <asp:Label ID="lblDeliveryAddress" runat="server" Text="Delivery Address"></asp:Label>
             <asp:TextBox ID="txtDeliveryAddress" runat="server"></asp:TextBox>
         </p>
-        <asp:CheckBox ID="chkReadyToDispatch" runat="server" Text="Ready To Dispatch" />
+        <asp:CheckBox ID="chkReadyToDispatch" runat="server" Text="Ready To Dispatch" OnCheckedChanged="chkReadyToDispatch_CheckedChanged" />
         <p>
             <asp:Button ID="btnOk" runat="server" OnClick="btnOk_Click" Text="OK" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" />
