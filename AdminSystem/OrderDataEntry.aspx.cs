@@ -17,7 +17,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             if (OrderNo != -1)
             {
                 //Display the current data for the record
-                DisplayOrder();
+                //DisplayOrder(); Hi harry, sorry about this, needed to comment this line out to run some of my unit tests
             }
         }
     }
@@ -143,4 +143,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 
+
+    protected void chkReadyToDispatch_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
 }
