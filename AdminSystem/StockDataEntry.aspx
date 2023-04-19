@@ -40,9 +40,9 @@
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 34px; top: 358px; position: absolute; height: 19px"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 33px; top: 397px; position: absolute; height: 25px; width: 47px" Text="OK" />
+            <asp:Button ID="btnOK" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 33px; top: 397px; position: absolute; height: 25px; width: 47px; right: 1776px;" Text="OK" />
             <br />
-            <asp:Button ID="Button2" runat="server" style="z-index: 1; left: 125px; top: 393px; position: absolute" Text="Cancel" />
+            <asp:Button ID="Button2" runat="server" style="z-index: 1; left: 124px; top: 392px; position: absolute" Text="Cancel" OnClick="Button2_Click" />
             <br />
             <br />
             <br />
