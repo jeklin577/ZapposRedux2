@@ -84,5 +84,107 @@ namespace Testing2
             Found = TestStock.Find(SneakerID);
             Assert.IsTrue(Found);
         }
+        [TestMethod]
+        public void TestStockNoFound()
+        {
+            //create an instance of the clss we want to create
+            clsStock TestStock = new clsStock();
+            //boolean variable to store the result of the search
+            Boolean Found = false;
+            //boolean variable to record if data is OK
+            Boolean OK = true;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            if (TestStock.SneakerID != 21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestReleaseDateFound()
+        {
+            clsStock TestStock = new clsStock();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            if(TestStock.ReleaseDate != Convert.ToDateTime("16/09/2015"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestSneakerNameFound()
+        {
+            clsStock TestStock = new clsStock();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            if(TestStock.SneakerName != "Jordan 1")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestSneakerDescriptionFound()
+        {
+            clsStock TestStock = new clsStock();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            if(TestStock.SneakerDescription != "Brand new Jordans ....")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestSizeFound()
+        {
+            clsStock TestStock = new clsStock();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            if(TestStock.Size != Convert.ToDecimal(42.5))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestPriceFound()
+        {
+            clsStock TestStock = new clsStock();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            if(TestStock.Price != Convert.ToDecimal(220))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestSizeAvailableFound()
+        {
+            clsStock TestStock = new clsStock();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 SneakerID = 21;
+            Found = TestStock.Find(SneakerID);
+            if(TestStock.SizeAvailable != Convert.ToBoolean(true))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
