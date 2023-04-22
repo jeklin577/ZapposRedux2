@@ -80,7 +80,7 @@ namespace Testing2
         {
             clsStock TestStock = new clsStock();
             Boolean Found = false;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
             Assert.IsTrue(Found);
         }
@@ -93,9 +93,9 @@ namespace Testing2
             Boolean Found = false;
             //boolean variable to record if data is OK
             Boolean OK = true;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
-            if (TestStock.SneakerID != 21)
+            if (TestStock.SneakerID != 2)
             {
                 OK = false;
             }
@@ -108,7 +108,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
             if(TestStock.ReleaseDate != Convert.ToDateTime("16/09/2015"))
             {
@@ -122,7 +122,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
             if(TestStock.SneakerName != "Jordan 1")
             {
@@ -136,7 +136,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
             if(TestStock.SneakerDescription != "Brand new Jordans ....")
             {
@@ -150,9 +150,9 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
-            if(TestStock.Size != Convert.ToDecimal(42.5))
+            if(TestStock.Size != Convert.ToDecimal(7.5))
             {
                 OK = false;
             }
@@ -164,7 +164,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
             if(TestStock.Price != Convert.ToDecimal(220))
             {
@@ -178,7 +178,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 SneakerID = 21;
+            Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
             if(TestStock.SizeAvailable != Convert.ToBoolean(true))
             {
