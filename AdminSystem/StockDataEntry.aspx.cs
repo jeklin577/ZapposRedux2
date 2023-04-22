@@ -31,6 +31,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
+   
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStock TestStock = new clsStock();
+        Int32 SneakerID;
+        Boolean Found = false;
+        SneakerID = Convert.ToInt32(txtSneakerID.Text);
+        Found = TestStock.Find(SneakerID);
+        if(Found == true)
+        {
+            txtSneakerName.Text = TestStock.SneakerName;
+            txtSneakerDescription.Text = TestStock.SneakerDescription;
+            txtReleaseDate.Text = TestStock.ReleaseDate.ToString();
+            txtSize.Text = TestStock.Size.ToString();
+            txtPrice.Text = TestStock.Price.ToString();
+            chkSizeAvailable.Checked = TestStock.SizeAvailable;
+        }
+    }
+
     protected void btnOK_Click(object sender, EventArgs e)
     {
         //create a new instnce of clsStock

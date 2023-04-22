@@ -13,11 +13,12 @@
             <br />
             <br />
             <br />
-            <asp:Label ID="lblSneakerName" runat="server" style="z-index: 1; left: 18px; top: 90px; position: absolute; width: 91px;" Text="Sneaker Name"></asp:Label>
+            <asp:Label ID="lblSneakerName" runat="server" style="z-index: 1; left: 18px; top: 90px; position: absolute; width: 110px;" Text="Sneaker Name"></asp:Label>
             <br />
             <asp:TextBox ID="txtSneakerName" runat="server" style="z-index: 1; left: 165px; top: 91px; position: absolute"></asp:TextBox>
             <asp:Label ID="lblSneakerDescription" runat="server" style="z-index: 1; left: 11px; top: 139px; position: absolute; height: 40px" Text="Sneaker Description"></asp:Label>
             <br />
+            <asp:TextBox ID="txtSneakerID" runat="server" style="z-index: 1; left: 162px; top: 48px; position: absolute"></asp:TextBox>
             <br />
             <br />
             <br />
@@ -30,6 +31,7 @@
             <br />
             <br />
             <br />
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 347px; top: 48px; position: absolute; height: 22px; width: 54px" Text="Find" />
             <br />
             <br />
             <br />
@@ -40,15 +42,14 @@
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 34px; top: 358px; position: absolute; height: 19px"></asp:Label>
             <br />
             <br />
-            <asp:Button ID="btnOK" runat="server" Height="21px" OnClick="btnOK_Click" Text="OK" Width="70px" />
             <br />
             <asp:Button ID="Button2" runat="server" style="z-index: 1; left: 124px; top: 392px; position: absolute" Text="Cancel" OnClick="Button2_Click" />
+            <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 30px; top: 395px; position: absolute; width: 60px" Text="OK" />
             <br />
             <br />
             <br />
         </div>
-        <asp:Label ID="lblSneakerID" runat="server" style="z-index: 1; left: 18px; top: 44px; position: absolute" Text="Sneaker ID"></asp:Label>
-        <asp:TextBox ID="txtSneakerID" runat="server" style="z-index: 1; left: 165px; top: 44px; position: absolute"></asp:TextBox>
+        <asp:Label ID="lblSneakerID" runat="server" style="z-index: 1; left: 18px; top: 44px; position: absolute; height: 19px;" Text="Sneaker ID"></asp:Label>
     </form>
 </body>
 </html>
