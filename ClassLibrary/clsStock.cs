@@ -89,14 +89,24 @@ namespace ClassLibrary
         
         public bool Find(int SneakerID)
         {
-            mSneakerID = 21;
-            mSneakerName = "Jordan 1";
-            mSneakerDescription = "Brand new Jordans....";
-            mReleaaseDate = Convert.ToDateTime("16/09/2015");
-            mSize = Convert.ToDecimal(42.5);
-            mPrice = Convert.ToDecimal(220);
-            mSizeAvailable = Convert.ToBoolean(true);
-            return true;
+            clsStockConnection DB = new clsStockConnection();
+            DB.AddParameter("@SneakerID", SneakerID);
+            DB.Execute("sproc_tblStock_FilterBySneakerID");
+            if (DB.Count == 1)
+            {
+                mSneakerID = Convert.ToInt32(DB.DataTable.Rows[0]["SneakerID"]);
+                mSneakerName = Convert.ToString(DB.DataTable.Rows[0]["SneakerName"]);
+                mSneakerDescription = Convert.ToString(DB.DataTable.Rows[0]["SneakerDescription"]);
+                mReleaaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ReleaseDate"]);
+                mSize = Convert.ToDecimal(DB.DataTable.Rows[0]["Size"]);
+                mPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mSizeAvailable = Convert.ToBoolean(DB.DataTable.Rows[0]["SizeAvailable"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
