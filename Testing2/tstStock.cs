@@ -354,6 +354,127 @@ namespace Testing2
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreNotEqual(Error, "");
         }
+        //Below is the validation for ReleaseDate. Since my property is different than the one in the handouts I will have to alter the boundaries. DateAdded
+        //is based on when a record was added in the database, ReleaseDate is based on when a sneaker was released in the market. According to
+        //Google search the first sneaker was released in the 1830s, so my Min value is today's date 200 years ago. My ExtremeMin boundary will be 300 years ago.
+        [TestMethod]
+        public void ReleaseDateExtremeMinValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-300);
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateMinValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-200);
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateMinLessOneValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-201);
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateMinPlusOneValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-199);
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateMaxValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateMaxLessOneValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateMaxPlusOneValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateExtremeMaxValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            //var to store the test date data
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DateAdded = TestDate.ToString();
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ReleaseDateInvalidDataValidation()
+        {
+            clsStock TestStock = new clsStock();
+            String Error = "";
+            string ReleaseDate = "this is not a date";
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Assert.AreNotEqual(Error, "");
+        }
     }
-
+    
 }
+
+
+    
+       
+
+
