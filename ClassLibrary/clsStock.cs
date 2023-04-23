@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace ClassLibrary
 {
@@ -112,29 +113,37 @@ namespace ClassLibrary
         public string Valid(string sneakerName, string sneakerDescription, string releaseDate, string size, string price)
         {
             String Error = "";
-            if(sneakerName.Length == 0)
-            {
-                Error = Error + "The sneaker name may not be blank : ";
-            }
-            if(sneakerName.Length > 50)
-            {
-                Error = Error + "The sneaker name may not be more than 50 characters";
-            }
-            if(sneakerDescription.Length == 0)
-            {
-                Error = Error + "The sneaker description may not be blank : ";
-            }
-            if(sneakerDescription.Length > 250)
-            {
-                Error = Error + "The sneaker description may not be more than 250 characters : ";
-            }
+            DateTime DateTemp;
+            
+           
+            
+                if (sneakerName.Length == 0)
+                {
+                    Error = Error + "The sneaker name may not be blank : ";
+                }
+                if (sneakerName.Length > 50)
+                {
+                    Error = Error + "The sneaker name may not be more than 50 characters";
+                }
+            
+             if (sneakerDescription.Length == 0)
+                {
+                    Error = Error + "The sneaker description may not be blank : ";
+                }
+                if (sneakerDescription.Length > 250)
+                {
+                    Error = Error + "The sneaker description may not be more than 250 characters : ";
+                }
+            
+            
+            
             try
             {
                 //LOCAL VAR
-                DateTime DateTemp = Convert.ToDateTime(releaseDate);
-                if (DateTemp < DateTime.Now.Date.AddYears(-300))
+                 DateTemp = Convert.ToDateTime(releaseDate);
+                if (DateTemp < DateTime.Now.Date.AddYears(-200))
                 {
-                    Error = Error + "The date cannot be 300 years or more ago : ";
+                    Error = Error + "The date cannot be 201 years or more ago : ";
                 }
                 if(DateTemp > DateTime.Now.Date)
                 {
@@ -143,8 +152,27 @@ namespace ClassLibrary
             }
             catch
             {
-                Error = Error + "The Date is not valid Date. ";
+                Error = Error + "The Date is not a valid Date. ";
             }
+
+            if (size.Length > 4)
+            {
+                Error = Error + "Enter a suitable size number";
+            }
+            if(size.Length == 0)
+            {
+                Error = Error + "Enter a suitable size number : ";
+            }
+            if (price.Length == 0)
+            {
+                Error = Error + "The price must not be blank : ";
+            }
+            if (price.Length > 4)
+            {
+                Error = Error + "The price must not be more than 4 characters : ";
+            }
+
+
             return Error;
         }
                                 
