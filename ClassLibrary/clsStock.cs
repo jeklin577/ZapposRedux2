@@ -128,6 +128,23 @@ namespace ClassLibrary
             {
                 Error = Error + "The sneaker description may not be more than 250 characters : ";
             }
+            try
+            {
+                //LOCAL VAR
+                DateTime DateTemp = Convert.ToDateTime(releaseDate);
+                if (DateTemp < DateTime.Now.Date.AddYears(-300))
+                {
+                    Error = Error + "The date cannot be 300 years or more ago : ";
+                }
+                if(DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The Date is not valid Date. ";
+            }
             return Error;
         }
                                 
