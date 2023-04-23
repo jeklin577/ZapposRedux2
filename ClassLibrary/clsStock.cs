@@ -108,5 +108,28 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string sneakerName, string sneakerDescription, string releaseDate, string size, string price)
+        {
+            String Error = "";
+            if(sneakerName.Length == 0)
+            {
+                Error = Error + "The sneaker name may not be blank : ";
+            }
+            if(sneakerName.Length > 50)
+            {
+                Error = Error + "The sneaker name may not be more than 50 characters";
+            }
+            if(sneakerDescription.Length == 0)
+            {
+                Error = Error + "The sneaker description may not be blank : ";
+            }
+            if(sneakerDescription.Length > 250)
+            {
+                Error = Error + "The sneaker description may not be more than 250 characters : ";
+            }
+            return Error;
+        }
+                                
     }
 }
