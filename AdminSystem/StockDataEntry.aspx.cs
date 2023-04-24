@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -72,6 +73,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string Size = txtSize.Text;
         string Price = txtPrice.Text;
         string Error = "";
+
+
         Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
         if (Error == "")
         {
@@ -94,8 +97,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 StockList.ThisStock = TestStock;
                 StockList.Update();
             }
-            
+
             Response.Redirect("StockList.aspx");
+           
         }
         else
         {

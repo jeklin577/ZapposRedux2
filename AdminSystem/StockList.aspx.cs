@@ -44,7 +44,7 @@ public partial class _1_List : System.Web.UI.Page
     protected void btnDelete_Click(object sender, EventArgs e)
     {
         Int32 SneakerID;
-        if(lstStockList.SelectedIndex != 1)
+        if(lstStockList.SelectedIndex != -1)
         {
             SneakerID = Convert.ToInt32(lstStockList.SelectedValue);
             Session["SneakerID"] = SneakerID;
