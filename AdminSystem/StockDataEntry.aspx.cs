@@ -14,9 +14,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         SneakerID = Convert.ToInt32(Session["SneakerID"]);
         if(IsPostBack == false)
         {
-            if(SneakerID != 1)
+            if(SneakerID != -1)
             {
                 DisplayStock();
+                //The below empty strings are used so that when the page is first displayed, these text fields are intialised to empty
+                //The reason is that before thes the text fields were initialised to 0.
+                txtSneakerID.Text = "";
+                txtPrice.Text = "";
+                txtSize.Text = "";
+                txtReleaseDate.Text = "";
             }
         }
 
@@ -28,16 +34,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtSneakerID.Text = StockBook.ThisStock.SneakerID.ToString();
         txtSneakerName.Text = StockBook.ThisStock.SneakerName;
         txtSneakerDescription.Text = StockBook.ThisStock.SneakerDescription;
-        txtReleaseDate.Text = StockBook.ThisStock.ReleaseDate.ToString();
+        txtReleaseDate.Text = StockBook.ThisStock.ReleaseDate.ToString("dd/MM/yyyy");
         txtSize.Text = StockBook.ThisStock.Size.ToString();
         txtPrice.Text = StockBook.ThisStock.Price.ToString();
         chkSizeAvailable.Checked = StockBook.ThisStock.SizeAvailable;
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-
-    }
+    
 
 
     protected void btnFind_Click(object sender, EventArgs e)
@@ -51,7 +54,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         {
             txtSneakerName.Text = TestStock.SneakerName;
             txtSneakerDescription.Text = TestStock.SneakerDescription;
-            txtReleaseDate.Text = TestStock.ReleaseDate.ToString();
+            txtReleaseDate.Text = TestStock.ReleaseDate.ToString("dd/MM/yyyy");
             txtSize.Text = TestStock.Size.ToString();
             txtPrice.Text = TestStock.Price.ToString();
             chkSizeAvailable.Checked = TestStock.SizeAvailable;
@@ -69,7 +72,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string Size = txtSize.Text;
         string Price = txtPrice.Text;
         string Error = "";
-        Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+        Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
         if (Error == "")
         {
             TestStock.SneakerID = SneakerID;
