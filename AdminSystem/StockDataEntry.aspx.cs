@@ -10,18 +10,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 
- 
-
-   
-    
 
 
 
 
-    
+
+
+
+
+
 
 
 
@@ -31,7 +31,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
     }
 
-   
+
     protected void btnFind_Click(object sender, EventArgs e)
     {
         clsStock TestStock = new clsStock();
@@ -39,7 +39,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Boolean Found = false;
         SneakerID = Convert.ToInt32(txtSneakerID.Text);
         Found = TestStock.Find(SneakerID);
-        if(Found == true)
+        if (Found == true)
         {
             txtSneakerName.Text = TestStock.SneakerName;
             txtSneakerDescription.Text = TestStock.SneakerDescription;
@@ -54,16 +54,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instnce of clsStock
         clsStock TestStock = new clsStock();
-        //capture the sneaker id
-        TestStock.SneakerID = Convert.ToInt32(txtSneakerID.Text);
-        TestStock.SneakerName = txtSneakerName.Text;
-        TestStock.SneakerDescription = txtSneakerDescription.Text;
-        TestStock.ReleaseDate = Convert.ToDateTime(txtReleaseDate.Text);
-        TestStock.Size = Convert.ToInt32(txtSize.Text);
-        TestStock.Price = Convert.ToInt32(txtPrice.Text);
-        //store the address in the session object
-        Session["TestStock"] = TestStock;
-        //navigate to the viewer page
-        Response.Redirect("StockViewer.aspx");
+        string SneakerID = txtSneakerID.Text;
+        string SneakerName = txtSneakerName.Text;
+        string SneakerDescription = txtSneakerDescription.Text;
+        string ReleaseDate = txtReleaseDate.Text;
+        string Size = txtSize.Text;
+        string Price = txtPrice.Text;
+        string Error = "";
+        Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+        if (Error == "")
+        {
+            TestStock.SneakerName = SneakerName;
+            TestStock.SneakerDescription = SneakerDescription;
+            TestStock.ReleaseDate = Convert.ToDateTime(ReleaseDate);
+            TestStock.Size = Convert.ToInt32(Size);
+            TestStock.Price = Convert.ToInt32(Price);
+
+            Session["TestStock"] = TestStock;
+            Response.Write("StockViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 }

@@ -141,7 +141,7 @@ namespace ClassLibrary
             {
                 //LOCAL VAR
                  DateTemp = Convert.ToDateTime(releaseDate);
-                if (DateTemp < DateTime.Now.Date.AddYears(-200))
+                if (DateTemp < DateTime.Now.Date.AddYears(-15))
                 {
                     Error = Error + "The date cannot be 201 years or more ago : ";
                 }

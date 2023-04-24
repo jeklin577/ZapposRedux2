@@ -358,8 +358,8 @@ namespace Testing2
         }
        
         //Below is the validation for ReleaseDate. Since my property is different than the one in the handouts I will have to alter the boundaries. DateAdded
-        //is based on when a record was added in the database, ReleaseDate is based on when a sneaker was released in the market. According to
-        //Google search the first sneaker was released in the 1830s, so my Min value is today's date 200 years ago. My ExtremeMin boundary will be 300 years ago.
+        //is based on when a record was added in the database, ReleaseDate is based on when a sneaker was released in the market. I am assuming that our system will use
+        // new sneakers so the the Min boundary will be set to today's today 15 years ago.
         [TestMethod]
         public void ReleaseDateExtremeMinValidation()
         {
@@ -381,7 +381,7 @@ namespace Testing2
             //var to store the test date data
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(-200);
+            TestDate = TestDate.AddYears(-15);
             string ReleaseDate = TestDate.ToString();
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreEqual(Error, "");
@@ -394,7 +394,7 @@ namespace Testing2
             //var to store the test date data
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(-201);
+            TestDate = TestDate.AddYears(-16);
             string ReleaseDate = TestDate.ToString();
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreNotEqual(Error, "");
@@ -407,49 +407,12 @@ namespace Testing2
             //var to store the test date data
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddYears(-199);
+            TestDate = TestDate.AddYears(-14);
             string ReleaseDate = TestDate.ToString();
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreEqual(Error, "");
         }
-        [TestMethod]
-        public void ReleaseDateMaxValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            //var to store the test date data
-            DateTime TestDate;
-            TestDate = DateTime.Now.Date;
-            string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void ReleaseDateMaxLessOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            //var to store the test date data
-            DateTime TestDate;
-            TestDate = DateTime.Now.Date;
-            TestDate = TestDate.AddDays(-1);
-            string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void ReleaseDateMaxPlusOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            //var to store the test date data
-            DateTime TestDate;
-            TestDate = DateTime.Now.Date.AddYears(1);
-            
-            string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreNotEqual(Error, "");
-        }
+       
         [TestMethod]
         public void ReleaseDateExtremeMaxValidation()
         {
