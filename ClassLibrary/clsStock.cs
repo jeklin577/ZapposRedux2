@@ -155,22 +155,7 @@ namespace ClassLibrary
                 Error = Error + "The Date is not a valid Date. ";
             }
 
-            if (size.Length > 4)
-            {
-                Error = Error + "Enter a suitable size number";
-            }
-            if(size.Length == 0)
-            {
-                Error = Error + "Enter a suitable size number : ";
-            }
-            if (price.Length == 0)
-            {
-                Error = Error + "The price must not be blank : ";
-            }
-            if (price.Length > 4)
-            {
-                Error = Error + "The price must not be more than 4 characters : ";
-            }
+            
 
 
             return Error;

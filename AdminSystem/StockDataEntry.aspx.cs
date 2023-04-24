@@ -8,23 +8,31 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 SneakerID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        SneakerID = Convert.ToInt32(Session["SneakerID"]);
+        if(IsPostBack == false)
+        {
+            if(SneakerID != 1)
+            {
+                DisplayStock();
+            }
+        }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    void DisplayStock()
+    {
+        clsStockCollection StockBook = new clsStockCollection();
+        StockBook.ThisStock.Find(SneakerID);
+        txtSneakerID.Text = StockBook.ThisStock.SneakerID.ToString();
+        txtSneakerName.Text = StockBook.ThisStock.SneakerName;
+        txtSneakerDescription.Text = StockBook.ThisStock.SneakerDescription;
+        txtReleaseDate.Text = StockBook.ThisStock.ReleaseDate.ToString();
+        txtSize.Text = StockBook.ThisStock.Size.ToString();
+        txtPrice.Text = StockBook.ThisStock.Price.ToString();
+        chkSizeAvailable.Checked = StockBook.ThisStock.SizeAvailable;
+    }
 
     protected void Button2_Click(object sender, EventArgs e)
     {
@@ -54,7 +62,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instnce of clsStock
         clsStock TestStock = new clsStock();
-        string SneakerID = txtSneakerID.Text;
+       
         string SneakerName = txtSneakerName.Text;
         string SneakerDescription = txtSneakerDescription.Text;
         string ReleaseDate = txtReleaseDate.Text;
@@ -64,18 +72,32 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
         if (Error == "")
         {
+            TestStock.SneakerID = SneakerID;
             TestStock.SneakerName = SneakerName;
             TestStock.SneakerDescription = SneakerDescription;
             TestStock.ReleaseDate = Convert.ToDateTime(ReleaseDate);
-            TestStock.Size = Convert.ToInt32(Size);
-            TestStock.Price = Convert.ToInt32(Price);
-
-            Session["TestStock"] = TestStock;
-            Response.Write("StockViewer.aspx");
+            TestStock.Size = Convert.ToDecimal(Size);
+            TestStock.Price = Convert.ToDecimal(Price);
+            TestStock.SizeAvailable = chkSizeAvailable.Checked;
+            clsStockCollection StockList = new clsStockCollection();
+            if(SneakerID == -1)
+            {
+                StockList.ThisStock = TestStock;
+                StockList.Add();
+            }
+            else
+            {
+                StockList.ThisStock.Find(SneakerID);
+                StockList.ThisStock = TestStock;
+                StockList.Update();
+            }
+            
+            Response.Redirect("StockList.aspx");
         }
         else
         {
             lblError.Text = Error;
         }
+       
     }
 }
