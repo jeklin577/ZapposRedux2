@@ -17,6 +17,7 @@ namespace ClassLibrary
 
 
         List<clsCustomer> mCustomerList = new List<clsCustomer>(); //defines a field, every instance of the customer collection class starts with mCustomer list.
+        clsCustomer mThisCustomer = new clsCustomer();
         public int Count
         {
             get { return mCustomerList.Count; }
@@ -24,7 +25,13 @@ namespace ClassLibrary
 
             set { }
         }
-        public clsCustomer ThisCustomer { get; set; }
+        public clsCustomer ThisCustomer { 
+            
+            get { return mThisCustomer;  }
+            
+            set { mThisCustomer = value; }
+        
+        }
 
 
         public List<clsCustomer> CustomerList
@@ -34,6 +41,8 @@ namespace ClassLibrary
             set { mCustomerList = value; }
 
         }
+
+
 
 
         //Add Method
@@ -93,5 +102,22 @@ namespace ClassLibrary
 
 
         }
+
+        public int Add()
+        {
+            //mThisCustomer.CustomerID = 1;
+            //return mThisCustomer.CustomerID; (more hard coded badness)
+
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Username", mThisCustomer.Username);
+            DB.AddParameter("@JoinDate", mThisCustomer.DateAdded);
+            DB.AddParameter("@ShippingAddress", mThisCustomer.ShippingAddress);
+            DB.AddParameter("@HasOrder", mThisCustomer.HasOrder);
+            DB.AddParameter("@Password", mThisCustomer.Password);
+
+            return DB.Execute("sproc_tblCustomer_Insert");
+        }
+
+
     }
 }
