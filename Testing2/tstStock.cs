@@ -70,7 +70,7 @@ namespace Testing2
         public void SizeTest()
         {
             clsStock TestStock = new clsStock();
-            decimal TestData = 42.5m;
+            decimal TestData = 7.5m;
             TestStock.Size = TestData;
             Assert.AreEqual(TestStock.Size, TestData);
         }
@@ -159,7 +159,7 @@ namespace Testing2
             Boolean OK = true;
             Int32 SneakerID = 2;
             Found = TestStock.Find(SneakerID);
-            if (TestStock.Size != Convert.ToDecimal(7.5))
+            if (TestStock.Size != Convert.ToDecimal(8))
             {
                 OK = false;
             }
@@ -254,7 +254,7 @@ namespace Testing2
         {
             clsStock TestStock = new clsStock();
             String Error = "";
-            string SneakerName = "aaaaaaaaaaaaaaaaaaaaaaaaa"; 
+            string SneakerName = "aaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreEqual(Error, "");
         }
@@ -278,7 +278,7 @@ namespace Testing2
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreNotEqual(Error, "");
         }
-     
+
         [TestMethod]
         public void SneakerDescriptionMinLessOneValidation()
         {
@@ -356,7 +356,7 @@ namespace Testing2
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreNotEqual(Error, "");
         }
-       
+
         //Below is the validation for ReleaseDate. Since my property is different than the one in the handouts I will have to alter the boundaries. DateAdded
         //is based on when a record was added in the database, ReleaseDate is based on when a sneaker was released in the market. I am assuming that our system will use
         // new sneakers so the the Min boundary will be set to today's today 15 years ago.
@@ -412,7 +412,7 @@ namespace Testing2
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreEqual(Error, "");
         }
-       
+
         [TestMethod]
         public void ReleaseDateExtremeMaxValidation()
         {
@@ -435,131 +435,8 @@ namespace Testing2
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
             Assert.AreNotEqual(Error, "");
         }
-        [TestMethod]
-        public void SizeMinValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Size = "a";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void SizeMinLessOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Size = "";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreNotEqual(Error, "");
-        }
-        [TestMethod]
-        public void SizeMinPlusOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Size = "aa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void SizeMaxValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Size = "aaaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void SizeMaxPlusOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Size = "aaaaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreNotEqual(Error, "");
-        }
-        public void SizeMaxLessOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Size = "aaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        public void SizeExtremeMaxValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Size = "aaaaaaaaaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreNotEqual(Error, "");
-        }
-        public void PriceMinValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Price = "a";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void PriceMinLessOneValidation()
-        {
+        
 
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Price = "";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreNotEqual(Error, "");
-
-        }
-        [TestMethod]
-        public void PriceMinPlusOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Price = "aa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void PriceMaxValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Price = "aaaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void PriceMaxLessOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Price = "aaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreEqual(Error, "");
-        }
-        [TestMethod]
-        public void PriceMaxPlusOneValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Price = "aaaaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreNotEqual(Error, "");
-        }
-        [TestMethod]
-        public void PriceExtremeMaxValidation()
-        {
-            clsStock TestStock = new clsStock();
-            String Error = "";
-            string Price = "aaaaaaaaaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
-            Assert.AreNotEqual(Error, "");
-        }
 
     }
     

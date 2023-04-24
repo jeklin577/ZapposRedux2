@@ -84,5 +84,86 @@ namespace Testing2
             AllStock.ThisStock.Find(PrimaryKey);
             Assert.AreEqual(AllStock.ThisStock, TestItem);
         }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsStockCollection AllStock = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 0;
+            //set properties
+            TestItem.SizeAvailable = true;
+            TestItem.SneakerName = "aa";
+            TestItem.SneakerDescription = "aa";
+            TestItem.ReleaseDate = DateTime.Now.Date;
+            TestItem.Size = 4;
+            TestItem.Price = 100;
+            AllStock.ThisStock = TestItem;
+            PrimaryKey = AllStock.Add();
+            TestItem.SneakerID = PrimaryKey;
+            //modify test data
+            TestItem.SizeAvailable = false;
+            TestItem.SneakerName = "bb";
+            TestItem.SneakerDescription = "bb";
+            TestItem.ReleaseDate = DateTime.Now.Date;
+            TestItem.Size = 6;
+            TestItem.Price = 300;
+            AllStock.ThisStock = TestItem;
+            //update
+            AllStock.Update();
+            AllStock.ThisStock.Find(PrimaryKey);
+            Assert.AreEqual(AllStock.ThisStock, TestItem);
+        }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsStockCollection AllStock = new clsStockCollection();
+            clsStock TestItem = new clsStock();
+            Int32 PrimaryKey = 0;
+            TestItem.SneakerID = 1;
+            TestItem.SizeAvailable = true;
+            TestItem.SneakerName = "aa";
+            TestItem.SneakerDescription = "aa";
+            TestItem.ReleaseDate = DateTime.Now.Date;
+            TestItem.Size = 4;
+            TestItem.Price = 100;
+            AllStock.ThisStock = TestItem;
+            PrimaryKey = AllStock.Add();
+            TestItem.SneakerID = PrimaryKey;
+            AllStock.ThisStock.Find(PrimaryKey);
+            AllStock.Delete();
+            Boolean Found = AllStock.ThisStock.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+        [TestMethod]
+        public void ReportBySneakerNameMethodOK()
+        {
+            clsStockCollection AllStock = new clsStockCollection();
+            clsStockCollection FilteredStock = new clsStockCollection();
+            FilteredStock.ReportBySneakerName("xxxx");
+            Assert.AreEqual(0, FilteredStock.Count);
+        }
+        [TestMethod]
+        public void ReportBySneakerNameTestDataFound()
+        {
+            clsStockCollection FilteredStock = new clsStockCollection();
+            Boolean OK = true;
+            FilteredStock.ReportBySneakerName("Nike Air Force 1");
+            if(FilteredStock.Count == 2)
+            {
+                if(FilteredStock.StockList[0].SneakerID != 38)
+                {
+                    OK = false;
+                }
+                if(FilteredStock.StockList[1].SneakerID != 39)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
