@@ -33,7 +33,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string vHasOrder = Convert.ToString(chkHasOrder.Checked);
         ///Used for this next method:
         Error = CustomerInfo.Valid(vUsername, vHasOrder, vPassword, vDateAdded, vShippingAddress);
-        if (Error == "") {
+        if (Error == "") 
+        {
 
             CustomerInfo.Username = txtUsername.Text;
             CustomerInfo.Password = txtPassword.Text;
@@ -42,17 +43,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
             CustomerInfo.DateAdded = Convert.ToDateTime(txtDateJoined.Text);
             CustomerInfo.HasOrder = Convert.ToBoolean(chkHasOrder.Checked); ///This one seems a bit strange to me, chkHasOrder is already a boolean, it's either checked or not, so why the conversion?
                                                                             ///Creates an instance of a customer, and then populates it's three varchar fields with the text contained in the text boxes we've added to the site.
-                                                                            ///Nevermind, thinking about it more, you need to evoke the .checked method to return the state of the checkbox object, which then gets converted into a traditional boolean (?)
+                                                                            ///Nevermind, thinking about it more, you need to evoke the .checked method to return the state of the checkbox object, which then gets converted into a traditional boolean?
+
+                                                                            ///Create a new Customer Collection:
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            CustomerList.ThisCustomer = CustomerInfo;
+            CustomerList.Add();
+            Response.Redirect("CustomerList.aspx");
+            ///Testing this now, and it works!
 
 
-
-
-
-            Session["CustomerInfo"] = CustomerInfo;
+            //Lines 54 - 60 are deprecated (?)
+            ///Session["CustomerInfo"] = CustomerInfo;
             ///Alright vague networking memories here, Session's are used as temporary files that allow for sites to remember stuff like, say, the info inputted into our data entry page, and use them
             ///on, say, our viewer page.
             ///
-            Response.Redirect("CustomerViewer.aspx");
+           /// Response.Redirect("CustomerViewer.aspx");
             ///Same as last time, just redirects to the CustomerViewer page.
             ///
         }
