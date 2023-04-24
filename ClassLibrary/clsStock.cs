@@ -13,6 +13,7 @@ namespace ClassLibrary
         private decimal mSize;
         private decimal mPrice;
         private bool mSizeAvailable;
+      
         public int SneakerID {
             get
             {
@@ -110,7 +111,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string sneakerName, string sneakerDescription, string releaseDate, string size, string price)
+        public string Valid(string sneakerName, string sneakerDescription, string releaseDate)
         {
             String Error = "";
             DateTime DateTemp;

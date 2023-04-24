@@ -23,7 +23,7 @@ namespace Testing2
             Assert.IsNotNull(TestStock);
         }
         [TestMethod]
-        public void SneakerIDTest()
+        public void SneakerIDPropertyTest()
         {
             //create an instance of the class we want to create
             clsStock TestStock = new clsStock();
@@ -35,7 +35,7 @@ namespace Testing2
             Assert.AreEqual(TestStock.SneakerID, TestData);
         }
         [TestMethod]
-        public void SneakerNameTest()
+        public void SneakerNamePropertyTest()
         {
             clsStock TestStock = new clsStock();
             string TestData = "Jordan";
@@ -43,7 +43,7 @@ namespace Testing2
             Assert.AreEqual(TestStock.SneakerName, TestData);
         }
         [TestMethod]
-        public void SneakerDescriptionText()
+        public void SneakerDescriptionPropertyText()
         {
             clsStock TestStock = new clsStock();
             string TestData = "Brand new Jordans....";
@@ -51,7 +51,7 @@ namespace Testing2
             Assert.AreEqual(TestStock.SneakerDescription, TestData);
         }
         [TestMethod]
-        public void ReleaseDateTest()
+        public void ReleaseDatePropertyTest()
         {
             clsStock TestStock = new clsStock();
             DateTime TestData = DateTime.Now.Date;
@@ -59,7 +59,7 @@ namespace Testing2
             Assert.AreEqual(TestStock.ReleaseDate, TestData);
         }
         [TestMethod]
-        public void SizeAvailableTest()
+        public void SizeAvailablePropertyTest()
         {
             clsStock TestStock = new clsStock();
             Boolean TestData = true;
@@ -67,7 +67,7 @@ namespace Testing2
             Assert.AreEqual(TestStock.SizeAvailable, TestData);
         }
         [TestMethod]
-        public void SizeTest()
+        public void SizePropertyTest()
         {
             clsStock TestStock = new clsStock();
             decimal TestData = 7.5m;
@@ -75,7 +75,7 @@ namespace Testing2
             Assert.AreEqual(TestStock.Size, TestData);
         }
         [TestMethod]
-        public void PriceTest()
+        public void PricePropertyTest()
         {
             clsStock TestStock = new clsStock();
             decimal TestData = 220m;
@@ -199,7 +199,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             //string variable to store any error message
             String Error = "";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, Size, ReleaseDate, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -209,7 +209,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerName = "";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, Size, ReleaseDate, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -219,7 +219,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerName = "a";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -228,7 +228,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerName = "aa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -237,7 +237,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //49 characters
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -246,7 +246,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //50 chars
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -255,7 +255,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerName = "aaaaaaaaaaaaaaaaaaaaaaaaa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -265,7 +265,7 @@ namespace Testing2
             String Error = "";
             string SneakerName = "";
             SneakerName = SneakerName.PadRight(51, 'a');
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -275,7 +275,7 @@ namespace Testing2
             String Error = "";
             string SneakerName = "";
             SneakerName = SneakerName.PadRight(500, 'a');
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -285,7 +285,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerDescription = "";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, Size, ReleaseDate, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -294,7 +294,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerDescription = "a";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -303,7 +303,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string SneakerDescription = "aa";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -313,7 +313,7 @@ namespace Testing2
             String Error = "";
             string SneakerDescription = "";
             SneakerDescription = SneakerDescription.PadRight(249, 'a');
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -323,7 +323,7 @@ namespace Testing2
             String Error = "";
             string SneakerDescription = "";
             SneakerDescription = SneakerDescription.PadRight(250, 'a');
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -333,7 +333,7 @@ namespace Testing2
             String Error = "";
             string SneakerDescription = "";
             SneakerDescription = SneakerDescription.PadRight(100, 'a');
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -343,7 +343,7 @@ namespace Testing2
             String Error = "";
             string SneakerDescription = "";
             SneakerDescription = SneakerDescription.PadRight(251, 'a');
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -353,7 +353,7 @@ namespace Testing2
             String Error = "";
             string SneakerDescription = "";
             SneakerDescription = SneakerDescription.PadRight(500, 'a');
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -370,7 +370,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-300);
             string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -383,7 +383,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-15);
             string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
@@ -396,7 +396,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-16);
             string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -409,7 +409,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-14);
             string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreEqual(Error, "");
         }
 
@@ -423,7 +423,7 @@ namespace Testing2
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
             string ReleaseDate = TestDate.ToString();
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
@@ -432,7 +432,7 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             string ReleaseDate = "this is not a date";
-            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Size, Price);
+            Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
             Assert.AreNotEqual(Error, "");
         }
         

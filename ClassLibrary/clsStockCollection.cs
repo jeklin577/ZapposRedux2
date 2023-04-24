@@ -8,8 +8,7 @@ namespace ClassLibrary
         //constructor
         public clsStockCollection()
         {
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
+          
             clsStockConnection DB = new clsStockConnection();
             DB.Execute("sproc_tblStock_SelectAll");
             PopulateArray(DB);
