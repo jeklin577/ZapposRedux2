@@ -12,6 +12,7 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -49,8 +50,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
             clsCustomerCollection CustomerList = new clsCustomerCollection();
             CustomerList.ThisCustomer = CustomerInfo;
             CustomerList.Add();
-            Response.Redirect("CustomerList.aspx");
+            
             ///Testing this now, and it works!
+            ///
+            if (CustomerID == -1)
+            {
+                CustomerList.ThisCustomer = CustomerInfo;
+                CustomerList.Add();
+            }
+            else
+            {
+                CustomerList.ThisCustomer.Find(CustomerID);
+                CustomerList.ThisCustomer = CustomerInfo;
+                CustomerList.Update();
+            }
+            Response.Redirect("CustomerList.aspx");
 
 
             //Lines 54 - 60 are deprecated (?)
@@ -58,7 +72,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             ///Alright vague networking memories here, Session's are used as temporary files that allow for sites to remember stuff like, say, the info inputted into our data entry page, and use them
             ///on, say, our viewer page.
             ///
-           /// Response.Redirect("CustomerViewer.aspx");
+            /// Response.Redirect("CustomerViewer.aspx");
             ///Same as last time, just redirects to the CustomerViewer page.
             ///
         }
@@ -83,5 +97,18 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtDateJoined.Text = ACustomer.mDateAdded.ToString();
 
         }
+    }
+
+    void DisplayCustomers()
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ThisCustomer.Find(CustomerID);
+        txtCustomerID.Text = Customers.ThisCustomer.CustomerID.ToString();
+        txtPassword.Text = Customers.ThisCustomer.CustomerID.ToString();
+        txtShippingAddress.Text = Customers.ThisCustomer.CustomerID.ToString();
+        txtDateJoined.Text = Customers.ThisCustomer.CustomerID.ToString();
+        txtUsername.Text = Customers.ThisCustomer.CustomerID.ToString();
+        chkHasOrder.Checked = Customers.ThisCustomer.HasOrder;
+
     }
 }

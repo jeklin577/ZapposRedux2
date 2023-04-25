@@ -8,11 +8,18 @@ using ClassLibrary;
 
 public partial class _1_List : System.Web.UI.Page
 {
+   Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+
+
+
         if (IsPostBack == false)
         {
+            if (CustomerID != -1) {
             DisplayCustomers();
+                                    }
         }
         
         
@@ -24,9 +31,11 @@ public partial class _1_List : System.Web.UI.Page
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
         lstCustomerList.DataSource = Customers.CustomerList;
-        lstCustomerList.DataValueField = "CustomerID";
+       lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataTextField = "ShippingAddress";
-        lstCustomerList.DataBind();
+         lstCustomerList.DataBind();
+        
+        
     }
 
 
@@ -34,6 +43,30 @@ public partial class _1_List : System.Web.UI.Page
     {
         Session["CustomerID"] = -1;
         Response.Redirect("CustomerDataEntry.aspx");
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 CustomerID;
+
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
+            Session["CustomerID"] = CustomerID;
+            Response.Redirect("CustomerDataEntry.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a customer in order to edit their information";
+        }
+
+    }
+
+
+
+    protected void lstCustomerList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ///Misclick
     }
 }
  
