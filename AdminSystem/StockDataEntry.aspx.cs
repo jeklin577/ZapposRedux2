@@ -16,7 +16,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if(IsPostBack == false)
         {
             if(SneakerID != -1)
-            {
+            {   
                 DisplayStock();
                 //The below empty strings are used so that when the page is first displayed, these text fields are intialised to empty
                 //The reason is that before thes the text fields were initialised to 0.
