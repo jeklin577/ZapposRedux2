@@ -68,5 +68,25 @@ public partial class _1_List : System.Web.UI.Page
     {
         ///Misclick
     }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        Int32 CustomerID;
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
+            Session["CustomerID"] = CustomerID;
+            Response.Redirect("CustomerConfirmDelete.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record to delete from the list";
+        }
+    }
+
+    protected void btnDelete_Click1(object sender, EventArgs e)
+    {
+
+    }
 }
  
