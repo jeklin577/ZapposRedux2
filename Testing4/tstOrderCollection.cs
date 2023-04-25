@@ -38,6 +38,7 @@ namespace Testing4
             Assert.AreEqual(AllOrders.OrderList, TestList);
         }
 
+        
         [TestMethod]
         public void ThisOrderPropertyOK()
         {
@@ -116,9 +117,96 @@ namespace Testing4
             AllOrders.ThisOrder.Find(PrimaryKey);
             //test to see ThisOrder matches the test data.
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
 
-
+        
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrders TestItem = new clsOrders();
+            Int32 PrimaryKey = 1;
+            //set properties
+            TestItem.OrderNo = 22;
+            TestItem.CustomerID = 150;
+            TestItem.ItemNames = "Jordans";
+            TestItem.ItemQuantity = 5;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.DeliveryAddress = "110 Menlo Park";
+            AllOrders.ThisOrder = TestItem;
+            PrimaryKey = AllOrders.Add();
+            TestItem.OrderNo = PrimaryKey;
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
 
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrders TestItem = new clsOrders();
+            Int32 PrimaryKey = 0;
+            //set properties
+            TestItem.OrderNo = 22;
+            TestItem.CustomerID = 150;
+            TestItem.ItemNames = "Jordans";
+            TestItem.ItemQuantity = 5;
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.DeliveryAddress = "110 Menlo Park";
+            AllOrders.ThisOrder = TestItem;
+            PrimaryKey = AllOrders.Add();
+            TestItem.OrderNo = PrimaryKey;
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.Delete();
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+
+        }
+
+        [TestMethod]
+        public void FilterMethodOk()
+        {
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            FilteredOrders.ReportByCustomerID("");
+            Assert.AreEqual(AllOrders.Count, FilteredOrders);
+        }
+
+        [TestMethod]
+        public void ReportByCustomerIDNoneFound()
+        { 
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            FilteredOrders.ReportByCustomerID("xx");
+            Assert.AreEqual(0, FilteredOrders.Count);
+        }
+
+        [TestMethod]
+        public void ReportByCustomerIDDataFound()
+        {
+            clsOrderCollection FilteredOrders = new clsOrderCollection();
+            Boolean OK = true;
+            FilteredOrders.ReportByCustomerID("xx");
+            if (FilteredOrders.Count == 2)
+            {
+                if (FilteredOrders.OrderList[0].OrderNo != 22)
+                {
+                    OK = false;
+                }
+                if (FilteredOrders.OrderList[1].OrderNo != 23)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+
     }
 }
