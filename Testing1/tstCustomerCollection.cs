@@ -118,5 +118,41 @@ namespace ClassLibrary
 
     }
 
+        [TestMethod]
+
+        public void UpdateMethodOK()
+        {
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            clsCustomer TestCus = new clsCustomer();
+
+            Int32 PrimaryKey = 0;
+
+            TestCus.HasOrder = true;
+            TestCus.ShippingAddress = "123 Street Street";
+            TestCus.DateAdded = DateTime.Now.Date;
+            TestCus.Password = "Password";
+            TestCus.Username = "Dave";
+            TestCus.CustomerID = 5;
+            AllCustomers.ThisCustomer = TestCus;
+
+            PrimaryKey = AllCustomers.Add();
+
+            TestCus.CustomerID = PrimaryKey;
+
+
+            TestCus.HasOrder = false;
+            TestCus.ShippingAddress = "789 Street Street";
+            TestCus.DateAdded = DateTime.Now.Date;
+            TestCus.Password = "Word of pass";
+            TestCus.Username = "Evad";
+            TestCus.CustomerID = 77;
+
+            AllCustomers.ThisCustomer = TestCus;
+            AllCustomers.Update();
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestCus);
+        }
+
     }
 }
