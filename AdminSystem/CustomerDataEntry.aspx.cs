@@ -34,7 +34,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string vHasOrder = Convert.ToString(chkHasOrder.Checked);
         ///Used for this next method:
         Error = CustomerInfo.Valid(vUsername, vHasOrder, vPassword, vDateAdded, vShippingAddress);
-        if (Error == "") 
+        if (Error == "")
         {
 
             CustomerInfo.Username = txtUsername.Text;
@@ -50,7 +50,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             clsCustomerCollection CustomerList = new clsCustomerCollection();
             CustomerList.ThisCustomer = CustomerInfo;
             CustomerList.Add();
-            
+
             ///Testing this now, and it works!
             ///
             if (CustomerID == -1)
@@ -76,7 +76,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             ///Same as last time, just redirects to the CustomerViewer page.
             ///
         }
-        else lblError.Text = Error;
+        else { lblError.Text = Error; }
 
 
     }
