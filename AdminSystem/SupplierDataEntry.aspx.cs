@@ -19,6 +19,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsSupplier AnSupplier = new clsSupplier();
         //capture the SupplierID
         AnSupplier.SupplierID = Convert.ToInt32(txtSupplierID.Text);
+        AnSupplier.SupplierName = Convert.ToString(txtSupplierID.Text);
+        AnSupplier.OrderArrivedOn = Convert.ToDateTime(txtSupplierID.Text);
+        AnSupplier.OrderNumber = Convert.ToInt32(txtSupplierID.Text);
+        AnSupplier.Availability = Convert.ToBoolean(txtSupplierID.Text);
+        AnSupplier.Quantity = Convert.ToInt32(txtSupplierID.Text);
         //store the Supplier in the session object
         Session["AnSupplier"] = AnSupplier;
         //navigate to the viewer page 
