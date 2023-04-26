@@ -185,5 +185,56 @@ namespace ClassLibrary
 
         }
 
+        [TestMethod]
+
+        public void ReportByUsernameMethodOK()
+        {
+            clsCustomerCollection SomeCustomers = new clsCustomerCollection();
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            
+            
+            
+            FilteredCustomers.ReportByUsername("");
+
+            Assert.AreEqual(SomeCustomers.Count, FilteredCustomers.Count); //Interesting note on why hardcodn's bad, so we were supposed to write a basic hardcoded solution of Assert.AreEqual(0,FC.Count), but our empty custmer cllections
+            ///contain every element on the database by default, and our unit tests continuall bump that number up by adding new customers
+            ///I'm also completely unsure how the hell our actual filter procedure works? I guess filtering for something like "" is a bit of a mindfreak anyway though, plus, it passes.
+            ///
+        }
+
+        [TestMethod]
+        public void ReportByUsernameNoneFound()
+        {
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+            FilteredCustomers.ReportByUsername("Wingdinginginigninginigningngngn"); //Should return no results
+            Assert.AreEqual(0, FilteredCustomers.Count);
+        }
+
+        [TestMethod]
+
+        public void ReportByUsernameTestDataFound()
+        {
+
+            clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
+
+            Boolean OK = true;
+            FilteredCustomers.ReportByUsername("Billy");
+            
+            if (FilteredCustomers.Count == 2)
+            {
+                if (FilteredCustomers.CustomerList[0].CustomerID != 3834863) { OK = false; }
+
+                if (FilteredCustomers.CustomerList[1].CustomerID != 3834967) { OK = false; }
+            }
+
+            else if (FilteredCustomers.Count != 2)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+            
+        }
+
     }
 }
