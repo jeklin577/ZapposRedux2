@@ -212,7 +212,7 @@ namespace ClassLibrary
 
         [TestMethod]
 
-        public void ReportByUsernameTestDataFound()
+        public void ReportByUsernameTestDataFound1()
         {
 
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
@@ -222,7 +222,7 @@ namespace ClassLibrary
             
             if (FilteredCustomers.Count == 2)
             {
-                if (FilteredCustomers.CustomerList[0].CustomerID != 3834863) { OK = false; }
+                if (FilteredCustomers.CustomerList[0].CustomerID != 3834864) { OK = false; } //Whoops! Had the wrong Customer Id for this conditional! Fixed now!
 
                 if (FilteredCustomers.CustomerList[1].CustomerID != 3834967) { OK = false; }
             }
