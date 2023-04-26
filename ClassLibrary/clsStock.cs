@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
-
+using System.Globalization;
+using System.Text.RegularExpressions;
 namespace ClassLibrary
 {
     public class clsStock
@@ -82,11 +83,13 @@ namespace ClassLibrary
             get
             {
                 return mPrice;
+
             }
             set
             {
-                mPrice = value;
-            } 
+                string temp = value.ToString().Replace("£", "");
+                mPrice = decimal.Parse(temp);
+            }
         }
         
         public bool Find(int SneakerID)
@@ -111,56 +114,86 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string sneakerName, string sneakerDescription, string releaseDate)
+        public string Valid(string sneakerName, string sneakerDescription, string releaseDate, string Price, string Size)
         {
             String Error = "";
             DateTime DateTemp;
-            
-           
-            
-                if (sneakerName.Length == 0)
-                {
-                    Error = Error + "The sneaker name may not be blank : ";
-                }
-                if (sneakerName.Length > 50)
-                {
-                    Error = Error + "The sneaker name may not be more than 50 characters";
-                }
-            
-             if (sneakerDescription.Length == 0)
-                {
-                    Error = Error + "The sneaker description may not be blank : ";
-                }
-                if (sneakerDescription.Length > 250)
-                {
-                    Error = Error + "The sneaker description may not be more than 250 characters : ";
-                }
-            
-            
-            
+            // Use Regex to remove any non-numeric characters from the Price string
+            //The below code is used so that when the OK button is pressed the pound symbol is not included in the validation and we do not get a validation error message of invalid data
+            Regex rgx = new Regex("[^0-9.]");
+            Price = rgx.Replace(Price, "");
+
+            if (sneakerName.Length == 0)
+            {
+                Error = Error + "The sneaker name may not be blank : ";
+            }
+            if (sneakerName.Length > 50)
+            {
+                Error = Error + "The sneaker name may not be more than 50 characters : ";
+            }
+
+            if (sneakerDescription.Length == 0)
+            {
+                Error = Error + "The sneaker description may not be blank : ";
+            }
+            if (sneakerDescription.Length > 250)
+            {
+                Error = Error + "The sneaker description may not be more than 250 characters : ";
+            }
+
             try
             {
-                //LOCAL VAR
-                 DateTemp = Convert.ToDateTime(releaseDate);
+                DateTemp = Convert.ToDateTime(releaseDate);
                 if (DateTemp < DateTime.Now.Date.AddYears(-15))
                 {
-                    Error = Error + "The date cannot be 201 years or more ago : ";
+                    Error = Error + "The date cannot be 15 years or more ago : ";
                 }
-                if(DateTemp > DateTime.Now.Date)
+                if (DateTemp > DateTime.Now.Date)
                 {
                     Error = Error + "The date cannot be in the future : ";
                 }
             }
             catch
             {
-                Error = Error + "The Date is not a valid Date. ";
+                Error = Error + "The Date is not a valid Date : ";
             }
+            try
+            {
+                decimal TempPrice = Convert.ToDecimal(Price, CultureInfo.InvariantCulture);
 
-            
-
+                if (TempPrice < decimal.Zero)
+                {
+                    Error = Error + "The price cannot be less than 0 : ";
+                }
+                if (TempPrice > Convert.ToDecimal(1000000.00))
+                {
+                    Error = Error + "The price cannot be more than 1 million : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "Price is not valid : ";
+            }
+            try
+            {
+                decimal TempSize = Convert.ToDecimal(Size);
+                if (TempSize < Convert.ToDecimal(3))
+                {
+                    Error = Error + "The minimum size available is 3UK : ";
+                }
+                if (TempSize > Convert.ToDecimal(17))
+                {
+                    Error = Error + "The maximum size available is 17UK : ";
+                }
+            }
+            catch
+            {
+                Error = Error + "Size is not valid : ";
+            }
 
             return Error;
         }
-                                
+
+
     }
 }
