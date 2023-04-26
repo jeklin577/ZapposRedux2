@@ -461,8 +461,10 @@ namespace Testing2
             clsStock TestStock = new clsStock();
             String Error = "";
             decimal TempPrice = -0.01m; // assign the value to a decimal variable
-            Price = TempPrice.ToString(); // convert the decimal to a string
+           string Price = TempPrice.ToString(); // convert the decimal to a string
+            
             Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Price, Size);
+          
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
