@@ -71,21 +71,32 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {
-        Int32 CustomerID;
-        if (lstCustomerList.SelectedIndex != -1)
-        {
-            CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
-            Session["CustomerID"] = CustomerID;
-            Response.Redirect("CustomerConfirmDelete.aspx");
-        }
-        else
-        {
-            lblError.Text = "Please select a record to delete from the list";
-        }
+      ///  Int32 CustomerIDHoldingVar;
+      ///  if (lstCustomerList.SelectedIndex != -1)
+      ///  {
+      ///      CustomerIDHoldingVar = Convert.ToInt32(lstCustomerList.SelectedValue);
+      ///      Session["CustomerID"] = CustomerIDHoldingVar;
+      ///      Response.Redirect("CustomerConfirmDelete.aspx");
+      ///  }
+       // else //nO RECORD SELECTED
+       // {
+       //     lblError.Text = "Please select a record to delete from the list";
+       // }
     }
 
     protected void btnDelete_Click1(object sender, EventArgs e)
     {
+        Int32 CustomerIDHoldingVar;
+        if (lstCustomerList.SelectedIndex != -1)
+        {
+            CustomerIDHoldingVar = Convert.ToInt32(lstCustomerList.SelectedValue);
+            Session["CustomerID"] = CustomerIDHoldingVar;
+            Response.Redirect("CustomerConfirmDelete.aspx");
+        }
+        else //nO RECORD SELECTED
+        {
+            lblError.Text = "Please select a record to delete from the list";
+        }
 
     }
 }
