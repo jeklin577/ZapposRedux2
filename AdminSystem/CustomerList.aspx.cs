@@ -99,5 +99,34 @@ public partial class _1_List : System.Web.UI.Page
         }
 
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+           
+            Customers.ReportByUsername(txtFilter.Text);
+        lstCustomerList.DataSource = Customers.CustomerList;
+        lstCustomerList.DataValueField = "CustomerID";
+        lstCustomerList.DataValueField = "Username";
+        lstCustomerList.DataBind();
+    }
+
+    ///protected void TextBox1_TextChanged(object sender, EventArgs e)
+    /// {
+    //
+    // }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        txtFilter.Text = ("");
+        Customers.ReportByUsername(txtFilter.Text); //Ok, so clearing the page by using the btnApply works when txtfilter.text is empty, so why not just do that with the clear rather than
+                                                    //Reporting by ""? ok that didn't work either, why doesn't that work?
+
+        lstCustomerList.DataSource = Customers.CustomerList; //^^ To answer that guy's question, we forgot this line, silly ol' sean.
+        lstCustomerList.DataValueField = "CustomerID";
+        lstCustomerList.DataValueField = "Username";
+        lstCustomerList.DataBind();
+    }
 }
  
