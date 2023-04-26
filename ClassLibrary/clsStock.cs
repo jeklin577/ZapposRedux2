@@ -120,9 +120,10 @@ namespace ClassLibrary
             DateTime DateTemp;
             // Use Regex to remove any non-numeric characters from the Price string
             //The below code is used so that when the OK button is pressed the pound symbol is not included in the validation and we do not get a validation error message of invalid data
-            Regex rgx = new Regex("[^0-9.]");
+            // Use Regex to remove any non-numeric characters from the Price string
+            //The below code is used so that when the OK button is pressed the pound symbol is not included in the validation and we do not get a validation error message of invalid data
+            Regex rgx = new Regex("[^0-9.£-]");
             Price = rgx.Replace(Price, "");
-
             if (sneakerName.Length == 0)
             {
                 Error = Error + "The sneaker name may not be blank : ";

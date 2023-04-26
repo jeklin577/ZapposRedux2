@@ -127,7 +127,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
        
     }
-  
 
 
+
+    //Although code for the cancel button was not given I am creating one so that it becomes useful. It will basically clear any text entered in the text fields.
+    //This helps the user because by using this button there is no need to clear the text fields one by one if the user wants to add a new record using the OK button.
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        clsStock TestStock = new clsStock();
+        txtSneakerID.Text = "";
+        txtSneakerName.Text = "";
+        txtSneakerDescription.Text = "";
+        txtReleaseDate.Text = "";
+        txtSize.Text = "";
+        txtPrice.Text = "£";
+        chkSizeAvailable.Checked = false;
+    }
 }
