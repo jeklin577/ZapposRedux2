@@ -79,28 +79,10 @@ namespace ClassLibrary
 
             //Deprecated method that used hard coding, preserved for posterity
 
-            Int32 Index = 0;
-            Int32 RecordCount = 0;
+            
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_tblCustomer_SelectAll"); ///Well, we found another culprit, remember to directly copy and paste procedure names
-            RecordCount = DB.Count;
-
-            while (Index < RecordCount) ///As a note to my idiocy, i wasted 20 minutes before realising that this should be '<' not '>'
-            {
-                clsCustomer TempDBCus = new clsCustomer();
-                TempDBCus.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                TempDBCus.HasOrder = Convert.ToBoolean(DB.DataTable.Rows[Index]["HasOrder"]);
-                TempDBCus.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["JoinDate"]);
-                TempDBCus.Username = Convert.ToString(DB.DataTable.Rows[Index]["Username"]);
-                TempDBCus.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
-                TempDBCus.ShippingAddress = Convert.ToString(DB.DataTable.Rows[Index]["ShippingAddress"]);
-
-                mCustomerList.Add(TempDBCus);
-                Index++;
-            }
-
-
-
+            PopulateArray(DB); //( there was some coed here, it was basically transplanted down int othe PopulateArray method)
         }
 
         public int Add()
@@ -136,6 +118,36 @@ namespace ClassLibrary
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@CustomerID", mThisCustomer.CustomerID);
             DB.Execute("sproc_tblCustomer_Delete");
+        }
+
+
+        public void ReportByUsername(string Username)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Username", Username);
+            DB.Execute("sproc_tblCustomer_FilterByUsername");
+            PopulateArray(DB);
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mCustomerList = new List<clsCustomer>();
+            while (Index < RecordCount)
+            {
+                clsCustomer TestCust = new clsCustomer();
+                TestCust.HasOrder = Convert.ToBoolean(DB.DataTable.Rows[Index]["HasOrder"]);
+                TestCust.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
+                TestCust.Username = Convert.ToString(DB.DataTable.Rows[Index]["Username"]);
+                TestCust.ShippingAddress = Convert.ToString(DB.DataTable.Rows[Index]["ShippingAddress"]);
+                TestCust.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
+                TestCust.DateAdded = Convert.ToDateTime(DB.DataTable.Rows[Index]["JoinDate"]);
+                
+                mCustomerList.Add(TestCust);
+                Index++;
+            }
         }
 
     }

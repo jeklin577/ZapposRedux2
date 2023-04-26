@@ -26,7 +26,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsCustomer CustomerInfo = new clsCustomer();
         string Error = "";
 
-
+                
              string vUsername = txtUsername.Text;
          string vPassword = txtPassword.Text;
         string vShippingAddress = txtShippingAddress.Text;
@@ -34,7 +34,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string vHasOrder = Convert.ToString(chkHasOrder.Checked);
         ///Used for this next method:
         Error = CustomerInfo.Valid(vUsername, vHasOrder, vPassword, vDateAdded, vShippingAddress);
-        if (Error == "")
+        if (Error == "" && txtCustomerID != null) //Makes sure all the elements are valid, and that the Customer ID field isn't blank, we ran into a bug with this
         {
 
             CustomerInfo.Username = txtUsername.Text;
@@ -109,6 +109,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtDateJoined.Text = Customers.ThisCustomer.CustomerID.ToString();
         txtUsername.Text = Customers.ThisCustomer.CustomerID.ToString();
         chkHasOrder.Checked = Customers.ThisCustomer.HasOrder;
+
+    }
+
+    protected void txtCustomerID_TextChanged(object sender, EventArgs e)
+    {
 
     }
 }

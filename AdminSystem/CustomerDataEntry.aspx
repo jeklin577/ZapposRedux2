@@ -11,7 +11,7 @@
         <div>
         </div>
         <asp:Label ID="lblCustomerID" runat="server" Text="CustomerID" width="68px"></asp:Label>
-        <asp:TextBox ID="txtCustomerID" runat="server" style="margin-left: 30px; margin-bottom: 0px" width="128px"></asp:TextBox>
+        <asp:TextBox ID="txtCustomerID" runat="server" style="margin-left: 30px; margin-bottom: 0px" width="128px" OnTextChanged="txtCustomerID_TextChanged"></asp:TextBox>
         <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         <p>
             <asp:Label ID="lblPassword" runat="server" Text="Password" width="68px"></asp:Label>
