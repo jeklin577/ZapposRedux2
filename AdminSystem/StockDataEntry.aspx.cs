@@ -21,10 +21,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 //The below empty strings are used so that when the page is first displayed, these text fields are intialised to empty
                 //The reason is that before thes the text fields were initialised to 0.
                 txtSneakerID.Text = "";
-                txtPrice.Text = "";
                 txtSize.Text = "";
                 txtReleaseDate.Text = "";
+                //Initialized to a pound symbol
+                txtPrice.Text = "£";
             }
+            
         }
 
     }
@@ -37,7 +39,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtSneakerDescription.Text = StockBook.ThisStock.SneakerDescription;
         txtReleaseDate.Text = StockBook.ThisStock.ReleaseDate.ToString("dd/MM/yyyy");
         txtSize.Text = StockBook.ThisStock.Size.ToString();
-        txtPrice.Text = StockBook.ThisStock.Price.ToString();
+        txtPrice.Text = "£" + StockBook.ThisStock.Price.ToString();
         chkSizeAvailable.Checked = StockBook.ThisStock.SizeAvailable;
     }
 
@@ -56,8 +58,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtSneakerName.Text = TestStock.SneakerName;
             txtSneakerDescription.Text = TestStock.SneakerDescription;
             txtReleaseDate.Text = TestStock.ReleaseDate.ToString("dd/MM/yyyy");
-            txtSize.Text = TestStock.Size.ToString();
-            txtPrice.Text = TestStock.Price.ToString();
+            //The below code is added so than when a size is a single digit number like 7 or 8 it will be presented to 0 decimal places, so it will be presented
+            //as 7 instead of 7.0 which is how sizes are shown everywhere. The code keeps sizes that are of .5 stll to 1 decimal place so 7.5 will still be visible
+            // Check if the decimal portion of the size is zero
+            if (TestStock.Size % 1 == 0)
+            {
+                // If the decimal portion is zero, format the size to only show the whole number
+                txtSize.Text = TestStock.Size.ToString("0.#");
+            }
+            else
+            {
+                // Otherwise, format the size to show one decimal point
+                txtSize.Text = TestStock.Size.ToString("0.0");
+            }
+            txtPrice.Text = "£" + TestStock.Price.ToString();
             chkSizeAvailable.Checked = TestStock.SizeAvailable;
         }
     }
@@ -72,12 +86,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string ReleaseDate = txtReleaseDate.Text;
         string Size = txtSize.Text;
         string Price = txtPrice.Text;
+        // Replace pound symbol with empty string
+        Price = Price.Replace("£", "");
         string Error = "";
 
 
-        Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate);
+
+        Error = TestStock.Valid(SneakerName, SneakerDescription, ReleaseDate, Price, Size);
+
         if (Error == "")
         {
+
             TestStock.SneakerID = SneakerID;
             TestStock.SneakerName = SneakerName;
             TestStock.SneakerDescription = SneakerDescription;
@@ -99,7 +118,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
             }
 
             Response.Redirect("StockList.aspx");
-           
+
+
         }
         else
         {
@@ -107,4 +127,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
        
     }
+  
+
+
 }

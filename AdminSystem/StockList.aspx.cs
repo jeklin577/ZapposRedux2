@@ -20,7 +20,8 @@ public partial class _1_List : System.Web.UI.Page
         clsStockCollection TestStock = new clsStockCollection();
         lstStockList.DataSource = TestStock.StockList;
         lstStockList.DataValueField = "SneakerID";
-        lstStockList.DataValueField = "SneakerName";
+        lstStockList.DataTextField = "SneakerName";
+
         lstStockList.DataBind();
     }
 
