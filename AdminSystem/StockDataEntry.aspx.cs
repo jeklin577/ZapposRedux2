@@ -13,19 +13,17 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         SneakerID = Convert.ToInt32(Session["SneakerID"]);
+
         if(IsPostBack == false)
         {
+
+           
             if(SneakerID != -1)
             {   
                 DisplayStock();
-                //The below empty strings are used so that when the page is first displayed, these text fields are intialised to empty
-                //The reason is that before thes the text fields were initialised to 0.
-                txtSneakerID.Text = "";
-                txtSize.Text = "";
-                txtReleaseDate.Text = "";
-                //Initialized to a pound symbol
-                txtPrice.Text = "£";
+                
             }
+
             
         }
 
@@ -105,8 +103,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             TestStock.Price = Convert.ToDecimal(Price);
             TestStock.SizeAvailable = chkSizeAvailable.Checked;
             clsStockCollection StockList = new clsStockCollection();
-            if(SneakerID == -1)
+            
+            if (SneakerID == -1)
             {
+               
                 StockList.ThisStock = TestStock;
                 StockList.Add();
             }
@@ -116,7 +116,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
                 StockList.ThisStock = TestStock;
                 StockList.Update();
             }
-
+            
             Response.Redirect("StockList.aspx");
 
 

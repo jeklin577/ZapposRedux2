@@ -81,6 +81,7 @@ namespace ClassLibrary
         public void Update()
         {
             clsStockConnection DB = new clsStockConnection();
+           
             DB.AddParameter("@SneakerID", mThisStock.SneakerID);
             DB.AddParameter("@SneakerName", mThisStock.SneakerName);
             DB.AddParameter("@SneakerDescription", mThisStock.SneakerDescription);
@@ -93,7 +94,7 @@ namespace ClassLibrary
         }
         public void Delete()
         {
-            clsDataConnection DB = new clsDataConnection();
+            clsStockConnection DB = new clsStockConnection();
             DB.AddParameter("@SneakerID", mThisStock.SneakerID);
             DB.Execute("sproc_tblStock_Delete");
         }
