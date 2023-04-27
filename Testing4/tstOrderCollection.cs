@@ -96,6 +96,7 @@ namespace Testing4
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.ItemNames = "Jordans";
             TestItem.ItemQuantity = 3;
+            TestItem.ReadyToDispatch = true;
             //set ThisOrder to the test data
             AllOrders.ThisOrder = TestItem;
             //add the record
@@ -109,6 +110,7 @@ namespace Testing4
             TestItem.DateAdded = DateTime.Now.Date;
             TestItem.ItemNames = "Jordan";
             TestItem.ItemQuantity = 2;
+            TestItem.ReadyToDispatch = false;
             //set the record based on the new test data
             AllOrders.ThisOrder = TestItem;
             //update the record
@@ -118,8 +120,7 @@ namespace Testing4
             //test to see ThisOrder matches the test data.
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
-
-        
+       
         [TestMethod]
         public void AddMethodOK()
         {
@@ -179,7 +180,7 @@ namespace Testing4
         public void ReportByCustomerIDNoneFound()
         { 
             clsOrderCollection FilteredOrders = new clsOrderCollection();
-            FilteredOrders.ReportByCustomerID("xx");
+            FilteredOrders.ReportByCustomerID("xxx");
             Assert.AreEqual(0, FilteredOrders.Count);
         }
 
@@ -188,10 +189,10 @@ namespace Testing4
         {
             clsOrderCollection FilteredOrders = new clsOrderCollection();
             Boolean OK = true;
-            FilteredOrders.ReportByCustomerID("xx");
-            if (FilteredOrders.Count == 2)
+            FilteredOrders.ReportByCustomerID("yyy");
+            if (FilteredOrders.Count == 24)
             {
-                if (FilteredOrders.OrderList[0].OrderNo != 22)
+                if (FilteredOrders.OrderList[0].OrderNo != 11)
                 {
                     OK = false;
                 }
