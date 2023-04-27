@@ -98,11 +98,11 @@ namespace ClassLibrary
             DB.Execute("sproc_tblOrderProcessing_Delete");
         }
 
-        public void ReportByCustomerID(String ItemNames)
+        public void ReportByCustomerID(Int64 CustomerID)
         {
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored precedures
-            DB.AddParameter("@ItemNames", ItemNames);
+            DB.AddParameter("@CustomerID", CustomerID);
             //execute the query returning the primary key value
             DB.Execute("sproc_tblOrders_FilterByCustomerID");
             PopulateArray(DB);

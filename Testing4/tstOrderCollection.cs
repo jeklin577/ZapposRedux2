@@ -120,8 +120,7 @@ namespace Testing4
             //test to see ThisOrder matches the test data.
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
-        //Procedure or function 'sproc_tblOrders_Update' expects parameter '@OrderID', which was not supplied.
-
+       
         [TestMethod]
         public void AddMethodOK()
         {
