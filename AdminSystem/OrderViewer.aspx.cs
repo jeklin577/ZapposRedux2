@@ -14,7 +14,7 @@ public partial class _1Viewer : System.Web.UI.Page
         clsOrders instance = new clsOrders();
         
         //get the data from the session object
-        instance = (clsOrders)Session["instance"];
+        instance = (clsOrders)Session["orderNo"];
         //display the order number for this entry
         Response.Write(instance.OrderNo);
 
@@ -48,5 +48,14 @@ public partial class _1Viewer : System.Web.UI.Page
         //display the order number for this entry
         Response.Write(instance.ReadyToDispatch);
 
+
+
+
+        //create a new instance of clsStock
+        clsStock TestStock = new clsStock();
+        //get the data from the session object
+        TestStock = (clsStock)Session["TestStock"];
+        //display the Sneaker ID for this entry
+        Response.Write(TestStock.SneakerID);
     }
 }
