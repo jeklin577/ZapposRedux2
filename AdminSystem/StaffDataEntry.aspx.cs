@@ -17,19 +17,37 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         clsStaff TestStaff = new clsStaff();
         // Creates a new instance of clsStaff
-        TestStaff.StaffID = Convert.ToInt32(txtStaffID.Text);
-        TestStaff.FirstName = txtFirstName.Text;
-        TestStaff.LastName = txtLastName.Text;
-        TestStaff.Gender = ddlGender.Text;
-        TestStaff.DateHired = Convert.ToDateTime(txtDateHired.Text);
-        TestStaff.Salary = Convert.ToInt32(txtSalary.Text);
-        TestStaff.Age = Convert.ToInt32(txtAge.Text);
-        // Captures attribute Inputs
-        Session["TestStaff"] = TestStaff;
-        // Stores StaffID in the Session Object
-        Response.Redirect("StaffViewer.aspx");
-        // Naviagates to Viewer Page
-        
+        String StaffID = txtStaffID.Text;
+        String FirstName = txtFirstName.Text;
+        String LastName = txtLastName.Text;
+        String Gender = ddlGender.Text;
+        String DateHired = txtDateHired.Text;
+        String Salary = txtSalary.Text;
+        String Age = txtAge.Text;
+        String Error = "";
+        Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+        if (Error == "")
+        {
+
+            TestStaff.StaffID = Convert.ToInt32(txtStaffID.Text);
+            TestStaff.FirstName = txtFirstName.Text;
+            TestStaff.LastName = txtLastName.Text;
+            TestStaff.Gender = ddlGender.Text;
+            TestStaff.DateHired = Convert.ToDateTime(txtDateHired.Text);
+            TestStaff.Salary = Convert.ToInt32(txtSalary.Text);
+            TestStaff.Age = Convert.ToInt32(txtAge.Text);
+
+            // Captures attribute Inputs
+            Session["TestStaff"] = TestStaff;
+            // Stores StaffID in the Session Object
+            Response.Redirect("StaffViewer.aspx");
+            // Naviagates to Viewer Page
+
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 
     protected void btnFind_Click(object sender, EventArgs e)
