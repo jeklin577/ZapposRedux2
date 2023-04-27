@@ -44,7 +44,7 @@ namespace Testing5
         {
             clsStaffCollection AllStaff = new ClassLibrary.clsStaffCollection();
             //create an instance of class
-            Int32 SomeCount = 0;
+            Int32 SomeCount = 2;
             //test data to assign
             AllStaff.Count = SomeCount;
             //test to see if val are the same
@@ -69,9 +69,34 @@ namespace Testing5
             //tests if both are same
             Assert.AreEqual(AllStaff.ThisStaff, TestStaff);
         }
-
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //creates instance of class
+            List<clsStaff> TestList = new List<clsStaff>();
+            //create test data
+            clsStaff TestItem = new clsStaff();
+            TestItem.StaffID = 40;
+            TestItem.FirstName = "Don";
+            TestItem.LastName = "Toliver";
+            TestItem.Age = 24;
+            TestItem.DateHired = DateTime.Now.Date;
+            TestItem.Salary = 2000000;
+            TestItem.Gender = true;
+            TestList.Add(TestItem);
+            //assign to property
+            AllStaff.StaffList = TestList;
+            //tests if both are same
+            Assert.AreEqual(AllStaff.Count, TestList.Count);
+        }
+       
+        
+        
+            
+        }
     }
-}
+
 
 
 
