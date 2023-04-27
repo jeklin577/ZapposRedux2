@@ -13,7 +13,6 @@
         <asp:ListBox ID="lstOrderList" runat="server" Height="461px" OnSelectedIndexChanged="lstOrderList_SelectedIndexChanged" Width="567px"></asp:ListBox>
         <asp:Button ID="btnAdd" runat="server" OnClick="Button1_Click" Text="Add" />
         <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
-        <asp:Button ID="butonEdit" runat="server" Text="Edit" />
         <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         <p>
             <asp:Label ID="lblCustomerID" runat="server" Text="Enter a Customer ID   "></asp:Label>

@@ -82,7 +82,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             anOrder.ItemQuantity = Convert.ToInt32(txtItemQuantity.Text);
             anOrder.DateAdded = Convert.ToDateTime(txtDateAdded.Text);
             anOrder.DeliveryAddress = txtDeliveryAddress.Text;
-            anOrder.ReadyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Text);
+            anOrder.ReadyToDispatch = Convert.ToBoolean(chkReadyToDispatch.Checked);
 
             //create a new instance of the address collection
             clsOrderCollection OrderList = new clsOrderCollection();
