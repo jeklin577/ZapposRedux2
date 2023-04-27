@@ -101,6 +101,16 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void butonEdit_Click(object sender, EventArgs e)
     {
-
+        Int32 CustomerID;
+        if (lstOrderList.SelectedIndex != -1)
+        {
+            CustomerID = Convert.ToInt32(lstOrderList.SelectedValue);
+            Session["CustomerID"] = CustomerID;
+            Response.Redirect("OrderDataEntry.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record to edit from the list";
+        }
     }
 }
