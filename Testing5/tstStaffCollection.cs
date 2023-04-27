@@ -42,7 +42,7 @@ namespace Testing5
         [TestMethod]
         public void CountStaffOK()
         {
-            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection AllStaff = new ClassLibrary.clsStaffCollection();
             //create an instance of class
             Int32 SomeCount = 0;
             //test data to assign
@@ -70,7 +70,7 @@ namespace Testing5
             Assert.AreEqual(AllStaff.ThisStaff, TestStaff);
         }
 
-        }
+    }
 }
 
 
