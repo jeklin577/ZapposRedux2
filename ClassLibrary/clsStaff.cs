@@ -157,6 +157,16 @@ namespace ClassLibrary
                 Error = Error + "Last Name Must Be Less Than 50 Characters  :  ";
                 //records error msg
             }
+            if (age.Length == 0)
+            {
+                Error = Error + "Age Must Be Entered  :  ";
+                //records error msg
+            }
+            if (salary.Length == 0)
+            {
+                Error = Error + "Salary Must Be Entered  :  ";
+                //records error msg
+            }
             try
             {
                 decimal Tempsalary = Convert.ToDecimal(salary);
