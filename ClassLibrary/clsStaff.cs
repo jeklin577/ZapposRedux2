@@ -159,6 +159,28 @@ namespace ClassLibrary
             }
             try
             {
+                decimal Tempsalary = Convert.ToDecimal(salary);
+
+                if (Tempsalary < decimal.Zero)
+                {
+                    Error = Error + "Salary cannot be less than 0 : ";
+                }
+                if (Tempsalary > Convert.ToDecimal(1000000))
+                {
+                    Error = Error + "The Salary cannot be more than 10000000 : ";
+                }
+                //if the Last Name is blank
+                if (salary.Length == 0)
+                {
+                    Error = Error + "Salary Must Be Entered  :  ";
+                    //records error msg
+                }
+                }
+            catch
+            {
+            }
+                try
+                {
 
                 DateTemp = Convert.ToDateTime(dateHired);
                 if (DateTemp < DateTime.Now.Date)
@@ -178,10 +200,9 @@ namespace ClassLibrary
             catch
             {
                 Error = Error + "The Date Was Not Valid  :  ";
-                //records error msg
+                //records error
             }
-
-            return Error;
+                return Error;
             //return error msg
         }
     }
