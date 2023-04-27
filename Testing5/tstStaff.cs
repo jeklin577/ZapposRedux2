@@ -481,8 +481,213 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
             //test to check the results correct
         }
-    }
-}
+        [TestMethod]
+        public void DateHiredExtremeMin()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Date minus 100 years
+            TestDate = TestDate.AddYears(-100);
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredMinLessOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Date minus 1 day
+            TestDate = TestDate.AddDays(-1);
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredMin()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredMinPlusOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Date add 1 day
+            TestDate = TestDate.AddDays(1);
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredExtremeMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Date add 100 years
+            TestDate = TestDate.AddYears(100);
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredInvalidData()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg           
+            String DateHired = "This Is Not a Date!";
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
 
+
+        [TestMethod]
+        public void SalaryExtremeMin()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            string Salary = "";
+            Salary = Salary.PadRight(5000000, 'a');
+            //Convert to String var
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void SalaryMinLessOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            //assigns var to decimal
+            Decimal TempPrice = -1;
+            //Convert to String var
+            String Salary = TempPrice.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredMin()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredMinPlusOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Date add 1 day
+            TestDate = TestDate.AddDays(1);
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredExtremeMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            DateTime TestDate;
+            //set the Date to todays
+            TestDate = DateTime.Now.Date;
+            //Date add 100 years
+            TestDate = TestDate.AddYears(100);
+            //Convert to String var
+            String DateHired = TestDate.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void DateHiredInvalidData()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg           
+            String DateHired = "This Is Not a Date!";
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+}
 
 
