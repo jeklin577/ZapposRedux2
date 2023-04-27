@@ -590,15 +590,15 @@ namespace Testing5
 
 
         [TestMethod]
-        public void SalaryExtremeMin()
+        public void SalaryExtremeMax()
         {
             clsStaff TestStaff = new clsStaff();
             //creates an instance of the class
             String Error = "";
             //string var to store error msg
-            string Salary = "";
-            Salary = Salary.PadRight(5000000, 'a');
-            //Convert to String var
+            Decimal TempSalary = 5000000;
+            //Assigns Val to Decimal
+            Salary = TempSalary.ToString();
             //invoke method
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //test to check result is right
@@ -612,82 +612,75 @@ namespace Testing5
             String Error = "";
             //string var to store error msg
             //assigns var to decimal
-            Decimal TempPrice = -1;
+            Decimal TempSalary = -1;
             //Convert to String var
-            String Salary = TempPrice.ToString();
+            String Salary = TempSalary.ToString();
             //invoke method
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //test to check result is right
             Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
-        public void DateHiredMin()
+        public void SalaryMax()
         {
             clsStaff TestStaff = new clsStaff();
             //creates an instance of the class
             String Error = "";
             //string var to store error msg
-            DateTime TestDate;
-            //set the Date to todays
-            TestDate = DateTime.Now.Date;
-            //Convert to String var
-            String DateHired = TestDate.ToString();
+            Decimal TempSalary = 1000000;
+            //Assigns Val to Decimal
+            Salary = TempSalary.ToString(); 
             //invoke method
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //test to check result is right
             Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void DateHiredMinPlusOne()
+        public void SalaryMinPlusOne()
         {
             clsStaff TestStaff = new clsStaff();
             //creates an instance of the class
             String Error = "";
             //string var to store error msg
-            DateTime TestDate;
-            //set the Date to todays
-            TestDate = DateTime.Now.Date;
-            //Date add 1 day
-            TestDate = TestDate.AddDays(1);
+            //assigns var to decimal
+            Decimal TempSalary = 1;
             //Convert to String var
-            String DateHired = TestDate.ToString();
+            String Salary = TempSalary.ToString();
             //invoke method
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //test to check result is right
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void DateHiredExtremeMax()
+        public void SalaryMin()
         {
             clsStaff TestStaff = new clsStaff();
             //creates an instance of the class
             String Error = "";
             //string var to store error msg
-            DateTime TestDate;
-            //set the Date to todays
-            TestDate = DateTime.Now.Date;
-            //Date add 100 years
-            TestDate = TestDate.AddYears(100);
-            //Convert to String var
-            String DateHired = TestDate.ToString();
+            Decimal TempSalary = 0;
+            //Assigns Val to Decimal
+            Salary = TempSalary.ToString();
             //invoke method
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //test to check result is right
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
         [TestMethod]
-        public void DateHiredInvalidData()
+        public void SalaryInvalidData()
         {
             clsStaff TestStaff = new clsStaff();
             //creates an instance of the class
             String Error = "";
             //string var to store error msg           
-            String DateHired = "This Is Not a Date!";
+            String Salary = "This Is Not a Viable Salary!";
             //invoke method
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //test to check result is right
-            Assert.AreNotEqual(Error, "");
+            Assert.AreEqual(Error, "");
         }
+    }
+
 }
 
 
