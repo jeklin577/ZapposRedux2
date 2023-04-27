@@ -92,7 +92,7 @@ namespace ClassLibrary
                 mAge = value;
             }
         }
-         
+
         public bool Find(int StaffID)
         {
             //create an instance of the data connection
@@ -129,7 +129,37 @@ namespace ClassLibrary
 
         public string Valid(string firstName, string lastName, string dateHired, string salary, string age)
         {
-            return "";
+            //creates a string var to store error
+            String Error = "";
+            //if the First Name is blank
+            if (firstName.Length == 0)
+            {
+                Error = Error + "First Name Must Be Entered  :  ";
+                //records error msg
+            }
+            //if the First Name is greater than 50 chara
+            if (firstName.Length > 50)
+            {
+                Error = Error + "First Name Must Be Less Than 50 Characters  :  ";
+                //records error msg
+            }
+            //if the Last Name is blank
+            if (lastName.Length == 0)
+            {
+                Error = Error + "Last Name Must Be Entered  :  ";
+                //records error msg
+            }
+            //if the Last Name is greater than 50 chara
+            if (lastName.Length > 50)
+            {
+                Error = Error + "Last Name Must Be Less Than 50 Characters  :  ";
+                //records error msg
+            }
+            return Error;
+            //return error msg
         }
     }
 }
+    
+
+
