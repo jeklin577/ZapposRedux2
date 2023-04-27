@@ -64,18 +64,15 @@ public class tstSupplierCollection
     TestItem.Availability = yes;
     TestItem.Quantity = 3;
     AllSupplier.ThisSupplier = TestItem
-    Primarykey = AllSupplier.Add();
-    TestItem.SupplierID = PrimaryKey;
+    mSupplierList.Add(TestItem);
+    TestItem = new clsSupplier();
     TestItem.SupplierID = 91022;
     TestItem.Suppliername = sean;
     TestItem.OrderArrivedOn = DateTime.Now.Date;
     TestItem.OrderNumber = 7353;
     TestItem.Availability = yes;
     TestItem.Quantity = 4;
-    AllSupplier.ThisSupplier = TestItem
-    AllSupplier.Update();
-    AllSupplier.ThisSupplier.find(PrimaryKey);
-    Assert.AreEqual(AllSupplier.ThisSupplier, TestItem);
+    mSupplierList.Add(TestItem);
 
     public clsSupplierCollection()
     { Int32 Index = 0
@@ -92,3 +89,21 @@ public class tstSupplierCollection
        AnSupplier.OrderNumber = Convert.ToInt32(DB.DateTable.Rows[Index][OrderNumber]);
        AnSupplier.Availability = Convert.ToBoolean(DB.DateTable.Rows[Index][Availability]);
        AnSupplier.Quantity = Convert.ToInt32(DB.DateTable.Rows[Index][Quantity]);
+       SupplierListok().Add(AnSupplier);
+       Index++;
+       
+       [TestMethod]
+       public void ListAnd CountOk()
+       {clsSupplierCollection AllSupplier = new clsSupplierCollection();
+       List<clsSupplier> TestList = new List<clsSupplier>();
+       clsSupplier TestItem = new clsSupplier();
+       TestItem.SupplierID = 91121;
+       TestItem.Suppliername = sean;
+       TestItem.OrderArrivedOn = DateTime.Now.Date;
+       TestItem.OrderNumber = 7353;
+       TestItem.Availability = yes;
+       TestItem.Quantity = 3;
+       TestList.Add.Supplier(TestItem);
+       AllSupplier.SupplierList = TestList;
+       Assert.AreEqual(AllSupplier.Count, TestList.Count);
+  }
