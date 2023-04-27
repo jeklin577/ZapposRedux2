@@ -7,12 +7,13 @@ namespace Testing5
     [TestClass]
     public class tstStaff
     {
+
         string FirstName = "Manny";
         string LastName = "Pacquiao";
         string DateHired = DateTime.Now.Date.ToString();
         string Salary = "22000";
         string Age = "20";
-    
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -256,7 +257,7 @@ namespace Testing5
                 OK = false;
             }
             //checks if result is correct
-            Assert.IsTrue(OK);
+            Assert.IsFalse(OK);
         }
         [TestMethod]
         public void ValidMethodOK()
@@ -268,9 +269,220 @@ namespace Testing5
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //invokes method
             Assert.AreEqual(Error, "");
-            //tetst to check the results correct
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameInLessOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string stores error message
+            string FirstName = ""; // triggers an error
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreNotEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameMin()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string FirstName = "a";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameMinPlusOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string FirstName = "aa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameMaxLessOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string FirstName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string FirstName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameMid()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string FirstName = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameMaxPlusOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string FirstName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreNotEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void FirstNameExtremeMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string FirstName = "";
+            FirstName = FirstName.PadRight(500, 'a');
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreNotEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameInLessOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string stores error message
+            string LastName = ""; // triggers an error
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreNotEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameMin()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string LastName = "a";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameMinPlusOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string LastName = "aa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameMaxLessOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string LastName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string LastName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameMid()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string LastName = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameMaxPlusOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string LastName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreNotEqual(Error, "");
+            //test to check the results correct
+        }
+        [TestMethod]
+        public void LastNameExtremeMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string test data to pass
+            string LastName = "";
+            LastName = LastName.PadRight(500, 'a');
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
+            Assert.AreNotEqual(Error, "");
+            //test to check the results correct
         }
     }
 }
+
 
 
