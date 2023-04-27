@@ -75,85 +75,85 @@ namespace Testing3
 			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierID = "a";
-			Error = ASupplier.Valid(SpplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = ASupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 		}
 		[TestMethod]
 		public void SupplierIDMin()
 		{
 			//create an instance of the class we want to create
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierID = "aa";
-			Error = ASupplier.Valid(SpplierNo, SpplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
 		[TestMethod]
 		public void SupplierIDMinPlusOne()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierNo = "aa";
-			Error = ASupplier.Valid(SupplierId, DateAdded, SupplierItems, SupplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 		}
 		[TestMethod]
 		public void SupplierIDMaxLessOne()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierID = "aaaa";
-			Error = ASupplier.Valid(SpplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
 		[TestMethod]
 		public void SupplierNoMax()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierID = "aaaa";
-			Error = ASupplier.Valid(SpplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 		}
 		[TestMethod]
 		public void SupplierNoMid()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierID = "aaa";
-			Error = ASupplier.Valid(SpplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 		}
 		[TestMethod]
 
 		public void SupplierIDMaxPlusOne()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierID = "aaaaaaa";
-			Error = ASupplier.Valid(SupplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 
 		}
 		[TestMethod]
-		public void SupplierIDExtremeMax()
+		public void SupplierNameExtremeMax()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
-			string SupplierID = "";
-			SupplierID = ASupplier.PadRight(500, 'a');
-			Error = ASupplier.Valid(SupplierID, DateAdded, SpplierItems, SpplierDescription);
+			string SupplierName = "";
+			SupplierID = AnSupplier.PadRight(500, 'a');
+			Error = AnSupplier.Valid(SupplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 		}
 		[TestMethod]
 		public void SupplierNameMinLessOne()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierName = "";
-			Error = ASupplier.Valid(SupplierId, DateAdded, SpplierName, SpplierDescription);
+			Error = AnSupplier.Valid(SupplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 		}
 		[TestMethod]
@@ -163,36 +163,36 @@ namespace Testing3
 			clsSupplier ASupplier = new clsSupplier();
 			String Error = "";
 			string SupplierName = "a";
-			Error = ASupplierValid(SupplierID, DateAdded, SpplierItems, SpplierDescription);
+			Error = ASupplierValid(SupplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
 		[TestMethod]
 		public void SupplierNameMinPlusOne()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierName = "aa";
-			Error = ASupplier.Valid(SupplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 		}
 
 		[TestMethod]
 		public void SupplierNameMaxLessOne()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierItems = "aaaa";
-			Error = ASupplier.Valid(SupplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 		}
 		[TestMethod]
 		public void SupplierNameMax()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SupplierName = "aaaa";
-			Error = ASupplier.Valid(, DateAdded, StockItems, StockDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
@@ -200,10 +200,10 @@ namespace Testing3
 
 		public void SupplierNameMaxPlusOne()
 		{
-			clsSupplier ASupplier = new clsSpplier();
+			clsSupplier AnSupplier = new clsSpplier();
 			String Error = "";
 			string SpplierName = "aaaaaaa";
-			Error = ASupplier Valid(SupplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = AnSupplier Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 
 		}
@@ -211,20 +211,20 @@ namespace Testing3
 		[TestMethod]
 		public void SupplierNameMid()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string SpplierItems = "aaa";
-			Error = ASupplier.Valid(SupplierId, DateAdded, SupplierItems, SupplierDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 		}
 		[TestMethod]
 		public void SupplierItemsExtremeMax()
 		{
-			clsSupplier ASupplier = new clsSupplier();
+			clsSupplier AnSupplier = new clsSupplier();
 			String Error = "";
 			string Items = "";
-			SupplierID = ASupplier.PadRight(500, 'a');
-			Error = ASupplier.Valid( SupplierId, DateAdded, SpplierItems, SpplierDescription);
+			SupplierID = AnSupplier.PadRight(500, 'a');
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 		}
 		[TestMethod]
@@ -233,7 +233,7 @@ namespace Testing3
 			clsSupplier ASupplier = new clsSupplier();
 			String Error = "";
 			string OrderArrivedOn = "";
-			Error = ASupplier.Valid(SupplierId, DateAdded, SpplierItems, OrderArrivedOn);
+			Error = ASupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 		}
 		[TestMethod]
@@ -243,7 +243,7 @@ namespace Testing3
 			clsSupplier ASupplier = new clsSupplier();
 			String Error = "";
 			stringOrderArrivedOn = "a";
-			Error = ASupplier Valid(SpplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = ASupplier Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 		}
 		[TestMethod]
@@ -252,7 +252,7 @@ namespace Testing3
 			clsSupplier ASupplier = new clsSupplier();
 			String Error = "";
 			string SupplierDescription = "aa";
-			Error = ASupplier.Valid(StockNo, StockId, DateAdded, StockItems, StockDescription);
+			Error = ASupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
@@ -262,7 +262,7 @@ namespace Testing3
 			clsSpplier ASupplier = new clsSupplier();
 			String Error = "";
 			string SupplierDescription = "aaaa";
-			Error = ASupplier.Valid( SpplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = ASupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
@@ -272,7 +272,7 @@ namespace Testing3
 			clsSupplier ASupplier = new clsSupplier();
 			String Error = "";
 			string OrderArrivedOn = "aaaa";
-			Error = ASupplier.Valid( StockId, DateAdded, StockItems, StockDescription);
+			Error = ASupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
@@ -282,7 +282,7 @@ namespace Testing3
 			clsSupplier ASupplier = new clsSupplier();
 			String Error = "";
 			string SpplierDescription = "aaa";
-			Error = ASupplier.Valid( SupplierId, DateAdded, SpplierItems, SpplierDescription);
+			Error = ASupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
@@ -292,7 +292,7 @@ namespace Testing3
 			clsSupplier ASupplier new clsSupplier();
 			String Error = "";
 			string SupplierDescription = "aaaaaa";
-			Error = ASupplier.Valid(SupplierNo, StockId, DateAdded, StockItems, StockDescription);
+			Error = ASupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreEqual(Error, "");
 
 		}
@@ -303,7 +303,7 @@ namespace Testing3
 			String Error = "";
 			string SupplierID = "";
 			SupplierID = AnSupplier.PadRight(500, 'a');
-			Error = AnSupplier.Valid(StockNo, StockId, DateAdded, StockItems, StockDescription);
+			Error = AnSupplier.Valid(SpplierId, SupplierName, OrderArrivedOn, OrderNumber, Availability, Quantity);
 			Assert.AreNotEqual(Error, "");
 		}
 
