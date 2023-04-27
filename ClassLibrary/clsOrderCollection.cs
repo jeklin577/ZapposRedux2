@@ -46,10 +46,6 @@ namespace ClassLibrary
         //Constructor for the class
         public clsOrderCollection()
         {
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
             //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored precedure
@@ -63,7 +59,7 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@OrderID", mThisOrder.OrderNo);
+           // DB.AddParameter("@OrderID", mThisOrder.OrderNo);
             DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
             DB.AddParameter("@ItemNames", mThisOrder.ItemNames);
             DB.AddParameter("@ItemQuantity", mThisOrder.ItemQuantity);
@@ -71,7 +67,7 @@ namespace ClassLibrary
             DB.AddParameter("@DeliveryAddress", mThisOrder.DeliveryAddress);
             DB.AddParameter("@ReadyToDispatch", mThisOrder.ReadyToDispatch);
             //execute the query returning the primary key value
-            return DB.Execute("sproc_tblOrder_Insert");  
+            return DB.Execute("sproc_tblOrders_Insert");  
         }
 
         public void Update()
@@ -80,6 +76,7 @@ namespace ClassLibrary
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored precedures
+            DB.AddParameter("@OrderID", mThisOrder.OrderNo);
             DB.AddParameter("@CustomerID", mThisOrder.CustomerID);
             DB.AddParameter("@ItemNames", mThisOrder.ItemNames);
             DB.AddParameter("@ItemQuantity", mThisOrder.ItemQuantity);
@@ -87,7 +84,7 @@ namespace ClassLibrary
             DB.AddParameter("@DeliveryAddress", mThisOrder.DeliveryAddress);
             DB.AddParameter("@ReadyToDispatch", mThisOrder.ReadyToDispatch);
             //execute the query returning the primary key value
-            DB.Execute("sproc_tblOrder_Update");
+            DB.Execute("sproc_tblOrders_Update");
         }
 
         public void Delete()
@@ -98,16 +95,16 @@ namespace ClassLibrary
             //set the parameters for the stored precedures
             DB.AddParameter("@OrderID", mThisOrder.OrderNo);
             //execute the query returning the primary key value
-            DB.Execute("sproc_tblOrder_Delete");
+            DB.Execute("sproc_tblOrderProcessing_Delete");
         }
 
-        public void ReportByCustomerID(string CustomerID)
+        public void ReportByCustomerID(String ItemNames)
         {
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored precedures
-            DB.AddParameter("@CustomerID", CustomerID);
+            DB.AddParameter("@ItemNames", ItemNames);
             //execute the query returning the primary key value
-            DB.Execute("sproc_tblOrder_FiterByCustomerID");
+            DB.Execute("sproc_tblOrders_FilterByCustomerID");
             PopulateArray(DB);
         }
 
