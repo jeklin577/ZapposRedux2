@@ -104,7 +104,8 @@ public partial class _1_List : System.Web.UI.Page
     protected void btnApply_Click(object sender, EventArgs e)
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
-           
+
+        Customers.ReportByUsername(txtFilter.Text);
         lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataValueField = "Username";
