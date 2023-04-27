@@ -93,6 +93,8 @@ namespace ClassLibrary
             }
         }
 
+        public int Count { get; set; }
+
         public bool Find(int StaffID)
         {
             //create an instance of the data connection
