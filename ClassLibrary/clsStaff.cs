@@ -131,6 +131,8 @@ namespace ClassLibrary
         {
             //creates a string var to store error
             String Error = "";
+            //creates temp var to store data val
+            DateTime DateTemp;
             //if the First Name is blank
             if (firstName.Length == 0)
             {
@@ -155,11 +157,39 @@ namespace ClassLibrary
                 Error = Error + "Last Name Must Be Less Than 50 Characters  :  ";
                 //records error msg
             }
+            try
+            {
+
+                DateTemp = Convert.ToDateTime(dateHired);
+                if (DateTemp < DateTime.Now.Date)
+                //checks if the date is todays date
+                {
+                    Error = Error + "The Date Cannot Be Set In the Past  :  ";
+                    //records error msg
+                }
+                if (DateTemp > DateTime.Now.Date)
+                //checks the date isnt greater
+                {
+                    Error = Error + "The Date Cannot Be Set In the Future  :  ";
+                    //records error msg
+                }
+            }
+
+            catch
+            {
+                Error = Error + "The Date Was Not Valid  :  ";
+                //records error msg
+            }
+
             return Error;
             //return error msg
         }
     }
 }
+    
+
+    
+
     
 
 
