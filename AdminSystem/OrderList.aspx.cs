@@ -81,7 +81,7 @@ public partial class _1_List : System.Web.UI.Page
     protected void btnApply_Click(object sender, EventArgs e)
     {
         clsOrderCollection Orders = new clsOrderCollection();
-        Orders.ReportByCustomerID(txtFilter.Text);
+        Orders.ReportByCustomerID (Convert.ToInt32(txtFilter.Text));
         lstOrderList.DataSource = Orders.OrderList;
         lstOrderList.DataValueField = "OrderNo";
         lstOrderList.DataTextField = "CustomerID";
@@ -91,11 +91,16 @@ public partial class _1_List : System.Web.UI.Page
     protected void btnClear_Click(object sender, EventArgs e)
     {
         clsOrderCollection Orders = new clsOrderCollection();
-        Orders.ReportByCustomerID("");
+        Orders.ReportByCustomerID(Convert.ToInt32(""));
         txtFilter.Text = "";
         lstOrderList.DataSource = Orders.OrderList;
         lstOrderList.DataValueField = "OrderNo";
         lstOrderList.DataTextField = "CustomerID";
         lstOrderList.DataBind();
+    }
+
+    protected void butonEdit_Click(object sender, EventArgs e)
+    {
+
     }
 }

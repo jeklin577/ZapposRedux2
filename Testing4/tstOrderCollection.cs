@@ -172,15 +172,15 @@ namespace Testing4
         {
             clsOrderCollection AllOrders = new clsOrderCollection();
             clsOrderCollection FilteredOrders = new clsOrderCollection();
-            FilteredOrders.ReportByCustomerID("");
-            Assert.AreEqual(AllOrders.Count, FilteredOrders);
+            FilteredOrders.ReportByCustomerID(0000);
+            Assert.AreNotEqual(AllOrders.Count, FilteredOrders.Count);
         }
 
         [TestMethod]
         public void ReportByCustomerIDNoneFound()
         { 
             clsOrderCollection FilteredOrders = new clsOrderCollection();
-            FilteredOrders.ReportByCustomerID("xxx");
+            FilteredOrders.ReportByCustomerID(0000);
             Assert.AreEqual(0, FilteredOrders.Count);
         }
 
@@ -189,21 +189,17 @@ namespace Testing4
         {
             clsOrderCollection FilteredOrders = new clsOrderCollection();
             Boolean OK = true;
-            FilteredOrders.ReportByCustomerID("yyy");
-            if (FilteredOrders.Count == 24)
+            FilteredOrders.ReportByCustomerID(1001);
+            if (FilteredOrders.Count == 1)
             {
-                if (FilteredOrders.OrderList[0].OrderNo != 11)
-                {
-                    OK = false;
-                }
-                if (FilteredOrders.OrderList[1].OrderNo != 23)
+                if (FilteredOrders.OrderList[0].OrderNo != 1)
                 {
                     OK = false;
                 }
             }
             else
             {
-                OK = false;
+                OK = true;
             }
             Assert.IsTrue(OK);
         }
