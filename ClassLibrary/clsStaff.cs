@@ -202,6 +202,28 @@ namespace ClassLibrary
                 Error = Error + "The Date Was Not Valid  :  ";
                 //records error
             }
+            try
+            {
+                int Tempage = Convert.ToInt32(age);
+
+                if (Tempage < 0)
+                {
+                    Error = Error + "Age cannot be less than 0 : ";
+                }
+                if (Tempage > Convert.ToInt32(100))
+                {
+                    Error = Error + "The Salary cannot be more than 100 : ";
+                }
+                //if the Last Name is blank
+                if (age.Length == 0)
+                {
+                    Error = Error + "Enter an Age  :  ";
+                }
+            }
+            catch
+            { 
+                
+                }
                 return Error;
             //return error msg
         }

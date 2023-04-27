@@ -629,7 +629,7 @@ namespace Testing5
             //string var to store error msg
             Decimal TempSalary = 1000000;
             //Assigns Val to Decimal
-            Salary = TempSalary.ToString(); 
+            Salary = TempSalary.ToString();
             //invoke method
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
             //test to check result is right
@@ -679,8 +679,99 @@ namespace Testing5
             //test to check result is right
             Assert.AreEqual(Error, "");
         }
-    }
+        [TestMethod]
+        public void AgeExtremeMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            //Assigns Val to int
+            int TempAge = 1000;
+            String Age = TempAge.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AgeMinLessOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            //assigns var to int
+            int TempAge = -1;
+            //Convert to String var
+            String Age = TempAge.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AgeMax()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            int TempAge = 100;
+            //Assigns Val to int
+            String Age = TempAge.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AgeMinPlusOne()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            //assigns var to decimal
+            int TempAge = 1;
+            //Convert to String var
+            String Age = TempAge.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AgeMin()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg
+            int TempAge = 0;
+            //Assigns Val to int
+            String Age = TempAge.ToString();
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AgeInvalidData()
+        {
+            clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
+            String Error = "";
+            //string var to store error msg           
+            String Age = "This Is Not a Viable Age!";
+            //invoke method
+            Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //test to check result is right
+            Assert.AreEqual(Error, "");
 
+        }
+
+    }
 }
 
 
