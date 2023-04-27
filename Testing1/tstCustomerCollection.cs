@@ -152,6 +152,7 @@ namespace ClassLibrary
             AllCustomers.ThisCustomer.Find(PrimaryKey);
 
             Assert.AreEqual(AllCustomers.ThisCustomer, TestCus);
+            
         }
 
         [TestMethod]

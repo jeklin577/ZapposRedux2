@@ -19,8 +19,8 @@ public partial class _1_List : System.Web.UI.Page
 
     void DisplaySupplier()
     {
-        clsSupplierCollection Supplier = new clsSupplierCollection();
-        lstSupplierList.DataSource = Supplier.SupplierList;
+       // clsSupplierCollection Supplier = new clsSupplierCollection();
+     //   lstSupplierList.DataSource = Supplier.SupplierList;
         lstSupplierList.DataValueField = "SupplierID";
         lstSupplierList.DataTextField = "SupplierName";
         lstSupplierList.DataBind();

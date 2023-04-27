@@ -95,7 +95,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtShippingAddress.Text = ACustomer.mShippingAddress;
             chkHasOrder.Checked = ACustomer.mHasOrder;
             txtDateJoined.Text = ACustomer.mDateAdded.ToString();
-
+            
         }
     }
 

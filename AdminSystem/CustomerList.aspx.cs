@@ -51,7 +51,7 @@ public partial class _1_List : System.Web.UI.Page
 
         if (lstCustomerList.SelectedIndex != -1)
         {
-            CustomerID = Convert.ToInt32(lstCustomerList.SelectedValue);
+            CustomerID = Convert.ToInt32(lstCustomerList.SelectedIndex);
             Session["CustomerID"] = CustomerID;
             Response.Redirect("CustomerDataEntry.aspx");
         }
@@ -89,8 +89,9 @@ public partial class _1_List : System.Web.UI.Page
         Int32 CustomerIDHoldingVar;
         if (lstCustomerList.SelectedIndex != -1)
         {
-            CustomerIDHoldingVar = Convert.ToInt32(lstCustomerList.SelectedValue);
+            CustomerIDHoldingVar = Convert.ToInt32(lstCustomerList.SelectedIndex);
             Session["CustomerID"] = CustomerIDHoldingVar;
+            
             Response.Redirect("CustomerConfirmDelete.aspx");
         }
         else //nO RECORD SELECTED
@@ -104,7 +105,6 @@ public partial class _1_List : System.Web.UI.Page
     {
         clsCustomerCollection Customers = new clsCustomerCollection();
            
-            Customers.ReportByUsername(txtFilter.Text);
         lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataValueField = "CustomerID";
         lstCustomerList.DataValueField = "Username";
