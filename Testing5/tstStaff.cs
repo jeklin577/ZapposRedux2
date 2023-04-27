@@ -37,164 +37,238 @@ namespace Testing5
         public void FirstNameTest()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             string TestData = "Manny";
+            //create some test data to assign to the property
             TestStaff.FirstName = TestData;
+            //assign the data to the property
             Assert.AreEqual(TestStaff.FirstName, TestData);
+            //test to see that the two values are the same
         }
         [TestMethod]
         public void LastNameTest()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             string TestData = "Pacquiao";
+            //create some test data to assign to the property
             TestStaff.LastName = TestData;
+            //assign the data to the property
             Assert.AreEqual(TestStaff.LastName, TestData);
+            //test to see that the two values are the same
         }
         [TestMethod]
         public void GenderTest()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Male = true;
+            //create some test data to assign to the property
             TestStaff.Gender = Male;
+            //assign the data to the property
             Assert.AreEqual(TestStaff.Gender, Male);
+            //test to see that the two values are the same
         }
         [TestMethod]
         public void DateHiredTest()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             DateTime TestDate = DateTime.Now.Date;
+            //create some test data to assign to the property
             TestStaff.DateHired = TestDate;
+            //assign the data to the property
             Assert.AreEqual(TestStaff.DateHired, TestDate);
+            //test to see that the two values are the same
         }
         [TestMethod]
         public void SalaryTest()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             decimal TestData = Convert.ToDecimal("21,000");
+            //create some test data to assign to the property
             TestStaff.Salary = TestData;
+            //assign the data to the property
             Assert.AreEqual(TestStaff.Salary, TestData);
+            //test to see that the two values are the same
         }
         [TestMethod]
         public void AgeTest()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             int TestData = 22;
+            //create some test data to assign to the property
             TestStaff.Age = TestData;
+            //assign the data to the property
             Assert.AreEqual(TestStaff.Age, TestData);
+            //test to see that the two values are the same
         }
         [TestMethod]
         public void FindMethodOK()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the validation
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //tests to see if its correct
             Assert.IsTrue(Found);
         }
         [TestMethod]
         public void TestStaffIDFound()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the search
             Boolean OK = true;
+            //test data to use with the method
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //checks staff no
             if (TestStaff.StaffID != 30)
             {
                 OK = false;
             }
+            //checks if result is correct
             Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestFirstNameFound()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the search
             Boolean OK = true;
+            //test data to use with the method
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //checks staff no
             if (TestStaff.FirstName != ("Manny"))
             {
                 OK = false;
             }
+            //checks if result is correct
             Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestLastNameFound()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the search
             Boolean OK = true;
+            //test data to use with the method
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //checks staff no
             if (TestStaff.LastName != ("Pacquiao"))
             {
                 OK = false;
             }
+            //checks if result is correct
             Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestDateHiredFound()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the search
             Boolean OK = true;
+            //test data to use with the method
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //checks staff no
             if (TestStaff.DateHired != Convert.ToDateTime("10/07/22"))
             {
                 OK = false;
             }
+            //checks if result is correct
             Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestSalaryFound()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the search
             Boolean OK = true;
+            //test data to use with the method
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //checks staff no
             if (TestStaff.Salary != Convert.ToDecimal("22,000"))
             {
                 OK = false;
             }
+            //checks if result is correct
             Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestAgeFound()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the search
             Boolean OK = true;
+            //test data to use with the method
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //checks staff no
             if (TestStaff.Age != 22)
             {
                 OK = false;
             }
+            //checks if result is correct
             Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestGenderFound()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             Boolean Found = false;
+            //boolean var to store results of the search
             Boolean OK = true;
+            //test data to use with the method
             Int32 StaffID = 30;
+            //invokes method
             Found = TestStaff.Find(StaffID);
+            //checks staff no
             if (TestStaff.Gender != "Male")
             {
                 OK = false;
             }
+            //checks if result is correct
             Assert.IsTrue(OK);
         }
         [TestMethod]
         public void ValidMethodOK()
         {
             clsStaff TestStaff = new clsStaff();
+            //creates an instance of the class
             String Error = "";
+            //string stores error message
             Error = TestStaff.Valid(FirstName, LastName, DateHired, Salary, Age);
+            //invokes method
             Assert.AreEqual(Error, "");
+            //tetst to check the results correct
         }
     }
 }
