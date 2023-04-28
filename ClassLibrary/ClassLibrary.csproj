@@ -52,6 +52,7 @@
     <Compile Include="clsStockCollection.cs" />
     <Compile Include="clsStockConnection.cs" />
     <Compile Include="clsSupplier.cs" />
+    <Compile Include="clsSupplierConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
