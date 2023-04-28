@@ -29,4 +29,14 @@ public partial class _1_List : System.Web.UI.Page
         //bind data to list
         Stafflst.DataBind();
     }
+
+    protected void Addbtn_Click(object sender, EventArgs e)
+    {
+        // Indicates a new record
+        Session["StaffID"] = -1;
+        //redirects to the data entry page
+        Response.Redirect("StaffDataEntry.aspx");
+    }
+
+   
 }
