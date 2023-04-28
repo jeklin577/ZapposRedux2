@@ -14,7 +14,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
-    {
+    {/*
         //craete a new instance of clsSupplier
         clsSupplier AnSupplier = new clsSupplier();
         //capture the SupplierID
@@ -72,7 +72,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //store the Supplier in the session object
         Session["Quantity"] = OrderNumber;
         //navigate to the viewer page 
-        Response.Redirect("SupplierViewer.aspx");
+        Response.Redirect("SupplierViewer.aspx"); */
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

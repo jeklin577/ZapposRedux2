@@ -68,7 +68,7 @@ namespace ClassLibrary
                 return false;
             }
         }
-        public string Valid(string SupplierID, string SuppplierName, string OrderArrivedOn, string OrderNumber, string Quantity)
+        /*public string Valid(string SupplierID, string SuppplierName, string OrderArrivedOn, string OrderNumber, string Quantity)
         {
             string Error = "";
             DateTime DateTemp; //Creates a blank DateTime Object
@@ -86,6 +86,7 @@ namespace ClassLibrary
             {
                 Error = Error + "SupplierName cannot be identical to SupplierID";
             }
-        }
+            
+        }*/
     }
 }
