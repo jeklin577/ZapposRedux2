@@ -519,7 +519,7 @@ namespace Testing4
         {
             clsOrders anOrder = new clsOrders();
             String Error = "";
-            string deliveryAddress = "aaaaaaaa";
+            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreEqual(Error, "");
         }
@@ -529,7 +529,7 @@ namespace Testing4
         {
             clsOrders anOrder = new clsOrders();
             String Error = "";
-            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaa";
+            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreEqual(Error, "");
         }
@@ -550,7 +550,7 @@ namespace Testing4
         {
             clsOrders anOrder = new clsOrders();
             String Error = "";
-            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaaa";
+            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreNotEqual(Error, "");
         }
@@ -560,7 +560,7 @@ namespace Testing4
         {
             clsOrders anOrder = new clsOrders();
             String Error = "";
-            string deliveryAddress = "aaaaaaaaaa";
+            string deliveryAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             Error = anOrder.Valid(customerID, itemNames, itemQuantity, dateAdded, deliveryAddress);
             Assert.AreEqual(Error, "");
         }

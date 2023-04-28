@@ -192,9 +192,9 @@ namespace ClassLibrary
             {
                 Error = Error + "The Delivery Address must not be blank : ";
             }
-            if (deliveryAddress.Length > 20)
+            if (deliveryAddress.Length > 40)
             {
-                Error = Error + "The Delivery Address names must be less than 100 characters: ";
+                Error = Error + "The Delivery Address names must be less than 40 characters: ";
             }
         //Item Quantity
             if (itemQuantity.Length == 0)
