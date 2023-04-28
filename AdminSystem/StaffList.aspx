@@ -12,17 +12,12 @@
             <asp:ListBox ID="Stafflst" runat="server" Height="185px" Width="428px"></asp:ListBox>
         </div>
         <p>
-            <asp:Button ID="BtnAdd" runat="server" OnClick="Button2_Click" Text="Add" />
-            <asp:Button ID="BtnEdit" runat="server" OnClick="Button1_Click" Text="Edit" />
-            <asp:Button ID="BtnClear" runat="server" OnClick="Button2_Click" Text="Clear" />
-        </p>
+            &nbsp;</p>
         <p style="height: 30px">
             <asp:TextBox ID="srch" runat="server" OnTextChanged="TextBox1_TextChanged">srch</asp:TextBox>
         </p>
         <p style="height: 83px">
-            <asp:Button ID="BtnApply" runat="server" OnClick="BtnApply_Click" Text="Apply" />
-            <asp:Button ID="BtnDelete" runat="server" OnClick="BtnDelete_Click" Text="Delete" />
-        </p>
+            &nbsp;</p>
         <p style="height: 83px">
             <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
         </p>
