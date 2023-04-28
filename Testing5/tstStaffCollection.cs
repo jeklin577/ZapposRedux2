@@ -117,7 +117,40 @@ namespace Testing5
             //TEST TO SEE IF TWO VALS MATCH
             Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
+        public void UpdateMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //new instance of class
+            clsStaff TestItem = new clsStaff();
+            //new item of test data
+            Int32 PrimaryKey = 0;
+            //var store the PK
+            TestItem.StaffID = 40;
+            TestItem.FirstName = "Don";
+            TestItem.LastName = "Toliver";
+            TestItem.Age = 24;
+            TestItem.DateHired = DateTime.Now.Date;
+            TestItem.Salary = 2000000;
+            TestItem.Gender = true;
+            //data is set to the staff
+            AllStaff.ThisStaff = TestItem;
+            //add record
+            PrimaryKey = AllStaff.Add();
+            TestItem.StaffID = PrimaryKey;
+            //TEST TO SEE IF TWO VALS
+            TestItem.StaffID = 45;
+            TestItem.FirstName = "Lucky";
+            TestItem.LastName = "Toliver";
+            TestItem.Age = 21;
+            TestItem.DateHired = DateTime.Now.Date;
+            TestItem.Salary = 4000000;
+            TestItem.Gender = false;
+            AllStaff.ThisStaff = TestItem;
+            AllStaff.Update();
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
         }
+    }
     }
 
         
