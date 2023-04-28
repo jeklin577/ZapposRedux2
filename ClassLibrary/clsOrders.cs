@@ -183,9 +183,9 @@ namespace ClassLibrary
             {
                 Error = Error + "The Item names must not be blank : ";
             }
-            if (itemNames.Length > 9)
+            if (itemNames.Length > 20)
             {
-                Error = Error + "The Item names must be less than 9 characters: ";
+                Error = Error + "The Item names must be less than 20 characters: ";
             }
         //Delivery Address
             if (deliveryAddress.Length == 0)
