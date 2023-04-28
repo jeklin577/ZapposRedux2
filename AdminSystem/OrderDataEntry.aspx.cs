@@ -17,10 +17,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
             if (OrderNo != -1)
             {
                 //Display the current data for the record
-                //DisplayOrder(); Hi harry, sorry about this, needed to comment this line out to run some of my unit tests
+                DisplayOrder();
             }
         }
     }
+
+    void DisplayOrder()
+    {
+        clsOrderCollection orders = new clsOrderCollection();
+        orders.ThisOrder.Find(OrderNo);
+        txtOrderId.Text = orders.ThisOrder.OrderNo.ToString();
+        txtCustomerId.Text = orders.ThisOrder.CustomerID.ToString();
+        txtItemNames.Text = orders.ThisOrder.ItemNames;
+        txtDateAdded.Text = orders.ThisOrder.DateAdded.ToString("dd/MM/yyyy");
+        txtItemQuantity.Text = orders.ThisOrder.ItemQuantity.ToString();
+        txtDeliveryAddress.Text = orders.ThisOrder.DeliveryAddress;
+        chkReadyToDispatch.Checked = orders.ThisOrder.ReadyToDispatch;
+    }
+
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
