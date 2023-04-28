@@ -19,11 +19,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsSupplier AnSupplier = new clsSupplier();
         //capture the SupplierID
         AnSupplier.SupplierID = Convert.ToInt32(txtSupplierID.Text);
-        AnSupplier.SupplierName = Convert.ToString(txtSupplierID.Text);
-        AnSupplier.OrderArrivedOn = Convert.ToDateTime(txtSupplierID.Text);
-        AnSupplier.OrderNumber = Convert.ToInt32(txtSupplierID.Text);
-        AnSupplier.Availability = Convert.ToBoolean(txtSupplierID.Text);
-        AnSupplier.Quantity = Convert.ToInt32(txtSupplierID.Text);
+        AnSupplier.SupplierName = Convert.ToString(txtSupplierName.Text);
+        AnSupplier.OrderArrivedOn = Convert.ToDateTime(txtOrderArrivedOn.Text);
+        AnSupplier.OrderNumber = Convert.ToInt32(txtOrderNumber.Text);
+        AnSupplier.Availability = Convert.ToBoolean(txtAvailability.Text);
+        AnSupplier.Quantity = Convert.ToInt32(txtQuantity.Text);
         //store the Supplier in the session object
         Session["AnSupplier"] = AnSupplier;
         //navigate to the viewer page 
@@ -73,5 +73,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Session["Quantity"] = OrderNumber;
         //navigate to the viewer page 
         Response.Redirect("SupplierViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsSupplier AnSupplier = new clsSupplier();
+        Int32 SupplierID;
+        Boolean Found = false;
+        SupplierID = Convert.ToInt32(txtSupplierID.Text);
+        Found = AnSupplier.Find(SupplierID);
+        if (Found == true)
+        {
+            txtSupplierID.Text = AnSupplier.SupplierID.ToString();
+            txtSupplierName.Text = AnSupplier.SupplierName;
+            txtOrderArrivedOn.Text = AnSupplier.OrderArrivedOn.ToString();
+            txtOrderNumber.Text = AnSupplier.OrderNumber.ToString();
+            txtAvailability.Text = AnSupplier.Availability.ToString();
+            txtQuantity.Text = AnSupplier.Quantity.ToString();
+        }
     }
 }

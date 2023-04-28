@@ -19,7 +19,7 @@
         <asp:TextBox ID="txtSupplierID" runat="server" style="z-index: 1; left: 146px; top: 95px; position: absolute" height="22px" width="128px"></asp:TextBox>
         <asp:Label ID="SupplierName" runat="server" style="z-index: 1; left: 31px; top: 127px; position: absolute; width: 88px" Text="SupplierName"></asp:Label>
         <asp:TextBox ID="txtSupplierName" runat="server" style="z-index: 1; left: 146px; top: 127px; position: absolute" width="128px"></asp:TextBox>
-        <asp:Label ID="OrderArrivedOn" runat="server" style="z-index: 1; left: 31px; top: 153px; position: absolute; width: 102px; bottom: 505px" Text="OrderArrivedOn"></asp:Label>
+        <asp:Label ID="OrderArrivedOn" runat="server" style="z-index: 1; left: 31px; top: 153px; position: absolute; width: 102px; bottom: 505px; right: 955px;" Text="OrderArrivedOn"></asp:Label>
         <asp:TextBox ID="txtOrderArrivedOn" runat="server" style="z-index: 1; left: 146px; top: 146px; position: absolute; margin-top: 5px" height="22px" width="128px"></asp:TextBox>
         <asp:Label ID="OrderNumber" runat="server" style="z-index: 1; left: 31px; top: 190px; position: absolute; width: 87px; height: 19px" Text="OrderNumber"></asp:Label>
         <asp:TextBox ID="txtOrderNumber" runat="server" style="z-index: 1; left: 146px; top: 184px; position: absolute; margin-top: 0px" height="22px" width="128px"></asp:TextBox>
@@ -31,9 +31,10 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; top: 331px; position: absolute; width: 81px"></asp:Label>
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 85px; top: 396px; position: absolute" Text="Cancel" />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 34px; top: 395px; position: absolute" Text="OK" />
+        <asp:Button ID="btnFind" runat="server" Height="21px" OnClick="btnFind_Click" style="margin-left: 300px; margin-top: 80px" Text="Find" Width="63px" />
     </form>
     <p>
-&nbsp;</p>
+        &nbsp;</p>
     <p>
         &nbsp;&nbsp;</p>
 </body>
