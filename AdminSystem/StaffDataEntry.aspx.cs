@@ -36,11 +36,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
             TestStaff.DateHired = Convert.ToDateTime(txtDateHired.Text);
             TestStaff.Salary = Convert.ToInt32(txtSalary.Text);
             TestStaff.Age = Convert.ToInt32(txtAge.Text);
+            clsStaffCollection StaffList = new clsStaffCollection();
+            StaffList.ThisStaff = TestStaff;
+            StaffList.Add();
 
             // Captures attribute Inputs
             Session["TestStaff"] = TestStaff;
             // Stores StaffID in the Session Object
-            Response.Redirect("StaffViewer.aspx");
+            Response.Redirect("StaffList.aspx");
             // Naviagates to Viewer Page
 
         }

@@ -44,7 +44,7 @@ namespace Testing5
         {
             clsStaffCollection AllStaff = new ClassLibrary.clsStaffCollection();
             //create an instance of class
-            Int32 SomeCount = 2;
+            Int32 SomeCount = 0;
             //test data to assign
             AllStaff.Count = SomeCount;
             //test to see if val are the same
@@ -90,12 +90,38 @@ namespace Testing5
             //tests if both are same
             Assert.AreEqual(AllStaff.Count, TestList.Count);
         }
-       
-        
-        
-            
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //new instance of class
+            clsStaff TestItem = new clsStaff();
+            //new item of test data
+            Int32 PrimaryKey = 0;
+            //var store the PK
+            TestItem.StaffID = 40;
+            TestItem.FirstName = "Don";
+            TestItem.LastName = "Toliver";
+            TestItem.Age = 24;
+            TestItem.DateHired = DateTime.Now.Date;
+            TestItem.Salary = 2000000;
+            TestItem.Gender = true;
+            //data is set to the staff
+            AllStaff.ThisStaff = TestItem;
+            //add record
+            PrimaryKey = AllStaff.Add();
+            //Set PK of the test data
+            TestItem.StaffID = PrimaryKey;
+            //FINDS RECORD
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //TEST TO SEE IF TWO VALS MATCH
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+        }
         }
     }
+
+        
+ 
 
 
 
